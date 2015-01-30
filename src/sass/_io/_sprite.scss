@@ -1,0 +1,46 @@
+// Configuration de création
+@import "compass";
+
+@mixin retina-screen {
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and ( min—moz-device-pixel-ratio: 2),
+    only screen and ( -o-min-device-pixel-ratio: 2/1),
+    only screen and ( min-device-pixel-ratio: 2),
+    only screen and ( min-resolution: 192dpi),
+    only screen and ( min-resolution: 2dppx) {
+        @content;
+    }
+}
+
+$naviconsNormal: sprite-map("icone/*.png", $spacing: 5px);
+
+$naviconsRetina: sprite-map("icone-2x/*.png", $spacing: 10px);
+
+//les premiers de l'alphabet
+[class^="icone-"]{
+    background: $naviconsNormal;
+    display: inline-block;
+
+    @include retina-screen {
+    	background: $naviconsRetina;
+    	@include background-size(image-width(sprite-path($naviconsNormal)) image-height(sprite-path($naviconsNormal)));
+    }
+}
+
+// On parcours toutes les icones qu'il y a dans le sprite pour indiquer leurs dimensions
+@each $i in sprite_names($naviconsNormal){
+    .icone-#{$i}{
+       background-position: sprite-position($naviconsNormal, $i);
+       @include sprite-dimensions($naviconsNormal, $i);
+    }
+}
+
+@include retina-screen {
+	@each $i in sprite_names($naviconsNormal){
+		.icone-#{$i} {
+			$ypos: round(nth(sprite-position($naviconsRetina, $i), 2) / 2);
+			background-position: 0 $ypos;
+		}
+	}
+}

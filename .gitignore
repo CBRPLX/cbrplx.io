@@ -1,0 +1,19 @@
+### Sass ###
+.sass-cache
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Node ###
+# Logs
+logs
+*.log
+
+# Dependences
+node_modules
+
+### PDO ###
+pdo.php
+inc/php/pdo.php
