@@ -1,0 +1,9 @@
+.btn-header{
+	border: 2px solid $white;
+
+	&:hover{
+		text-decoration: none;
+		background-color: $white;
+		color: $gris-title !important;
+	}
+}

@@ -33,5 +33,5 @@ My favorite template engine. Easy and really flexible tool ! <br/>
 [Twig.com](http://twig.sensiolabs.org/)
 
 #### Git
-And finally I use git, even if I'm the only developer, it allows me to have an historic.
+And finally I use git, even if I'm the only developer, it allows me to have an historic. <br/>
 [Git.com](http://git-scm.com/)

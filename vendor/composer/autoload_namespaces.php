@@ -6,8 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'template' => array($baseDir . '/inc'),
+    'controller' => array($baseDir . '/inc'),
+    'class' => array($baseDir . '/inc'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
-    'Template' => array($baseDir . '/inc/template'),
-    'Controller' => array($baseDir . '/inc/controller'),
-    'Class' => array($baseDir . '/inc/class'),
 );

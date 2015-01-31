@@ -1,23 +1,23 @@
-// @include font-face("proxima", font-files("ProximaNovaRegular.ttf",
-// 									  "ProximaNovaRegular.eot",
-// 									  "ProximaNovaRegular.woff",
-// 									  "ProximaNovaRegular.svg"));
+@include font-face("proxima", font-files("ProximaNovaRegular.ttf",
+									  "ProximaNovaRegular.eot",
+									  "ProximaNovaRegular.woff",
+									  "ProximaNovaRegular.svg"));
 
-// .proxima {
-// 	font-family: "proxima", Helvetica, Arial, sans-serif;
-// 	-webkit-font-smoothing: antialiased;
-// 	-moz-osx-font-smoothing: grayscale;
-// 	font-weight: 100;
-// }
+.proxima {
+	font-family: "proxima", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 100;
+}
 
-// @include font-face("proxima-bold", font-files("ProximaNovaBold.ttf",
-// 									  "ProximaNovaBold.eot",
-// 									  "ProximaNovaBold.woff",
-// 									  "ProximaNovaBold.svg"));
+@include font-face("proxima-bold", font-files("ProximaNovaBold.ttf",
+									  "ProximaNovaBold.eot",
+									  "ProximaNovaBold.woff",
+									  "ProximaNovaBold.svg"));
 
-// .proxima-bold {
-// 	font-family: "proxima-bold", Helvetica, Arial, sans-serif;
-// 	-webkit-font-smoothing: antialiased;
-// 	-moz-osx-font-smoothing: grayscale;
-// 	font-weight: 100;
-// }
+.proxima-bold {
+	font-family: "proxima-bold", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 100;
+}

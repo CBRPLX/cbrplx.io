@@ -1,5 +1,9 @@
-@import "compass/css3";
+@import "compass";
 
+@import "_config_io.scss";
+@import "_global.scss";
+@import "_btn.scss";
+@import "_bloc.scss";
 @import "_fonts.scss";
 @import "_sprite.scss";
 @import "_rotate.scss";

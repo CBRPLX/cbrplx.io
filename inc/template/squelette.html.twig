@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--
+
+ _____________    ___________        _____________    _____________    ___              ____      ____     |
+/\   _________\  /\  \_____/ `\     /\   _______  \  /\   _______  \  /\  \            / \  \    /  / \    |
+\ \  \ _______/  \ \  \____\___\__  \ \  \ ____/\  \ \ \  \ ____/\  \ \ \  \           \  \  \  /  /  /    |
+ \ \  \           \ \  \________  `\ \ \  \____\_\  \ \ \  \____\_\  \ \ \  \           \  \  \/  /  /     |
+  \ \  \           \ \  \ _____/ \  \ \ \  \_____   /  \ \  \________/  \ \  \           \  \  \_/  /      |
+   \ \  \__________ \ \  \_____\__\  \ \ \  \___ \  \   \ \  \           \ \  \__________ \  \     /       |
+    \ \____________\ \ \______________\ \ \__\  \ \__\   \ \__\           \ \____________\ \  \   /        |
+     \/____________/  \/______________/  \/__/   \/__/    \/__/            \/____________/ /  /   \        |
+                                                                                          /  /  _  \       |
+    Designed & Developed by Cyberplix                                                    /  /  / \  \      |
+    http://cbrplx.io                                                                    /  /  /\  \  \     |
+    http://facebook.com/rob2.pierrot                                                   /  /  /  \  \  \    |
+    @robin_pierrot                                                                     \_/__/    \__\_/    |
+___________________________________________________________________________________________________________|
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% if DEV %}
+<link rel="stylesheet" href="dist/css/styles.css" />
+{% else %}
+<link rel="stylesheet" href="dist/css/styles.min.css" />
+{% endif %}
+<link type="image/png" href="img/favicon.png" rel="icon" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0" />
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+{% block head %}
+	<title>cbrplx.io</title>
+	<meta name="description" content="Trouvez un lieu de travail où que vous soyez : coworking, salon d'affaire, salle de réunion et découvrez nos solutions sur-mesure pour les entreprises">
+
+	<!--- Viewport tweaks -->
+	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="{TITLE}">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- Windows 8 et windows phone-->
+	<meta name="application-name" content="{TITLE}"/>
+	<meta name="msapplication-TileColor" content="#0f5f68"/>
+	<meta name="msapplication-square70x70logo" content="image/design/windows-tiny.png"/>
+	<meta name="msapplication-square150x150logo" content="image/design/windows-square.png"/>
+	<meta name="msapplication-wide310x150logo" content="image/design/windows-wide.png"/>
+	<meta name="msapplication-square310x310logo" content="image/design/windows-large.png"/>
+	<meta name="msapplication-tap-highlight" content="no"/> 
+
+	<!-- Apple touch icons -->
+	<link rel="apple-touch-icon-precomposed" href="image/design/apple-touch-icon-152x152-precomposed.png" sizes="152x152">
+	<link rel="apple-touch-icon-precomposed" href="image/design/apple-touch-icon-120x120-precomposed.png" sizes="120x120">
+	<link rel="apple-touch-icon-precomposed" href="image/design/apple-touch-icon-76x76-precomposed.png" sizes="76x76">
+	<link rel="apple-touch-icon-precomposed" href="image/design/apple-touch-icon-precomposed.png">
+	<link rel="apple-touch-icon" href="image/design/apple-touch-icon-152x152-precomposed.png" sizes="152x152">
+
+	<!-- Apple load image -->
+	<!-- iPad, retina, portrait -->
+	<link href="image/design/apple-touch-startup-image-1536x2008.png" 
+	    media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
+	    rel="apple-touch-startup-image">
+	<!-- iPad, retina, landscape -->
+	<link href="image/design/apple-touch-startup-image-1496x2048.png"
+	    media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"
+	    rel="apple-touch-startup-image">
+	<!-- iPad, portrait -->
+	<link href="image/design/apple-touch-startup-image-768x1004.png"
+	    media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)"
+	    rel="apple-touch-startup-image">
+	<!-- iPad, landscape -->
+	<link href="image/design/apple-touch-startup-image-748x1024.png"
+	    media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)"
+	    rel="apple-touch-startup-image">
+	<!-- iPhone 5 -->
+	<link href="image/design/apple-touch-startup-image-640x1096.png"
+	    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+	    rel="apple-touch-startup-image">
+	<!-- iPhone, retina -->
+	<link href="image/design/apple-touch-startup-image-640x920.png"
+	    media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"
+	    rel="apple-touch-startup-image">
+	<!-- iPhone -->
+	<link href="image/design/apple-touch-startup-image-320x460.png"
+	    media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)"
+	    rel="apple-touch-startup-image">
+
+	<!-- Facebook -->
+	<meta property="og:title" content="{TITLE}">
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="Neo-Nomade Pro est la première solution de bureaux flexibles pour les professionnels.">
+	<meta property="og:image" content="http://pro.neo-nomade.com/image/design/share.png">
+	<meta property="og:url" content="http://pro.neo-nomade.com/">
+	<meta property="og:site_name" content="{SITE_NAME}">
+	<meta property="fb:admins" content="1614882856">
+
+	<!-- Google+ -->
+	<meta itemprop="name" content="{TITLE}">
+	<meta itemprop="description" content="Neo-Nomade Pro est la première solution de bureaux flexibles pour les professionnels.">
+	<meta itemprop="image" content="http://pro.neo-nomade.com/image/design/share.png">
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@neonomade_com">
+	<meta name="twitter:title" content="{TITLE}">
+	<meta name="twitter:description" content="Neo-Nomade Pro est la première solution de bureaux flexibles pour les professionnels.">
+	<meta name="twitter:creator" content="@CBRPLX">
+	<meta name="twitter:image:src" content="http://pro.neo-nomade.com/image/design/share.png">
+{% endblock %}
+
+
+<script type="text/javascript">
+$(function(){
+  if(("standalone" in window.navigator) && window.navigator.standalone){
+
+      var noddy, remotes = false;
+
+      document.addEventListener('click', function(event) {
+
+          noddy = event.target;
+
+          while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML" /*&& noddy.nodeName !== "FORM"*/) {
+              noddy = noddy.parentNode;
+          }
+
+          if(noddy.hasAttribute('new-window')){
+              //Si ce n'est pas un formulaire
+              // if(noddy.nodeName !== "FORM"){
+                  event.preventDefault();
+
+                  var a = document.createElement('a');
+
+                  //creation d'un nouveau lien
+                  a.setAttribute("href", noddy.href);
+                  a.setAttribute("target", "_blank");
+
+                  var dispatch = document.createEvent("HTMLEvents");
+                  dispatch.initEvent("click", true, true);
+                  a.dispatchEvent(dispatch);
+              // }
+          }
+          else if('href' in noddy && noddy.href.indexOf('http') !== -1
+              && (noddy.href.indexOf(document.location.host) !== -1 || remotes))
+          {
+              event.preventDefault();
+              if(!noddy.hasAttribute("btn-js"))
+                  document.location.href = noddy.href;
+          }
+
+      }, false);
+  }
+});
+</script>
+
+<!--<script src="js/addtohomescreen.js?v=1"></script>
+<script>
+addToHomescreen({
+  message: '<p class="brandon" style="z-index:9999;">Pour une meilleure utilisation, ajoutez Neo-nomade à votre écran accueil.</p>'
+});
+</script>-->
+</head>
+
+<body class="proxima">
+	{% include 'header.html.twig' %}
+
+	<div class="bloc-contenu">{{CONTENU}}</div>
+
+	{% include 'footer.html.twig' %}
+
+	{% if DEV == false %}
+		<!-- GOOGLE ANALYTICS -->
+		<script>
+		if(window.location.host == "cbrplx.io" || window.location.host == "www.cbrplx.io"){
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-59171361-1', 'auto');
+		  ga('send', 'pageview');
+		}
+		</script>
+	{% endif %}
+</body>
+</html>

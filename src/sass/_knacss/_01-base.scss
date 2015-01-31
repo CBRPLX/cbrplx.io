@@ -306,6 +306,12 @@ table {
 .col {
 	display: table-cell;
 	vertical-align: top;
+
+	@media (max-width: $small-screen) {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
 }
 
 /* inline-block */

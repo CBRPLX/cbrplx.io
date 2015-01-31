@@ -11,3 +11,6 @@ if($_SERVER["SERVER_NAME"] == "cbrplx.io" || $_SERVER["SERVER_NAME"] == "www.cbr
 
 require_once "vendor/autoload.php";
 require_once "inc/php/pdo.php";
+
+$loader = new \Twig_Loader_Filesystem('inc/template', 'Template');
+$twig = new \Twig_Environment($loader, array('debug' => true));

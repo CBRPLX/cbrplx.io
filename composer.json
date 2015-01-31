@@ -6,9 +6,9 @@
 	
 	"autoload":{
 		"psr-0":{
-			"Controller": "inc/controller",
-			"Template": "inc/template",
-			"Class": "inc/class"
+			"controller": "inc/",
+			"template": "inc/",
+			"class": "inc/"
 		}
 	}
 }
