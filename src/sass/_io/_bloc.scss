@@ -27,7 +27,7 @@
 }
 
 .bloc-header{
-	min-height: 440px;
+	min-height: 465px;
 	max-height: 100%;
 	height: 100%;
 	background-image: url('/dist/images/stan.jpg');
@@ -106,7 +106,7 @@
 				width: 100%;
 				bottom: 0;
 
-				@media (max-height: 440px) {
+				@media (max-height: 465px) {
 					position: relative;
 					padding-top: 2em;
 				}
