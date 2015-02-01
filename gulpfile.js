@@ -51,8 +51,8 @@ gulp.task('scripts', function() {
 gulp.task('images', function() {
   return gulp.src('src/images/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('dist/images'))
-    .pipe(notify({ message: 'IMG OK' }));
+    .pipe(gulp.dest('dist/images'));
+    // .pipe(notify({ message: 'IMG OK' }));
 });
  
 // Clean

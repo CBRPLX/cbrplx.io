@@ -14,9 +14,13 @@ html{
 	}
 }
 
-html,body{
+html,body, .bloc-body{
 	height: 100%;
 	min-height: 100%;
+}
+
+.bloc-body{
+	opacity: 0;
 }
 
 *::selection{
@@ -60,5 +64,17 @@ a{
 .transition{
   @include transition-property(all);
   @include transition-duration(0.1s);
+  @include transition-timing-function(ease);
+}
+
+.transition-medium{
+  @include transition-property(all);
+  @include transition-duration(0.7s);
+  @include transition-timing-function(ease);
+}
+
+.transition-slow{
+  @include transition-property(all);
+  @include transition-duration(1.3s);
   @include transition-timing-function(ease);
 }

@@ -1950,9 +1950,13 @@ hr {
   }
 }
 
-html, body {
+html, body, .bloc-body {
   height: 100%;
   min-height: 100%;
+}
+
+.bloc-body {
+  opacity: 0;
 }
 
 *::-moz-selection{
@@ -2001,6 +2005,24 @@ a:hover {
   transition-property: all;
   -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+.transition-medium {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+.transition-slow {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 1.3s;
+  transition-duration: 1.3s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
 }
@@ -2058,6 +2080,7 @@ a:hover {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.67);
+  padding-top: 20px;
 }
 .bloc-header .bloc-header-contenu .row:first-of-type {
   padding-top: 10%;
@@ -2142,12 +2165,8 @@ a:hover {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.67);
 }
-.bloc-footer .bloc-footer-contenu .row {
-  width: 100%;
-  height: 100%;
-}
-.bloc-footer .bloc-footer-contenu .row .col {
-  padding-top: 140px;
+.bloc-footer .bloc-footer-contenu > div {
+  padding-top: 142px;
 }
 
 @font-face {

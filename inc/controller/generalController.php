@@ -1,6 +1,5 @@
 <?php
 namespace controller;
-// require_once 'inc/php/config.php';
 
 class generalController {
 
@@ -15,7 +14,8 @@ class generalController {
 
     	return $template->render(array(
     		"CONTENU" => $contenu,
-    		"DEV" => $dev
+    		"DEV" => $dev,
+            "TIME" => time()
     	));
     }
 }
