@@ -2,6 +2,7 @@
 var gulp = require('gulp'),
     // sass = require('gulp-ruby-sass'),
     compass   = require('gulp-compass'),
+    plumber   = require('gulp-plumber'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
@@ -17,6 +18,7 @@ var gulp = require('gulp'),
 // Styles
 gulp.task('styles', function() {
   return gulp.src('src/sass/*.scss')
+    .pipe(plumber())
     .pipe(compass({
           config_file: './config.rb',
           css  : 'dist/css',
@@ -50,6 +52,7 @@ gulp.task('scripts', function() {
 // Images
 gulp.task('images', function() {
   return gulp.src('src/images/**/*')
+    .pipe(plumber())
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
     .pipe(gulp.dest('dist/images'));
     // .pipe(notify({ message: 'IMG OK' }));
