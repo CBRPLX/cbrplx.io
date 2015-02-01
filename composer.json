@@ -8,7 +8,7 @@
 		"psr-0":{
 			"controller": "inc/",
 			"template": "inc/",
-			"class": "inc/"
+			"classe": "inc/"
 		}
 	}
 }

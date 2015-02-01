@@ -59,6 +59,36 @@ function sizeBanieres(){
     };
 }
 
+function afficherAlerte(id, hide){
+    if(hide == "hide"){
+        document.getElementById(id).style.display = "none";
+    }else{
+        document.getElementById(id).style.display = "block";
+    }
+}
+
+function hideAllAlert(){
+    var alerts = document.getElementsByClassName("alert");
+    for (var i = alerts.length - 1; i >= 0; i--) {
+        alerts[i].style.display = "none";
+    };
+}
+
+function afficherChargement(id, hide){
+    if(hide == "hide"){
+        document.getElementById(id).style.display = "none";
+    }else{
+        document.getElementById(id).style.display = "block";
+    }
+}
+
+function hideAllChargement(){
+    var alerts = document.getElementsByClassName("chargement");
+    for (var i = alerts.length - 1; i >= 0; i--) {
+        alerts[i].style.display = "none";
+    };
+}
+
 window.onload = function(){
     if(!WURFL.is_mobile || !(("standalone" in window.navigator) && !window.navigator.standalone))
         window.addEventListener("resize", function(){sizeBanieres();});

@@ -52,11 +52,12 @@ body{
 	vertical-align: middle;
 }
 
-a{
+a, .a-like{
 	color:$bleu-link;
 	text-decoration: none;
 	outline: none;
 	border: none;
+	cursor: pointer;
 
 	&:hover{
 		color: $bleu-link;
@@ -98,4 +99,16 @@ ul{
 		// 	margin: 10px 0;
 		// }
 	}
+}
+
+.txtrouge{
+	color: $rouge;
+}
+
+.alert{
+	display: none;
+}
+
+.chargement{
+	display: none;
 }

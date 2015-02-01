@@ -1,0 +1,66 @@
+{% extends "admin.html.twig" %}
+
+{% block admin_contenu %}
+	<div class="bloc-titre txtcenter pas">
+		Connexion
+	</div>
+	<div class=" bloc-text bloc-form connexion pls prs">
+		<form id="form_connexion">
+			<div class="row clearfix">
+				<div class="col left w50 prs">
+					<input type="text" placeholder="Username" name="username" id="username" class="btn proxima-bold w100 input_connexion" />
+				</div>
+				<div class="col right w50 pls">
+					<input type="password" placeholder="Password" name="password" id="password" class="btn proxima-bold w100 input_connexion" />
+				</div>
+			</div>
+			<div class="w100 pts txtrouge alert transition" id="alert_vide">
+				<span class="icone-warning txtmiddle"></span><span class="txtmiddle pls">Un des champs est vide</span>
+			</div>
+			<div class="w100 pts txtrouge alert transition" id="alert_error">
+				<span class="icone-warning txtmiddle"></span><span class="txtmiddle pls">Le mot de passe ou le login est faux</span>
+			</div>
+			<div class="w100 pts">
+				<button class="btn-submit proxima-bold a-like" type="submit" id="connexion_submit"><span class="icone-plug txtmiddle"></span><span class="txtmiddle pls">Connexion</span></button>
+			</div>
+			<div class="w100 pts chargement txtcenter" id="chargement_connexion">
+				<span class="icone-loading-droite rotating-droite"></span>
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		document.getElementById("connexion_submit").addEventListener("click", function(e){
+			e.preventDefault();
+			hideAllAlert();
+			var champ_vide = false;
+			var inputs = document.getElementsByClassName("input_connexion");
+			var values = [];
+			for (var i = inputs.length - 1; i >= 0; i--) {
+				if(inputs[i].value == "")
+					champ_vide = true;
+				values[inputs[i].id] = inputs[i].value;
+			};
+
+			if(!champ_vide){
+				afficherChargement("chargement_connexion");
+				var retour = file("/inc/ajax/admin/connexion.php", "login="+values["username"]+"&password="+values["password"]);
+				console.log(retour);
+				if(retour == "empty"){
+					afficherAlerte("alert_vide");
+					hideAllChargement();
+				}else if(retour == "error"){
+					afficherAlerte("alert_error");
+					hideAllChargement();
+					document.getElementById("password").value = "";
+				}else{
+					document.getElementById("bloc-contenu").innerHTML = "";
+					document.getElementById("bloc-contenu").innerHTML = retour;
+				}
+			}else{
+				afficherAlerte("alert_vide");
+				hideAllChargement();
+			}
+		});
+	</script>
+{% endblock %}

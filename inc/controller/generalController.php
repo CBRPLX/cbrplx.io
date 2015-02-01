@@ -19,6 +19,11 @@ class generalController {
                 $image = "http://cbrplx.io/dist/images/share.jpg";
                 $url = "http://cbrplx.io/about/";
                 $description = "Awesome guy with an awesome website !";
+            }else if($id_article = "admin"){
+                $titre = "Admin";
+                $image = "http://cbrplx.io/dist/images/share.jpg";
+                $url = "http://cbrplx.io/";
+                $description = "Awesome guy with an awesome website !";
             }else{
                 //On charge l'article
             }

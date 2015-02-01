@@ -1933,6 +1933,163 @@ hr {
 /* Here should go your own CSS styles */
 /* You can also link them with a Sass @import */
 /* @import "my-styles"; */
+input[type="search"]::-webkit-search-decoration {
+  display: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0;
+}
+
+button,
+a.button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"],
+input[type="image"] {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  overflow: visible;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: top;
+  text-align: center;
+  text-decoration: none;
+  width: auto;
+  -webkit-appearance: none;
+  background-clip: padding-box;
+  border-radius: 0;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
+}
+
+button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"] {
+  line-height: normal !important;
+}
+
+textarea,
+select,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+  background: none;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+  font-size: 13px;
+  font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
+  -webkit-appearance: none;
+  background-clip: padding-box;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+textarea::-webkit-outer-spin-button, textarea::-webkit-inner-spin-button,
+select::-webkit-outer-spin-button,
+select::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="datetime"]::-webkit-outer-spin-button,
+input[type="datetime"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-outer-spin-button,
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="email"]::-webkit-outer-spin-button,
+input[type="email"]::-webkit-inner-spin-button,
+input[type="month"]::-webkit-outer-spin-button,
+input[type="month"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="password"]::-webkit-outer-spin-button,
+input[type="password"]::-webkit-inner-spin-button,
+input[type="search"]::-webkit-outer-spin-button,
+input[type="search"]::-webkit-inner-spin-button,
+input[type="tel"]::-webkit-outer-spin-button,
+input[type="tel"]::-webkit-inner-spin-button,
+input[type="text"]::-webkit-outer-spin-button,
+input[type="text"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-outer-spin-button,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="url"]::-webkit-outer-spin-button,
+input[type="url"]::-webkit-inner-spin-button,
+input[type="week"]::-webkit-outer-spin-button,
+input[type="week"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+button[disabled],
+input[disabled],
+select[disabled],
+select[disabled] option,
+select[disabled] optgroup,
+textarea[disabled] {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  cursor: default;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
+  opacity: 0.25;
+}
+
+textarea {
+  min-height: 50px;
+  overflow: auto;
+  resize: vertical;
+  width: 100%;
+}
+
+optgroup {
+  font-style: normal;
+  font-weight: normal;
+  font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+@-moz-document url-prefix() {
+  input:invalid,
+  button:invalid,
+  select:invalid,
+  textarea:invalid {
+    box-shadow: none;
+  }
+  input::-moz-focus-inner,
+  button::-moz-focus-inner,
+  select::-moz-focus-inner,
+  textarea::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  select {
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: "";
+  }
+}
 @media (max-width: 768px) {
   html {
     font-size: 48%;
@@ -1990,13 +2147,14 @@ body {
   vertical-align: middle;
 }
 
-a {
+a, .a-like {
   color: #4bb6d1;
   text-decoration: none;
   outline: none;
   border: none;
+  cursor: pointer;
 }
-a:hover {
+a:hover, .a-like:hover {
   color: #4bb6d1;
   text-decoration: underline;
 }
@@ -2042,6 +2200,18 @@ ul li {
   margin: 0;
 }
 
+.txtrouge {
+  color: #f56361;
+}
+
+.alert {
+  display: none;
+}
+
+.chargement {
+  display: none;
+}
+
 .btn-header {
   border: 1px solid white;
 }
@@ -2049,6 +2219,11 @@ ul li {
   text-decoration: none;
   background-color: white;
   color: #343332 !important;
+}
+
+.btn {
+  border: 1px solid #cdcdcd !important;
+  padding: 5px !important;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -2240,10 +2415,10 @@ ul li {
   src: url('../fonts/ProximaNovaRegular.ttf?1422630086') format('truetype'), url('../fonts/ProximaNovaRegular.eot?1422630086') format('embedded-opentype'), url('../fonts/ProximaNovaRegular.woff?1422630086') format('woff'), url('../fonts/ProximaNovaRegular.svg?1422630086') format('svg');
 }
 .proxima {
-  font-family: "proxima", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 100;
+  font-family: "proxima", Helvetica, Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  font-weight: 100 !important;
 }
 
 @font-face {
@@ -2251,20 +2426,20 @@ ul li {
   src: url('../fonts/ProximaNovaBold.ttf?1422630124') format('truetype'), url('../fonts/ProximaNovaBold.eot?1422630124') format('embedded-opentype'), url('../fonts/ProximaNovaBold.woff?1422630124') format('woff'), url('../fonts/ProximaNovaBold.svg?1422630124') format('svg');
 }
 .proxima-bold {
-  font-family: "proxima-bold", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 100;
+  font-family: "proxima-bold", Helvetica, Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  font-weight: 100 !important;
 }
 
 [class^="icone-"] {
-  background: url('../images/icone-s10346faecf.png');
+  background: url('../images/icone-sb3a9046f63.png');
   display: inline-block;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   [class^="icone-"] {
-    background: url('../images/icone-2x-s21b0fdcea6.png');
-    background-size: 55px 140px;
+    background: url('../images/icone-2x-sd8d8d1934e.png');
+    background-size: 55px 228px;
   }
 }
 
@@ -2298,6 +2473,30 @@ ul li {
   width: 11px;
 }
 
+.icone-plug {
+  background-position: 0 -145px;
+  height: 17px;
+  width: 17px;
+}
+
+.icone-stylo-bleu {
+  background-position: 0 -167px;
+  height: 17px;
+  width: 17px;
+}
+
+.icone-stylo {
+  background-position: 0 -189px;
+  height: 17px;
+  width: 17px;
+}
+
+.icone-warning {
+  background-position: 0 -211px;
+  height: 17px;
+  width: 17px;
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .icone-coeur {
     background-position: 0 0;
@@ -2317,6 +2516,22 @@ ul li {
 
   .icone-localisation {
     background-position: 0 -124px;
+  }
+
+  .icone-plug {
+    background-position: 0 -145px;
+  }
+
+  .icone-stylo-bleu {
+    background-position: 0 -167px;
+  }
+
+  .icone-stylo {
+    background-position: 0 -189px;
+  }
+
+  .icone-warning {
+    background-position: 0 -211px;
   }
 }
 @keyframes rotating {

@@ -8,6 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'template' => array($baseDir . '/inc'),
     'controller' => array($baseDir . '/inc'),
-    'class' => array($baseDir . '/inc'),
+    'classe' => array($baseDir . '/inc'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
 );
