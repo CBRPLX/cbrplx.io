@@ -17,6 +17,7 @@ html{
 html,body, .bloc-body{
 	height: 100%;
 	min-height: 100%;
+	color: $gris-font;
 }
 
 .bloc-body{
@@ -77,4 +78,18 @@ a{
   @include transition-property(all);
   @include transition-duration(1.3s);
   @include transition-timing-function(ease);
+}
+
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li{
+		padding: 0;
+		margin: 0;
+		// @media (max-width: 600px) {
+		// 	margin: 10px 0;
+		// }
+	}
 }

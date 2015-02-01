@@ -1953,6 +1953,7 @@ hr {
 html, body, .bloc-body {
   height: 100%;
   min-height: 100%;
+  color: #858383;
 }
 
 .bloc-body {
@@ -2025,6 +2026,16 @@ a:hover {
   transition-duration: 1.3s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  padding: 0;
+  margin: 0;
 }
 
 .btn-header {
@@ -2169,6 +2180,44 @@ a:hover {
   padding-top: 142px;
 }
 
+.bloc-container .bloc-baniere {
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+.bloc-container .bloc-titre {
+  font-size: 4.5em;
+  color: #343332;
+  padding-top: 103px !important;
+  padding-bottom: 103px !important;
+}
+@media (max-width: 768px) {
+  .bloc-container .bloc-titre {
+    font-size: 3em;
+  }
+}
+.bloc-container .bloc-text {
+  max-width: 600px;
+  margin: auto;
+  line-height: 30px;
+  margin-top: 30px;
+  padding-bottom: 100px;
+}
+.bloc-container .bloc-text .list-a-propos .col:first-of-type {
+  min-width: 39px;
+}
+.bloc-container .bloc-text .list-a-propos .col + .col {
+  padding-left: 3px;
+}
+
+@media (max-width: 768px) {
+  .list2 .col {
+    display: table-cell !important;
+    width: auto;
+  }
+}
+
 @font-face {
   font-family: "proxima";
   src: url('../fonts/ProximaNovaRegular.ttf?1422630086') format('truetype'), url('../fonts/ProximaNovaRegular.eot?1422630086') format('embedded-opentype'), url('../fonts/ProximaNovaRegular.woff?1422630086') format('woff'), url('../fonts/ProximaNovaRegular.svg?1422630086') format('svg');
@@ -2192,13 +2241,13 @@ a:hover {
 }
 
 [class^="icone-"] {
-  background: url('../images/icone-s436c4e0061.png');
+  background: url('../images/icone-sd278210ce2.png');
   display: inline-block;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   [class^="icone-"] {
-    background: url('../images/icone-2x-s7b50bf5b45.png');
-    background-size: 55px 119px;
+    background: url('../images/icone-2x-scaae36b1eb.png');
+    background-size: 55px 140px;
   }
 }
 
@@ -2226,6 +2275,12 @@ a:hover {
   width: 32px;
 }
 
+.icone-localisation {
+  background-position: 0 -124px;
+  height: 16px;
+  width: 11px;
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .icone-coeur {
     background-position: 0 0;
@@ -2241,6 +2296,10 @@ a:hover {
 
   .icone-loading {
     background-position: 0 -87px;
+  }
+
+  .icone-localisation {
+    background-position: 0 -124px;
   }
 }
 @keyframes rotating {

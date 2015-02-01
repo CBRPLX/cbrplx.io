@@ -26,8 +26,8 @@ ________________________________________________________________________________
 {% else %}
 <link rel="stylesheet" type="text/css" href="/dist/css/styles.min.css?t={{TIME}}" />
 {% endif %}
-<link type="image/png" href="/dist/images/favicon-16x16.jpg" rel="icon" sizes="16x16" /> 
-<link type="image/png" href="/dist/images/favicon-32x32.jpg" rel="icon" sizes="32x32" /> 
+<link type="image/png" href="/dist/images/favicon-16x16.png" rel="icon" sizes="16x16" /> 
+<link type="image/png" href="/dist/images/favicon-32x32.png" rel="icon" sizes="32x32" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0" />
 <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -117,7 +117,7 @@ ________________________________________________________________________________
 	<div id="bloc-body" class="bloc-body transition-medium proxima">
 		{% include 'header.html.twig' %}
 
-		<div class="bloc-contenu" id="bloc-contenu">{{CONTENU}}</div>
+		<div class="bloc-contenu" id="bloc-contenu">{{CONTENU|raw}}</div>
 
 		{% include 'footer.html.twig' %}
 	</div>
