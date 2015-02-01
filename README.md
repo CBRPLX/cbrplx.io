@@ -49,3 +49,7 @@ My favorite template engine. Easy and really flexible tool ! <br/>
 #### Git
 And finally I use git, even if I'm the only developer, it allows me to have an historic. <br/>
 [Git.com](http://git-scm.com/)
+
+#### Wurfl.js
+I'm using the perfect Wurfl's script to detect if the device is a mobile, a tablet or a desktop.<br/>
+[Wurlf.io](http://web.wurfl.io/)
