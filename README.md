@@ -10,7 +10,20 @@ Essentially to get the Node Package Manager and download the second tool. <br/>
 
 #### Gulp
 Gulp is the new Grunt. It does the dirty work for you ! Like compiling sass, compressing images, minify css and js, ... <br/>
-[Gulp.com](http://gulpjs.com/) & (for the curious ones) [Grunt.com](http://gruntjs.com/)
+[Gulp.com](http://gulpjs.com/) & (for the curious ones) [Grunt.com](http://gruntjs.com/) <br/>
+Here all the plugins I used :
+* [Gulp-compass](https://www.npmjs.com/package/gulp-compass)
+* [Gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+* [Gulp-minify-css](https://www.npmjs.com/package/gulp-minify-css)
+* [Gulp-jshint](https://www.npmjs.com/package/gulp-jshint)
+* [Gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
+* [Gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)
+* [Gulp-rename](https://www.npmjs.com/package/gulp-rename)
+* [Gulp-concat](https://www.npmjs.com/package/gulp-concat)
+* [Gulp-notify](https://www.npmjs.com/package/gulp-notify)
+* [Gulp-cache](https://www.npmjs.com/package/gulp-cache)
+* [Gulp-livereload](https://www.npmjs.com/package/gulp-livereload)
+* [del](https://www.npmjs.com/package/del)
 
 #### Sass
 Because coding pure css is such a waste of time. <br/>
