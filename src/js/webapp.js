@@ -66,4 +66,5 @@ window.onload = function(){
     sizeBanieres();
     scrollToElement("bloc-contenu");
     document.getElementById("bloc-body").style.opacity = "1";
+    document.getElementById("bloc-chargement-general").style.opacity = "0";
 }

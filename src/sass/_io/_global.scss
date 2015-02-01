@@ -20,6 +20,10 @@ html,body, .bloc-body{
 	color: $gris-font;
 }
 
+body{
+	position: relative;
+}
+
 .bloc-body{
 	opacity: 0;
 }

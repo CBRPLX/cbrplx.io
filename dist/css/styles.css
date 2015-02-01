@@ -1956,6 +1956,10 @@ html, body, .bloc-body {
   color: #858383;
 }
 
+body {
+  position: relative;
+}
+
 .bloc-body {
   opacity: 0;
 }
@@ -2225,6 +2229,12 @@ ul li {
   }
 }
 
+.bloc-chargement {
+  position: fixed;
+  top: 48%;
+  left: 48%;
+}
+
 @font-face {
   font-family: "proxima";
   src: url('../fonts/ProximaNovaRegular.ttf?1422630086') format('truetype'), url('../fonts/ProximaNovaRegular.eot?1422630086') format('embedded-opentype'), url('../fonts/ProximaNovaRegular.woff?1422630086') format('woff'), url('../fonts/ProximaNovaRegular.svg?1422630086') format('svg');
@@ -2248,12 +2258,12 @@ ul li {
 }
 
 [class^="icone-"] {
-  background: url('../images/icone-sd278210ce2.png');
+  background: url('../images/icone-s10346faecf.png');
   display: inline-block;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   [class^="icone-"] {
-    background: url('../images/icone-2x-scaae36b1eb.png');
+    background: url('../images/icone-2x-s21b0fdcea6.png');
     background-size: 55px 140px;
   }
 }
