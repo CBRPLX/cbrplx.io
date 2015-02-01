@@ -13,6 +13,7 @@ Gulp is the new Grunt. It does the dirty work for you ! Like compiling sass, com
 [Gulp.com](http://gulpjs.com/) & (for the curious ones) [Grunt.com](http://gruntjs.com/) <br/>
 Here all the plugins I used :
 * [Gulp-compass](https://www.npmjs.com/package/gulp-compass)
+* [Gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
 * [Gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
 * [Gulp-minify-css](https://www.npmjs.com/package/gulp-minify-css)
 * [Gulp-jshint](https://www.npmjs.com/package/gulp-jshint)
