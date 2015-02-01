@@ -181,10 +181,16 @@
 			.col{
 				&:first-of-type{
 					min-width: 39px;
+
+					@media (max-width: $small-screen) {
+						min-width: 44px;
+					}
 				}
 
-				&+.col{
-					padding-left: 3px;
+				@media (min-width: $small-screen) {
+					&+.col{
+						padding-left: 5px;
+					}
 				}
 			}
 		}

@@ -7,21 +7,40 @@ class generalController {
 		
     }
 
-    public function genererSquelette($contenu, $meta = false){
+    public function genererSquelette($contenu, $meta = false, $id_article = null){
     	global $twig;
     	global $dev;
 
-        if(!$meta){
-    	   $template = $twig->loadTemplate('squelette.html.twig');
-        }else{
+        if($meta && !empty($id_article)){
             $template = $twig->loadTemplate('meta.html.twig');
-        }
 
-    	return $template->render(array(
-    		"CONTENU" => $contenu,
-    		"DEV" => $dev,
-            "TIME" => time()
-    	));
+            if($id_article == "a_propos"){
+                $titre = "À propos de moi";
+                $image = "http://cbrplx.io/dist/images/share.jpg";
+                $url = "http://cbrplx.io/about/";
+                $description = "Awesome guy with an awesome website !";
+            }else{
+                //On charge l'article
+            }
+
+            return $template->render(array(
+                "CONTENU" => $contenu,
+                "DEV" => $dev,
+                "TIME" => time(),
+                "TITRE" => $titre,
+                "IMAGE" => $image,
+                "URL" => $url,
+                "DESCRIPTION" => $description
+            ));
+        }else{
+           $template = $twig->loadTemplate('squelette.html.twig');
+
+            return $template->render(array(
+                "CONTENU" => $contenu,
+                "DEV" => $dev,
+                "TIME" => time()
+            ));
+        }
     }
 
     public function genererAPropos(){
@@ -29,7 +48,9 @@ class generalController {
         global $dev;
         $template = $twig->loadTemplate('a_propos.html.twig');
 
-        return $template->render(array(
+        $contenu = $template->render(array(
         ));
+
+        return $this->genererSquelette($contenu, true, "a_propos");
     }
 }

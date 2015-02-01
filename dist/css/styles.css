@@ -2207,8 +2207,15 @@ ul li {
 .bloc-container .bloc-text .list-a-propos .col:first-of-type {
   min-width: 39px;
 }
-.bloc-container .bloc-text .list-a-propos .col + .col {
-  padding-left: 3px;
+@media (max-width: 768px) {
+  .bloc-container .bloc-text .list-a-propos .col:first-of-type {
+    min-width: 44px;
+  }
+}
+@media (min-width: 768px) {
+  .bloc-container .bloc-text .list-a-propos .col + .col {
+    padding-left: 5px;
+  }
 }
 
 @media (max-width: 768px) {
