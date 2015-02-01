@@ -25,11 +25,13 @@ html,body, .bloc-body{
 }
 
 *::selection{
-	background: transparent;
+	background: rgba(245, 99, 97, 0.6);
+	// color: $white;
 }
 
 *::-moz-selection{
-	background: transparent;
+	background: rgba(245, 99, 97, 0.6);
+	// color: $white;
 }
 
 .overlay{

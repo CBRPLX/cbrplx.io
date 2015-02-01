@@ -1961,15 +1961,15 @@ html, body, .bloc-body {
 }
 
 *::-moz-selection{
-  background: transparent;
+  background: rgba(245, 99, 97, 0.6);
 }
 
 *::selection {
-  background: transparent;
+  background: rgba(245, 99, 97, 0.6);
 }
 
 *::-moz-selection {
-  background: transparent;
+  background: rgba(245, 99, 97, 0.6);
 }
 
 .overlay {
