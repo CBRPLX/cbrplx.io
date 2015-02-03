@@ -311,12 +311,18 @@ table {
 		width: 100%;
 		height: auto;
 		display: block;
+
+		&.col-mobile{
+			display: table-cell !important;
+			vertical-align: top;
+			width: auto !important;
+		}
 	}
 }
 
 /* inline-block */
 .inbl {
-	display: inline-block;
+	display: inline-block !important;
 	vertical-align: top;
 }
 

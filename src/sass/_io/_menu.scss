@@ -1,0 +1,8 @@
+.admin-selected{
+	color: $gris-font !important;
+
+	 &:hover{
+	 	text-decoration: none;
+	 	cursor: default;
+	 }
+}

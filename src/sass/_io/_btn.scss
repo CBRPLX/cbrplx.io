@@ -1,3 +1,10 @@
+.btn{
+	&:hover{
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}
+
 .btn-header{
 	border: 1px solid $white;
 
@@ -6,11 +13,6 @@
 		background-color: $white;
 		color: $gris-title !important;
 	}
-}
-
-.btn{
-	border: 1px solid $gris-border !important;
-	padding: 5px !important;
 }
 
 .btn-submit{

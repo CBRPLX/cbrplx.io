@@ -63,3 +63,21 @@ function getHttpRequest() {
     
     return xhr;
 }
+
+// function upload() {
+//     // Analyse le fichier + création de la visualisation
+//     var fileInput = document.getElementById('file').value;
+//     alert(fileInput);
+     
+//     // Récupère le fichier spécifié et créer une requête XMLHttpRequest
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('POST', 'upload.php');
+//     xhr.onload = function() {
+//         alert('Upload terminé de : '+fileInput);
+//     };
+//     // Upload du fichier…
+//     var form = new FormData();
+//     form.append('file', fileInput);
+//     xhr.send(form); // envoie le fichier
+ 
+// }

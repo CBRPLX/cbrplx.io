@@ -101,14 +101,53 @@ ul{
 	}
 }
 
+.dnone{
+	display: none;
+}
+
 .txtrouge{
 	color: $rouge;
 }
 
-.alert{
+.txtvert{
+	color: $vert;
+}
+
+.txtwhite{
+	color: $white;
+}
+
+.txtbleu{
+	color: $bleu-link;
+}
+
+.alert, .chargement, .notif{
 	display: none;
 }
 
-.chargement{
-	display: none;
+img{
+	max-width: 100%;
+}
+
+.lh1{
+	line-height: 1em;
+}
+
+.preview-photo{
+	border: 1px dashed $gris-border;
+	padding: 5px;
+	min-height: 50px;
+	position: relative;
+
+	.preview-photo-options{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		left: 0;
+		background-color: rgba(0,0,0,0.6);
+
+		[class^='icone-cross']{
+			cursor: pointer;
+		}
+	}
 }

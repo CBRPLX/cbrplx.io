@@ -4,14 +4,14 @@
 	<div class="bloc-titre txtcenter pas">
 		Connexion
 	</div>
-	<div class=" bloc-text bloc-form connexion pls prs">
+	<div class=" bloc-text bloc-form connexion pls prs pbn">
 		<form id="form_connexion">
 			<div class="row clearfix">
 				<div class="col left w50 prs">
-					<input type="text" placeholder="Username" name="username" id="username" class="btn proxima-bold w100 input_connexion" />
+					<input type="text" placeholder="Username" name="username" id="username" class="proxima-bold w100 input_connexion" />
 				</div>
 				<div class="col right w50 pls">
-					<input type="password" placeholder="Password" name="password" id="password" class="btn proxima-bold w100 input_connexion" />
+					<input type="password" placeholder="Password" name="password" id="password" class="proxima-bold w100 input_connexion" />
 				</div>
 			</div>
 			<div class="w100 pts txtrouge alert transition" id="alert_vide">
@@ -45,7 +45,7 @@
 			if(!champ_vide){
 				afficherChargement("chargement_connexion");
 				var retour = file("/inc/ajax/admin/connexion.php", "login="+values["username"]+"&password="+values["password"]);
-				console.log(retour);
+				
 				if(retour == "empty"){
 					afficherAlerte("alert_vide");
 					hideAllChargement();
@@ -54,8 +54,7 @@
 					hideAllChargement();
 					document.getElementById("password").value = "";
 				}else{
-					document.getElementById("bloc-contenu").innerHTML = "";
-					document.getElementById("bloc-contenu").innerHTML = retour;
+					window.location.reload();
 				}
 			}else{
 				afficherAlerte("alert_vide");
@@ -63,4 +62,7 @@
 			}
 		});
 	</script>
+{% endblock %}
+
+{% block admin_block %}
 {% endblock %}

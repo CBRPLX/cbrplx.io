@@ -1,0 +1,153 @@
+
+<div class="row pas txtleft">
+	{% block open_article %}
+		<div id="open_article" class="txtbleu btn proxima-bold"><span class="icone-cle-bleu txtmiddle"></span><span class="txtmiddle pls">Ouvrir un article</span></div>
+		<div id="article_open" class="txtvert proxima-bold dnone"><span class="icone-cle-vert txtmiddle"></span><span class="txtmiddle pls">Article ouvert</span></div>
+	{% endblock %}
+</div>
+
+<form>
+	<div class="row pas">
+		<div class="col">
+			<input type="text" name="nom" id="titre" placeholder="Nom de l'article" class="proxima w100 champ_add_article" value="{{TITRE}}" />
+			<input type="hidden" name="id_article" id="id_article" value="{{ID_ARTICLE}}" />
+		</div>
+	</div>
+	<div class="row pas">
+		<div class="col">
+			<input type="file" name="couverture" id="couverture" class="proxima w100" accept="image/*" onchange="changeInputPhoto('couverture')" />
+		</div>
+	</div>
+	<div class="row pas">
+		<div class="col w100">
+			<div class="preview-photo preview-couverture w100">
+				
+			</div>
+		</div>
+	</div>
+	<div class="row pas">
+		<div class="col">
+			<input type="file" name="image" id="image" class="proxima w100" accept="image/*" />
+		</div>
+	</div>
+	<div class="row pas ptn">
+		<div class="col prs pts">
+			<div class="preview-photo preview-photo-article w100">
+				
+			</div>
+		</div>
+		<div class="col prs pts">
+			<div class="preview-photo preview-photo-article w100">
+			</div>
+		</div>
+		<div class="col prs pts">
+			<div class="preview-photo preview-photo-article w100">
+			</div>
+		</div>
+	</div>
+	<div class="row pas">
+		<div class="col">
+			<select name="auteur" id="id_auteur"class="proxima w100 champ_add_article">
+				<option value="">Auteur</option>
+				<option value="">-----</option>
+				<option value="1">CBRPLX</option>
+				<option value="2">Johanjudai</option>
+				<option value="3">Kalgar</option>
+				<option value="4">Outpox</option>
+				<option value="5">Nurza</option>
+			</select>
+		</div>
+	</div>
+	<div class="row pas">
+		<div class="col">
+			<textarea class="proxima w100 champ_add_article" id="text"></textarea>
+		</div>
+	</div>
+	<div class="row pas">
+		<div class="col">
+			<select multiple name="collegue" id="collegue" class="proxima w100 champ_add_article">
+				<option value="1">CBRPLX</option>
+				<option value="2">Johanjudai</option>
+				<option value="3">Kalgar</option>
+				<option value="4">Outpox</option>
+				<option value="5">Nurza</option>
+			</select>
+		</div>
+	</div>
+	<div class="row pas">
+		<label><span class="col col-mobile txtmiddle"><input type="checkbox" name="projet" id="projet" class="champ_add_article" /></span><span class="col col-mobile txtmiddle pls">Cet article est un projet</span></label>
+	</div>
+	<div class="row pas">
+		<label><span class="col col-mobile txtmiddle"><input type="checkbox" name="online" id="online" class="champ_add_article" /></span><span class="col col-mobile txtmiddle pls">Je le publie en ligne</span></label>
+	</div>
+	<div class="row pas txtleft">
+		<button class="btn-submit proxima-bold a-like" type="submit" id="add_article_submit" class="champ_add_article" onclick="submitArticle()"><span class="icone-upload-bleu txtmiddle"></span><span class="txtmiddle pls">Ajouter</span></button>
+	</div>
+	{% block del_article %}{% endblock %}
+</form>
+<div class="w100 pas chargement txtcenter" id="chargement_upload">
+	<span class="icone-loading-droite rotating-droite"></span>
+</div>
+<div class="w100 pas txtrouge alert transition proxima-bold" id="alert_cle">
+	<span class="icone-warning txtmiddle"></span><span class="txtmiddle pls">Il faut ouvrir l'article</span>
+</div>
+<div class="w100 pas txtrouge alert transition proxima-bold" id="alert_error">
+	<span class="icone-warning txtmiddle"></span><span class="txtmiddle pls">Une erreur est survenue</span>
+</div>
+<div class="w100 pas txtvert notif transition proxima-bold" id="notif_save">
+	<span class="icone-valide-vert txtmiddle"></span><span class="txtmiddle pls">Deal</span>
+</div>
+
+<script type="text/javascript">
+	{% block script_admin %}
+		document.getElementById("open_article").addEventListener("click", function(){
+			var id_article = document.getElementById("id_article").value;
+			if(id_article == ""){
+				var id_article = file("/inc/ajax/admin/open_article.php");
+				if(id_article != ""){
+					document.getElementById("id_article").value = id_article;
+					document.getElementById("open_article").style.display = "none";
+					document.getElementById("article_open").style.display = "block";
+				}
+			}
+		});
+	{% endblock %}
+
+	document.getElementById("add_article_submit").addEventListener("click", function(e){
+		e.preventDefault();
+	});
+
+	function submitArticle(e){
+		hideAllAlert();
+		var champ_vide = false;
+		var inputs = document.getElementsByClassName("champ_add_article");
+		var values = getJSONValuesForm(inputs);
+
+		if(!champ_vide){
+			var query = JSON.stringify(values);
+			query = encodeURIComponent(query);
+			afficherChargement("chargement_upload");
+			var id_article = document.getElementById("id_article").value;
+			if(id_article != ""){
+				var retour = file("/inc/ajax/admin/save_article.php", "id_article="+id_article+"&query="+query);
+				console.log(retour);
+				if(retour == "deal"){
+					afficherNotif("notif_save");
+					hideAllChargement();
+					setTimeout(function(){
+						hideAllNotif();
+					},3000);
+				}else if(retour == "error"){
+					afficherAlerte("alert_error");
+					hideAllChargement();
+				}
+			}else{
+				afficherAlerte("alert_cle");
+				hideAllChargement();
+			}
+		}else{
+			afficherAlerte("alert_vide");
+			hideAllChargement();
+		}
+	};
+</script>

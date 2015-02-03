@@ -69,7 +69,7 @@ gulp.task('default', ['clean'], function() {
 });
  
 // Watch
-gulp.task('watch', function() {
+gulp.task('watch', ['default'], function() {
  
   // Watch .scss files
   gulp.watch('src/sass/**/*.scss', ['styles']).on('change', function(e) {

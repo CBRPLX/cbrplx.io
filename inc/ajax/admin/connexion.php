@@ -10,8 +10,7 @@ if(!empty($_POST["login"]) && !empty($_POST["password"])){
 
 	if($connexion){
 		$_SESSION["user"] = serialize($u);
-		$controller = new \controller\adminController();
-		echo $controller->genererAdmin(false);
+		echo "true";
 	}else{
 		echo "error";
 	}

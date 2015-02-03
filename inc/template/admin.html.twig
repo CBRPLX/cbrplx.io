@@ -5,13 +5,68 @@
 	<div class="bloc-titre txtcenter pas">
 		Admin
 	</div>
-	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
-		<a href="#"><span class="icone-stylo-bleu txtmiddle"></span><span class="txtmiddle pls">Ajouter un article</span></a>
+	<div class="pls prs txtcenter row">
+		<div class="bloc-ss-titre mls mrs mts uppercase txtcenter h6-like inbl">
+			<a href="#" class="txtcenter inbl admin-onglet admin-selected" id="add_article">
+				<span class="col col-mobile txtmiddle"><span class="icone-stylo-plus-gris txtmiddle"></span></span>
+				<span class="txtmiddle pls col col-mobile">Ajouter un article</span>
+			</a>
+		</div>
+		<div class="bloc-ss-titre mls mrs mts uppercase txtcenter h6-like inbl">
+			<a href="#" class="txtcenter inbl admin-onglet" id="list_article">
+				<span class="col col-mobile txtmiddle"><span class="icone-stylo-bleu txtmiddle"></span></span>
+				<span class="txtmiddle pls col col-mobile">Modifier un article</span>
+			</a>
+		</div>
+		<div class="bloc-ss-titre mls mrs mts uppercase txtcenter h6-like inbl">
+			<a href="#" class="txtcenter inbl admin-onglet" id="show_stats">
+				<span class="col col-mobile txtmiddle"><span class="icone-stats-bleu txtmiddle"></span></span>
+				<span class="txtmiddle pls col col-mobile">Afficher les stats</span>
+			</a>
+		</div>
+		<div class="bloc-ss-titre mls mrs mts uppercase txtcenter h6-like inbl">
+			<a href="#" class="txtcenter inbl admin-onglet" id="list_user">
+				<span class="col col-mobile txtmiddle"><span class="icone-user-bleu txtmiddle"></span></span>
+				<span class="txtmiddle pls col col-mobile">Liste des users</span>
+			</a>
+		</div>
 	</div>
-	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
-		<a href="#"><span class="icone-stylo-bleu txtmiddle"></span><span class="txtmiddle pls">Modifier un article</span></a>
+
+	<div class="w100 pts chargement txtcenter" id="chargement_onglet">
+		<span class="icone-loading-droite rotating-droite"></span>
 	</div>
-	<div class="bloc-text">
-	</div>
+
+	<script type="text/javascript">
+	var onglets = document.getElementsByClassName("admin-onglet");
+
+	function MAJOnglets(onglet){
+		for (var i = onglets.length - 1; i >= 0; i--) {
+			onglets[i].className = onglets[i].className.replace(/\badmin-selected\b/,'');
+			var icone = onglets[i].children[0].children[0];
+			icone.className = icone.className.replace(/\b-gris\b/,'-bleu');
+		};
+
+		if(onglet != ""){
+			onglet.className = onglet.className.replace(/\badmin-onglet\b/,' admin-onglet admin-selected');
+			var icone = onglet.children[0].children[0];
+			icone.className = icone.className.replace(/\b-bleu\b/,'-gris');
+		}
+	}
+
+	for (var i = onglets.length - 1; i >= 0; i--) {
+		onglets[i].addEventListener("click", function(e){
+			e.preventDefault();
+			MAJOnglets("");
+			MAJOnglets(this);
+			afficherChargement("chargement_onglet");
+		});
+	};
+	</script>
 	{% endblock %}
+
+	<div class="bloc-text proxima ptl" id="bloc-admin-block">
+		{% block admin_block %}
+			{% include 'add_article.html.twig' %}
+		{% endblock %}
+	</div>
 </div>
