@@ -22,5 +22,5 @@ inc/php/pdo.php
 assets/
 
 ### fonts ###
-dist/fonts/
-src/fonts/
+#dist/fonts/
+#src/fonts/
