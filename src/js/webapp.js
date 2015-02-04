@@ -108,7 +108,6 @@ function MAJScripts(){
     var scripts = document.getElementsByTagName("script");
     for (var i = scripts.length - 1; i >= 0; i--) {
         eval(scripts[i].innerHTML);
-        // console.log(scripts[i].innerHTML);
     };
 }
 
@@ -116,18 +115,14 @@ function getValueMulti(select){
     var tab = [];
     for (var i = select.children.length - 1; i >= 0; i--) {
         if(select.children[i].selected)
-            // console.log(select.children[i]);
             tab.push(select.children[i].value);
     }
     return tab;
 }
 
 function getJSONValuesForm(inputs){
-    // var json = {};
     var values = {};
     for (var i = inputs.length - 1; i >= 0; i--) {
-        // if(inputs[i].value == "")
-            // champ_vide = true;
 
         if((inputs[i].nodeName == "SELECT" || inputs[i].nodeName == "select") && inputs[i].multiple){
             values[inputs[i].id] = getValueMulti(inputs[i]);
@@ -141,29 +136,55 @@ function getJSONValuesForm(inputs){
             values[inputs[i].id] = inputs[i].value;
         }
     };
-    // json["values"] = values;
-    // json = JSON.stringify(json, null, " ");
     return values;
 }
 
+function delPhoto(chemin){
+    var retour = file("/inc/ajax/admin/del_photo.php", "chemin="+chemin);
+    console.log(retour);
+    if(retour == "no_image"){
+        alert('No image');
+    }else if(retour == "del"){
+        document.getElementById(chemin).parentNode.innerHTML = "";
+    }else{
+        alert("Error : "+retour);
+    }
+}
+
 function afficherNomPhoto(nom, couverture){
-    var html = '<img src="/'+nom+'" />';
-    html += '<div class="preview-photo-options pas">';
+    var retour = JSON.parse(nom);
+    nom = retour.img;
+
+    var html = '<img src="/'+nom+'?'+ new Date().getTime()+'" />';
+    html += '<div class="preview-photo-options pas" id="'+nom+'">';
     html += '<span class="txtwhite lh1">'+nom+'</span>';
-    html += '<span class="icone-cross-white right" title="Supprimer la photo"></span>';
+    html += '<span class="icone-cross-white right" title="Supprimer la photo" onclick="delPhoto(\''+nom+'\')"></span>';
     html += '</div>';
 
     if(couverture == "1"){
+        document.getElementById("couverture").value = "";
         var element = document.getElementsByClassName("preview-couverture")[0];
     }else{
-        var element = document.getElementsByClassName("preview-photo-article")[0];
+        document.getElementById("image").value = "";
+        var element = document.getElementsByClassName("preview-photo-article")[retour.nb_img];
+        console.log(retour.nb_img);
+        if(retour.nb_img == 2){
+            var last_photo = document.getElementsByClassName("preview-photo-article")[document.getElementsByClassName("preview-photo-article").length -1];
+            last_photo.parentNode.parentNode.insertAdjacentHTML("afterend",retour.new_row);
+        }
     }
 
     element.innerHTML = html;
 }
 
 function changeInputPhoto(couv){
-    var retour = uploadPhoto(couv,'id_article', true);
+    if(couv == "couverture"){
+        var retour = uploadPhoto(couv,'id_article', true);
+    }else{
+        var retour = uploadPhoto(couv,'id_article', false);
+    }
+
+    if(retour == "fermé") alert("L'article est fermé");
 }
 
 function uploadPhoto(id, id_article, couverture){
@@ -182,8 +203,8 @@ function uploadPhoto(id, id_article, couverture){
         formData.append('id_article', id_article);
         xhr.open("POST", "/inc/ajax/admin/upload_photo.php");
         // xhr.setRequestHeader('Content-type','multipart/form-data');
-        var retour = "pd";
         xhr.onload = function(){afficherNomPhoto(xhr.responseText, c)};
+        // xhr.onload = function(){console.log(xhr.responseText)};
         xhr.send(formData);
         return "ok";
     }else{

@@ -17,3 +17,10 @@ node_modules
 ### PDO ###
 pdo.php
 inc/php/pdo.php
+
+### images ###
+assets/
+
+### fonts ###
+dist/fonts/
+src/fonts/
