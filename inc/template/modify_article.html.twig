@@ -1,9 +1,32 @@
 {% extends 'add_article.html.twig' %}
 
+{% block open_article %}
+<div id="article_open" class="txtvert proxima-bold"><span class="icone-cle-vert txtmiddle"></span><span class="txtmiddle pls">Article ouvert</span></div>
+{% endblock %}
+
 {% block del_article %}
 
 <div class="row pas txtleft">
 	<div id="delete_article" class="txtrouge btn btn-supprimer proxima-bold"><span class="icone-trash-red txtmiddle"></span><span class="txtmiddle pls">Supprimer</span></div>
 </div>
+
+{% endblock %}
+
+{% block script_admin %}
+
+document.getElementById("delete_article").addEventListener("click", function(){
+	var retour = file("/inc/ajax/admin/delete_article.php", "id={{article.get('id_article')}}");
+
+	console.log(retour);
+	if(retour == "deal"){
+		scrollToElement("top-admin");
+		var retour = file("/inc/ajax/admin/afficher_onglet.php", "onglet=list_article");
+	    document.getElementById("bloc-admin-block").innerHTML = retour;
+	    MAJScripts();
+	    // window.setTimeout(function(){
+	        hideAllChargement();
+	    // }, 0);
+	}
+});
 
 {% endblock %}

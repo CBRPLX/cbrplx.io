@@ -17,9 +17,6 @@ if(!empty($_POST["onglet"])){
 			break;
 	}
 
-	// $code = "ERROR";
-	// $adminController = new \controller\adminController();
-	// $code = $adminController->genererOnglet($_POST["onglet"]);
 	echo $code;
 }else{
 	echo "false";

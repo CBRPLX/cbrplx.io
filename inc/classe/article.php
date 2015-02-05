@@ -26,21 +26,42 @@ class article{
     	$this->$attr = $value;
     }
 
-    public function load($id_article){
+    public function load($id_article = null){
     	global $pdo;
 
-        $sql = "SELECT * FROM cbrplx_io_article WHERE id_article = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(array($id_article));
+        if(!empty($id_article)){
+            $sql = "SELECT * FROM cbrplx_io_article WHERE id_article = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(array($id_article));
 
-        if($stmt->rowCount() > 0){
-            $res = $stmt->fetch(\PDO::FETCH_ASSOC);
-            foreach ($res as $k => $v) {
-                $this->$k = $v;
+            if($stmt->rowCount() > 0){
+                $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+                foreach ($res as $k => $v) {
+                    $this->$k = $v;
+                }
+                return true;
+            }else{
+                return false;
             }
-            return true;
         }else{
-            return false;
+            $sql = "SELECT * FROM cbrplx_io_article ORDER BY date_publication DESC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount() > 0){
+                $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+                $article = array();
+                foreach ($res as $k => $v) {
+                    $a = new \classe\article();
+                    foreach ($v as $ka => $va) {
+                        $a->$ka = $va;
+                    }
+                    array_push($article, $a);
+                }
+                return $article;
+            }else{
+                return false;
+            }
         }
     }
 
@@ -82,6 +103,20 @@ class article{
         $stmt = $pdo->prepare($sql);
         $stmt->execute($tab);
         // var_dump($stmt);
+
+        if($stmt->rowCount() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function del(){
+        global $pdo;
+
+        $sql = "DELETE FROM cbrplx_io.cbrplx_io_article WHERE cbrplx_io_article.id_article = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($this->id_article));
 
         if($stmt->rowCount() > 0){
             return true;

@@ -34,12 +34,59 @@ class adminController {
     }
 
     public function genererOnglet($name, $id = null){
+        $code = "";
+        switch ($name) {
+            case 'add_article':
+                $code = $this->genererAddArticle();
+                break;
+            case 'list_article':
+                $code = $this->genererListArticle();
+                break;
+            case 'modify_article':
+                $code = $this->genererModifyArticle($id);
+                break;
+            
+            default:
+                $code = $this->genererAddArticle();
+                break;
+        }
+
+        return $code;
+    }
+
+    public function genererAddArticle(){
         global $twig;
         global $dev;
 
-        $template = $twig->loadTemplate($name.'.html.twig');
+        $template = $twig->loadTemplate('add_article.html.twig');
 
         $contenu = $template->render(array());
+        return $contenu;
+    }
+
+    public function genererListArticle(){
+        global $twig;
+        global $dev;
+
+        $template = $twig->loadTemplate('list_article.html.twig');
+
+        $articles = new \classe\article();
+        $articles = $articles->load();
+
+        $contenu = $template->render(array('articles' => $articles));
+        return $contenu;
+    }
+
+    public function genererModifyArticle($id){
+        global $twig;
+        global $dev;
+
+        $template = $twig->loadTemplate('modify_article.html.twig');
+
+        $article = new \classe\article();
+        $article->load($id);
+
+        $contenu = $template->render(array('article' => $article));
         return $contenu;
     }
 }

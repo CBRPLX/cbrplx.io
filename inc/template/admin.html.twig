@@ -1,8 +1,8 @@
 <div class="bloc-container proxima-bold">
-	<div class="bloc-baniere" id="mon_experience" style="background-image:url('/dist/images/admin.jpg')">
+	<div class="bloc-baniere" style="background-image:url('/dist/images/admin.jpg')">
 	</div>
 	{% block admin_contenu %}
-	<div class="bloc-titre txtcenter pas">
+	<div class="bloc-titre txtcenter pas" id="top-admin">
 		Admin
 	</div>
 	<div class="pls prs txtcenter row">
@@ -72,10 +72,9 @@
 		});
 	};
 
-	
+
 
 	function afficherArticle(id){
-	    console.log(id);
 	    var retour = file("/inc/ajax/admin/afficher_onglet.php", "onglet=modify_article&id="+id);
 	    document.getElementById("bloc-admin-block").innerHTML = retour;
 	    MAJScripts();

@@ -1,30 +1,23 @@
 <div class="bloc-list-article">
-	<div class="preview-article prs pls mts mbm">
-		<div class="preview-content transition">
-			<div class="border-online inbl col col-mobile txtmiddle">
-				<span class="icone-burn-gris"></span>
-			</div>
-			<div class="preview-txt pls inbl col col-mobile txtmiddle">
-				<a class="h5-like proxima-bold lien_article" href="#" id="2">Comment créer une webapp</a>
-			</div>
-			<div class="col txtmiddle inbl right small-hidden tiny-hidden">
-				123
-			</div>
-		</div>
-	</div>
-	<div class="preview-article prs pls mts mbm">
-		<div class="preview-content transition">
-			<div class="border-online inbl col col-mobile txtmiddle">
-				<span class="icone-burn-vert"></span>
-			</div>
-			<div class="preview-txt pls inbl col col-mobile txtmiddle">
-				<a class="h5-like proxima-bold lien_article" href="#" id="1">Comment créer une webapp</a>
-			</div>
-			<div class="col txtmiddle inbl right small-hidden tiny-hidden">
-				123
+	{% for article in articles %}
+		<div class="preview-article prs pls mts mbm">
+			<div class="preview-content transition">
+				<div class="border-online inbl col col-mobile txtmiddle">
+					{% if article.get('online') == '1' %}
+						<span class="icone-burn-vert"></span>
+					{% else %}
+						<span class="icone-burn-gris"></span>
+					{% endif %}
+				</div>
+				<div class="preview-txt pls inbl col col-mobile txtmiddle">
+					<a class="h5-like proxima-bold lien_article" href="#" id="{{article.get('id_article')}}">{{article.get('titre')}}</a>
+				</div>
+				<div class="col txtmiddle inbl right small-hidden tiny-hidden">
+					{{article.get('nb_vue')}}
+				</div>
 			</div>
 		</div>
-	</div>
+	{% endfor %}
 </div>
 
 <script type="text/javascript">

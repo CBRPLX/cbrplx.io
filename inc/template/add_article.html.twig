@@ -9,8 +9,9 @@
 <form>
 	<div class="row pas">
 		<div class="col">
-			<input type="text" name="nom" id="titre" placeholder="Nom de l'article" class="proxima w100 champ_add_article" value="{{TITRE}}" />
-			<input type="hidden" name="id_article" id="id_article" value="{{ID_ARTICLE}}" />
+			<input type="text" name="nom" id="titre" placeholder="Nom de l'article" class="proxima w100 champ_add_article" 
+			value="{{article.get('titre')}}" />
+			<input type="hidden" name="id_article" id="id_article" value="{{article.get('id_article')}}" />
 		</div>
 	</div>
 	<div class="row pas">
@@ -60,7 +61,7 @@
 	</div>
 	<div class="row pas">
 		<div class="col">
-			<textarea class="proxima w100 champ_add_article" id="text"></textarea>
+			<textarea class="proxima w100 champ_add_article" id="text">{{article.get('text')|raw}}</textarea>
 		</div>
 	</div>
 	<div class="row pas">
@@ -75,10 +76,10 @@
 		</div>
 	</div>
 	<div class="row pas">
-		<label><span class="col col-mobile txtmiddle"><input type="checkbox" name="projet" id="projet" class="champ_add_article" /></span><span class="col col-mobile txtmiddle pls">Cet article est un projet</span></label>
+		<label><span class="col col-mobile txtmiddle"><input type="checkbox" name="projet" id="projet" class="champ_add_article" {% if article.get('projet') == "1" %}checked{% endif %} /></span><span class="col col-mobile txtmiddle pls">Cet article est un projet</span></label>
 	</div>
 	<div class="row pas">
-		<label><span class="col col-mobile txtmiddle"><input type="checkbox" name="online" id="online" class="champ_add_article" /></span><span class="col col-mobile txtmiddle pls">Je le publie en ligne</span></label>
+		<label><span class="col col-mobile txtmiddle"><input type="checkbox" name="online" id="online" class="champ_add_article" {% if article.get('online') == "1" %}checked{% endif %} /></span><span class="col col-mobile txtmiddle pls">Je le publie en ligne</span></label>
 	</div>
 	<div class="row pas txtleft">
 		<button class="btn-submit proxima-bold a-like" type="submit" id="add_article_submit" class="champ_add_article" onclick="submitArticle()"><span class="icone-upload-bleu txtmiddle"></span><span class="txtmiddle pls">Ajouter</span></button>
