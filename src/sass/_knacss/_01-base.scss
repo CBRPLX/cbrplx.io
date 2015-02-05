@@ -314,7 +314,7 @@ table {
 
 		&.col-mobile{
 			display: table-cell !important;
-			vertical-align: top;
+			vertical-align: inherit;
 			width: auto !important;
 		}
 	}

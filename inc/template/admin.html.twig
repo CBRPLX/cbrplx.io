@@ -39,7 +39,7 @@
 	<script type="text/javascript">
 	var onglets = document.getElementsByClassName("admin-onglet");
 
-	function MAJOnglets(onglet){
+	function MAJOnglets(onglet, id){
 		for (var i = onglets.length - 1; i >= 0; i--) {
 			onglets[i].className = onglets[i].className.replace(/\badmin-selected\b/,'');
 			var icone = onglets[i].children[0].children[0];
@@ -50,17 +50,39 @@
 			onglet.className = onglet.className.replace(/\badmin-onglet\b/,' admin-onglet admin-selected');
 			var icone = onglet.children[0].children[0];
 			icone.className = icone.className.replace(/\b-bleu\b/,'-gris');
+
+			document.getElementById("bloc-admin-block").innerHTML = "";
+			var fichier = onglet.id;
+			var retour = file("/inc/ajax/admin/afficher_onglet.php", "onglet="+fichier+"&id="+id);
+
+			document.getElementById("bloc-admin-block").innerHTML = retour;
+			MAJScripts();
+			// window.setTimeout(function(){
+				hideAllChargement();
+			// }, 0);
 		}
 	}
 
 	for (var i = onglets.length - 1; i >= 0; i--) {
 		onglets[i].addEventListener("click", function(e){
 			e.preventDefault();
-			MAJOnglets("");
-			MAJOnglets(this);
 			afficherChargement("chargement_onglet");
+			MAJOnglets("", "");
+			MAJOnglets(this, "");
 		});
 	};
+
+	
+
+	function afficherArticle(id){
+	    console.log(id);
+	    var retour = file("/inc/ajax/admin/afficher_onglet.php", "onglet=modify_article&id="+id);
+	    document.getElementById("bloc-admin-block").innerHTML = retour;
+	    MAJScripts();
+	    // window.setTimeout(function(){
+	        hideAllChargement();
+	    // }, 0);
+	}
 	</script>
 	{% endblock %}
 

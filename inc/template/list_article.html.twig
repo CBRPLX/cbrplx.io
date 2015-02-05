@@ -1,0 +1,40 @@
+<div class="bloc-list-article">
+	<div class="preview-article prs pls mts mbm">
+		<div class="preview-content transition">
+			<div class="border-online inbl col col-mobile txtmiddle">
+				<span class="icone-burn-gris"></span>
+			</div>
+			<div class="preview-txt pls inbl col col-mobile txtmiddle">
+				<a class="h5-like proxima-bold lien_article" href="#" id="2">Comment créer une webapp</a>
+			</div>
+			<div class="col txtmiddle inbl right small-hidden tiny-hidden">
+				123
+			</div>
+		</div>
+	</div>
+	<div class="preview-article prs pls mts mbm">
+		<div class="preview-content transition">
+			<div class="border-online inbl col col-mobile txtmiddle">
+				<span class="icone-burn-vert"></span>
+			</div>
+			<div class="preview-txt pls inbl col col-mobile txtmiddle">
+				<a class="h5-like proxima-bold lien_article" href="#" id="1">Comment créer une webapp</a>
+			</div>
+			<div class="col txtmiddle inbl right small-hidden tiny-hidden">
+				123
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var liens = document.getElementsByClassName("lien_article");
+for (var i = liens.length - 1; i >= 0; i--) {
+	liens[i].addEventListener("click", function(e){
+		e.preventDefault();
+		afficherChargement("chargement_onglet");
+		MAJOnglets("", "");
+		afficherArticle(this.id);
+	});
+};
+</script>

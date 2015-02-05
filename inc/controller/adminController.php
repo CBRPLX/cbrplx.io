@@ -32,4 +32,14 @@ class adminController {
         $generalController = new \controller\generalController();
         return $generalController->genererSquelette($contenu, true, "admin");
     }
+
+    public function genererOnglet($name, $id = null){
+        global $twig;
+        global $dev;
+
+        $template = $twig->loadTemplate($name.'.html.twig');
+
+        $contenu = $template->render(array());
+        return $contenu;
+    }
 }

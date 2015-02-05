@@ -300,7 +300,7 @@ table {
   .row > *.col-mobile,
   .col.col-mobile {
     display: table-cell !important;
-    vertical-align: top;
+    vertical-align: inherit;
     width: auto !important;
   }
 }
@@ -2453,6 +2453,19 @@ img {
   left: 48%;
 }
 
+.bloc-list-article .preview-article .preview-content .border-online {
+  padding: 0 5px;
+}
+.bloc-list-article .preview-article .preview-content .border-online.online {
+  background-color: #3cd823;
+}
+.bloc-list-article .preview-article .preview-content .preview-txt a {
+  color: #858383 !important;
+}
+.bloc-list-article .preview-article .preview-content .preview-txt a:hover {
+  color: #4bb6d1 !important;
+}
+
 @font-face {
   font-family: "proxima";
   src: url('../fonts/ProximaNovaRegular.ttf?1422630086') format('truetype'), url('../fonts/ProximaNovaRegular.eot?1422630086') format('embedded-opentype'), url('../fonts/ProximaNovaRegular.woff?1422630086') format('woff'), url('../fonts/ProximaNovaRegular.svg?1422630086') format('svg');
@@ -2476,13 +2489,13 @@ img {
 }
 
 [class^="icone-"] {
-  background: url('../images/icone-s83b85a8bc6.png');
+  background: url('../images/icone-s41f1b8105d.png');
   display: inline-block;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   [class^="icone-"] {
-    background: url('../images/icone-2x-s277d0b0f22.png');
-    background-size: 55px 538px;
+    background: url('../images/icone-2x-see25192656.png');
+    background-size: 55px 572px;
   }
 }
 
@@ -2492,134 +2505,146 @@ img {
   width: 19px;
 }
 
-.icone-cle-bleu {
+.icone-burn-gris {
   background-position: 0 -24px;
+  height: 12px;
+  width: 12px;
+}
+
+.icone-burn-vert {
+  background-position: 0 -41px;
+  height: 12px;
+  width: 12px;
+}
+
+.icone-cle-bleu {
+  background-position: 0 -58px;
   height: 17px;
   width: 17px;
 }
 
 .icone-cle-vert {
-  background-position: 0 -46px;
+  background-position: 0 -80px;
   height: 17px;
   width: 17px;
 }
 
 .icone-coeur {
-  background-position: 0 -68px;
+  background-position: 0 -102px;
   height: 22px;
   width: 15px;
 }
 
 .icone-cross-red {
-  background-position: 0 -95px;
+  background-position: 0 -129px;
   height: 17px;
   width: 17px;
 }
 
 .icone-cross-white {
-  background-position: 0 -117px;
+  background-position: 0 -151px;
   height: 17px;
   width: 17px;
 }
 
 .icone-fleche-bas {
-  background-position: 0 -139px;
+  background-position: 0 -173px;
   height: 18px;
   width: 55px;
 }
 
 .icone-loading-droite {
-  background-position: 0 -162px;
+  background-position: 0 -196px;
   height: 32px;
   width: 32px;
 }
 
 .icone-loading {
-  background-position: 0 -199px;
+  background-position: 0 -233px;
   height: 32px;
   width: 32px;
 }
 
 .icone-localisation {
-  background-position: 0 -236px;
+  background-position: 0 -270px;
   height: 16px;
   width: 11px;
 }
 
 .icone-plug {
-  background-position: 0 -257px;
+  background-position: 0 -291px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stats-bleu {
-  background-position: 0 -279px;
+  background-position: 0 -313px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stats-gris {
-  background-position: 0 -301px;
+  background-position: 0 -335px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-bleu {
-  background-position: 0 -323px;
+  background-position: 0 -357px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-gris {
-  background-position: 0 -345px;
+  background-position: 0 -379px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-plus-bleu {
-  background-position: 0 -367px;
+  background-position: 0 -401px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-plus-gris {
-  background-position: 0 -389px;
+  background-position: 0 -423px;
   height: 17px;
   width: 17px;
 }
 
 .icone-trash-red {
-  background-position: 0 -411px;
+  background-position: 0 -445px;
   height: 17px;
   width: 17px;
 }
 
 .icone-upload-bleu {
-  background-position: 0 -433px;
+  background-position: 0 -467px;
   height: 17px;
   width: 17px;
 }
 
 .icone-user-bleu {
-  background-position: 0 -455px;
+  background-position: 0 -489px;
   height: 17px;
   width: 17px;
 }
 
 .icone-user-gris {
-  background-position: 0 -477px;
+  background-position: 0 -511px;
   height: 17px;
   width: 17px;
 }
 
 .icone-valide-vert {
-  background-position: 0 -499px;
+  background-position: 0 -533px;
   height: 17px;
   width: 17px;
 }
 
 .icone-warning {
-  background-position: 0 -521px;
+  background-position: 0 -555px;
   height: 17px;
   width: 17px;
 }
@@ -2629,92 +2654,100 @@ img {
     background-position: 0 0;
   }
 
-  .icone-cle-bleu {
+  .icone-burn-gris {
     background-position: 0 -24px;
   }
 
+  .icone-burn-vert {
+    background-position: 0 -41px;
+  }
+
+  .icone-cle-bleu {
+    background-position: 0 -58px;
+  }
+
   .icone-cle-vert {
-    background-position: 0 -46px;
+    background-position: 0 -80px;
   }
 
   .icone-coeur {
-    background-position: 0 -68px;
+    background-position: 0 -102px;
   }
 
   .icone-cross-red {
-    background-position: 0 -95px;
+    background-position: 0 -129px;
   }
 
   .icone-cross-white {
-    background-position: 0 -117px;
+    background-position: 0 -151px;
   }
 
   .icone-fleche-bas {
-    background-position: 0 -139px;
+    background-position: 0 -173px;
   }
 
   .icone-loading-droite {
-    background-position: 0 -162px;
+    background-position: 0 -196px;
   }
 
   .icone-loading {
-    background-position: 0 -199px;
+    background-position: 0 -233px;
   }
 
   .icone-localisation {
-    background-position: 0 -236px;
+    background-position: 0 -270px;
   }
 
   .icone-plug {
-    background-position: 0 -257px;
+    background-position: 0 -291px;
   }
 
   .icone-stats-bleu {
-    background-position: 0 -279px;
+    background-position: 0 -313px;
   }
 
   .icone-stats-gris {
-    background-position: 0 -301px;
+    background-position: 0 -335px;
   }
 
   .icone-stylo-bleu {
-    background-position: 0 -323px;
+    background-position: 0 -357px;
   }
 
   .icone-stylo-gris {
-    background-position: 0 -345px;
+    background-position: 0 -379px;
   }
 
   .icone-stylo-plus-bleu {
-    background-position: 0 -367px;
+    background-position: 0 -401px;
   }
 
   .icone-stylo-plus-gris {
-    background-position: 0 -389px;
+    background-position: 0 -423px;
   }
 
   .icone-trash-red {
-    background-position: 0 -411px;
+    background-position: 0 -445px;
   }
 
   .icone-upload-bleu {
-    background-position: 0 -433px;
+    background-position: 0 -467px;
   }
 
   .icone-user-bleu {
-    background-position: 0 -455px;
+    background-position: 0 -489px;
   }
 
   .icone-user-gris {
-    background-position: 0 -477px;
+    background-position: 0 -511px;
   }
 
   .icone-valide-vert {
-    background-position: 0 -499px;
+    background-position: 0 -533px;
   }
 
   .icone-warning {
-    background-position: 0 -521px;
+    background-position: 0 -555px;
   }
 }
 @keyframes rotating {
@@ -3058,7 +3091,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1423089716');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1423153510');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;

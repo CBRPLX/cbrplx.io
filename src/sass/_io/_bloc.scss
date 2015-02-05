@@ -211,3 +211,30 @@
 	top: 48%;
 	left: 48%;
 }
+
+.bloc-list-article{
+	.preview-article{
+
+		.preview-content{
+
+			.border-online{
+				padding: 0 5px;
+
+				&.online{
+					background-color: $vert;
+				}
+			}
+
+			.preview-txt{
+
+				a{
+					color: $gris-font !important;
+
+					&:hover{
+						color: $bleu-link !important;
+					}
+				}
+			}
+		}
+	}
+}
