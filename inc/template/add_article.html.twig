@@ -22,7 +22,13 @@
 	<div class="row pas">
 		<div class="col w100">
 			<div class="preview-photo preview-couverture w100">
-				
+				{% if couverture != false %}
+					<img src="/{{couverture}}" />
+					<div class="preview-photo-options pas" id="{{couverture}}">
+						<span class="txtwhite lh1">{{couverture}}</span>
+						<span class="icone-cross-white right" title="Supprimer la photo" onclick="delPhoto('{{couverture}}')"></span>
+					</div>
+				{% endif %}
 			</div>
 		</div>
 	</div>
@@ -31,21 +37,23 @@
 			<input type="file" name="image" id="image" class="proxima w100" accept="image/*" onchange="changeInputPhoto('image')" />
 		</div>
 	</div>
-	<div class="row pas ptn">
-		<div class="col prs pts">
-			<div class="preview-photo preview-photo-article w100">
-				
-			</div>
+	{% for photos in all_photos %}
+		<div class="row pas ptn">
+			{% for photo in photos %}
+				<div class="col prs pts">
+					<div class="preview-photo preview-photo-article w100">
+						{% if photo != "" %}
+							<img src="/{{photo}}" />
+							<div class="preview-photo-options pas" id="{{photo}}">
+								<span class="txtwhite lh1">{{photo}}</span>
+								<span class="icone-cross-white right" title="Supprimer la photo" onclick="delPhoto('{{photo}}')"></span>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			{% endfor %}
 		</div>
-		<div class="col prs pts">
-			<div class="preview-photo preview-photo-article w100">
-			</div>
-		</div>
-		<div class="col prs pts">
-			<div class="preview-photo preview-photo-article w100">
-			</div>
-		</div>
-	</div>
+	{% endfor %}
 	<div class="row pas">
 		<div class="col">
 			<select name="auteur" id="id_auteur"class="proxima w100 champ_add_article">

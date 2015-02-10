@@ -86,7 +86,40 @@ class adminController {
         $article = new \classe\article();
         $article->load($id);
 
-        $contenu = $template->render(array('article' => $article));
+        $couverture = false;
+        $glob_couv = glob("assets/".$id."/".$id.".*");
+        if(count($glob_couv) > 0){
+            $couverture = $glob_couv[0];
+        }
+
+        $glob_photos = glob("assets/".$id."/".$id."_*.*");
+        $all_photos = array();
+        $i = 0;
+        $photos = array();
+
+        foreach ($glob_photos as $k => $v) {
+            if($i < 3){ //Si on n'a pas besoin de créer une ligne
+                array_push($photos, $v);
+                $i++;
+            }else{ //Si on a besoin de créer une nouvelle ligne
+                array_push($all_photos, $photos);
+                $photos = array();
+                array_push($photos, $v);
+                $i = 1;
+            }
+        }
+
+        while ($i < 3) {
+            array_push($photos, "");
+            $i++;
+        }
+        array_push($all_photos, $photos);
+
+        $contenu = $template->render(array(
+            'article' => $article, 
+            'couverture' => $couverture,
+            'all_photos' => $all_photos
+        ));
         return $contenu;
     }
 }
