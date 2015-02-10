@@ -27,7 +27,8 @@ if(!empty($_POST["id_article"])){
 	foreach($_FILES as $file){
 		if(strtolower(pathinfo($file['name'])['extension']) == "png" 
 			|| strtolower(pathinfo($file['name'])['extension']) == "jpg" 
-			|| strtolower(pathinfo($file['name'])['extension']) == "jpeg"){
+			|| strtolower(pathinfo($file['name'])['extension']) == "jpeg"
+			|| strtolower(pathinfo($file['name'])['extension']) == "gif"){
 
 			if($_POST["couverture"] == "1"){
 				if(move_uploaded_file($file['tmp_name'], $uploaddir ."/".$id_article.".".strtolower(pathinfo($file['name'])['extension']))){

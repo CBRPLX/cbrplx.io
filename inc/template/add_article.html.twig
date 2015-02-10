@@ -59,11 +59,9 @@
 			<select name="auteur" id="id_auteur"class="proxima w100 champ_add_article">
 				<option value="">Auteur</option>
 				<option value="">-----</option>
-				<option value="1">CBRPLX</option>
-				<option value="2">Johanjudai</option>
-				<option value="3">Kalgar</option>
-				<option value="4">Outpox</option>
-				<option value="5">Nurza</option>
+				{% for user in users %}
+					<option value="{{user.get('id_user')}}">{{user.get('login')}}</option>
+				{% endfor %}
 			</select>
 		</div>
 	</div>
@@ -75,11 +73,9 @@
 	<div class="row pas">
 		<div class="col">
 			<select multiple name="collegue" id="collegue" class="proxima w100 champ_add_article">
-				<option value="1">CBRPLX</option>
-				<option value="2">Johanjudai</option>
-				<option value="3">Kalgar</option>
-				<option value="4">Outpox</option>
-				<option value="5">Nurza</option>
+				{% for user in users %}
+					<option value="{{user.get('id_user')}}">{{user.get('login')}}</option>
+				{% endfor %}
 			</select>
 		</div>
 	</div>

@@ -23,21 +23,54 @@ class user{
     	$this->$attr = $value;
     }
 
-    public function load($id_user){
+    public function load($id_user = null){
     	global $pdo;
 
-        $sql = "SELECT * FROM cbrplx_io_user WHERE id_user = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(array($id_user));
+        if(!empty($id_article)){
+            $sql = "SELECT * FROM cbrplx_io_user WHERE id_user = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(array($id_user));
 
-        if($stmt->rowCount() > 0){
-            $res = $stmt->fetch(\PDO::FETCH_ASSOC);
-            foreach ($res as $k => $v) {
-                $this->$k = $v;
+            if($stmt->rowCount() > 0){
+                $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+                foreach ($res as $k => $v) {
+                    $this->$k = $v;
+                }
+                $img = glob("assets/users/".$this->id_user.".*");
+                if(count($img) > 0){
+                    $this->img = $img[0];
+                }else{
+                    $this->img = "assets/users/default.jpg";
+                }
+                return true;
+            }else{
+                return false;
             }
-            return true;
         }else{
-            return false;
+            $sql = "SELECT * FROM cbrplx_io_user ORDER BY date_inscription ASC";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+
+            if($stmt->rowCount() > 0){
+                $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+                $users = array();
+                foreach ($res as $k => $v) {
+                    $a = new \classe\user();
+                    foreach ($v as $ka => $va) {
+                        $a->$ka = $va;
+                    }
+                    $img = glob("assets/users/".$a->id_user.".*");
+                    if(count($img) > 0){
+                        $a->img = $img[0];
+                    }else{
+                        $a->img = "assets/users/default.jpg";
+                    }
+                    array_push($users, $a);
+                }
+                return $users;
+            }else{
+                return false;
+            }
         }
     }
 

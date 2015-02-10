@@ -1,0 +1,13 @@
+<div class="bloc-list-user">
+	{% for user in users %}
+		<div class="pas">
+			<div class="col w80p bloc-rond inbl txtmiddle">
+				<img src="/{{user.img}}" class="bloc-rond" />
+			</div>
+			<div class="inbl pls txtmiddle">
+				<div class="h2-like proxima-bold txtgristitle">{{user.get('prenom')}} {{user.get('nom')}}</div>
+				<div class="">6 posts, 1 contribution</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

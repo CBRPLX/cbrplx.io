@@ -45,6 +45,9 @@ class adminController {
             case 'modify_article':
                 $code = $this->genererModifyArticle($id);
                 break;
+            case 'list_user':
+                $code = $this->genererListUser();
+                break;
             
             default:
                 $code = $this->genererAddArticle();
@@ -60,7 +63,12 @@ class adminController {
 
         $template = $twig->loadTemplate('add_article.html.twig');
 
-        $contenu = $template->render(array());
+        $users = new \classe\user();
+        $users = $users->load();
+
+        $contenu = $template->render(array(
+            'users' => $users
+        ));
         return $contenu;
     }
 
@@ -115,11 +123,32 @@ class adminController {
         }
         array_push($all_photos, $photos);
 
+        $users = new \classe\user();
+        $users = $users->load();
+
+        $contenu = $template->render(array(
+            'users' => $users
+        ));
+
         $contenu = $template->render(array(
             'article' => $article, 
             'couverture' => $couverture,
-            'all_photos' => $all_photos
+            'all_photos' => $all_photos,
+            'users' => $users
         ));
+        return $contenu;
+    }
+
+    public function genererListUser(){
+        global $twig;
+        global $dev;
+
+        $template = $twig->loadTemplate('list_user.html.twig');
+
+        $users = new \classe\user();
+        $users = $users->load();
+
+        $contenu = $template->render(array('users' => $users));
         return $contenu;
     }
 }
