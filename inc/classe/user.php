@@ -65,6 +65,8 @@ class user{
                     }else{
                         $a->img = "assets/users/default.jpg";
                     }
+                    $a->getNbPost();
+                    $a->getNbContrib();
                     array_push($users, $a);
                 }
                 return $users;
@@ -87,6 +89,38 @@ class user{
         if($stmt->rowCount() > 0){
             $res = $stmt->fetch(\PDO::FETCH_ASSOC);
             $this->load($res["id_user"]);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function getNbPost(){
+        global $pdo;
+
+        $sql = "SELECT count(id_article) as nb_post FROM cbrplx_io_article WHERE id_auteur = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($this->id_user));
+
+        if($stmt->rowCount() > 0){
+            $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $this->nb_post = $res["nb_post"];
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function getNbContrib(){
+        global $pdo;
+
+        $sql = "SELECT count(id_article) as nb_contrib FROM cbrplx_io_article WHERE ids_contributeurs LIKE ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array('%;'.$this->id_user.';%'));
+
+        if($stmt->rowCount() > 0){
+            $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $this->nb_contrib = $res["nb_contrib"];
             return true;
         }else{
             return false;

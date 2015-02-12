@@ -6,7 +6,7 @@
 			</div>
 			<div class="inbl pls txtmiddle">
 				<div class="h2-like proxima-bold txtgristitle">{{user.get('prenom')}} {{user.get('nom')}}</div>
-				<div class="">6 posts, 1 contribution</div>
+				<div class="">{{user.get('nb_post')}} posts, {{user.get('nb_contrib')}} contribution</div>
 			</div>
 		</div>
 	{% endfor %}

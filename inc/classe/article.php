@@ -57,6 +57,8 @@ class article{
                 foreach ($res as $k => $v) {
                     $a = new \classe\article();
                     foreach ($v as $ka => $va) {
+                        if($ka == "ids_contributeurs")
+                            $va = explode(";", $va);
                         $a->$ka = $va;
                     }
                     array_push($article, $a);
@@ -91,7 +93,7 @@ class article{
         if(isset($params["collegue"])){
             $collegue = $params["collegue"];
             $collegue = implode(";", $collegue);
-            $params["ids_contributeurs"] = $collegue;
+            $params["ids_contributeurs"] = ";".$collegue.";";
             unset($params["collegue"]);
         }
         foreach ($params as $k => $v) {
