@@ -104,15 +104,6 @@ function hideAllChargement(){
     };
 }
 
-function MAJScripts(){
-    console.log("maj");
-    var scripts = document.getElementsByTagName("script");
-    for (var i = document.getElementsByTagName("script").length - 1; i >= 0; i--) {
-        console.log(document.getElementsByTagName("script")[i]);
-        eval(document.getElementsByTagName("script")[i].innerHTML);
-    };
-}
-
 function getValueMulti(select){
     var tab = [];
     for (var i = select.children.length - 1; i >= 0; i--) {

@@ -2389,7 +2389,7 @@ img {
 .bloc-header .bloc-header-contenu .row .col .photo-profil {
   width: 150px;
   height: 150px;
-  background-image: url("/dist/images/photo-profil.jpg");
+  background-image: url("/assets/users/1.jpg=300x300xcarre");
   background-size: 150px 150px;
 }
 .bloc-header .bloc-header-contenu .row + .row {
@@ -3168,7 +3168,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1423755198');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1423756858');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;

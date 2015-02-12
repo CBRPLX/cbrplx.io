@@ -222,21 +222,22 @@ class article{
                 $days_ago .= $interval->h." heures";
             }
 
-            if($interval->m > 0){
-                if($interval->m > 0){
-                    $days_ago .= " & ".$interval->m." minute";
+            if($interval->i > 0){
+                if($interval->i == 1){
+                    $days_ago .= " & ".$interval->i." minute";
                 }else{
-                    $days_ago .= " & ".$interval->m." minutes";
+                    $days_ago .= " & ".$interval->i." minutes";
                 }
             }
         }else{
-            if($interval->m > 0){
-                $days_ago .= $interval->m." minute";
-            }else{
-                $days_ago .= $interval->m." minutes";
+            if($interval->i > 0){
+                if($interval->i == 1){
+                    $days_ago .= $interval->i." minute";
+                }else{
+                    $days_ago .= $interval->i." minutes";
+                }
             }
         }
-
         return $days_ago;
     }
 
