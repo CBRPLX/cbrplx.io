@@ -11,6 +11,7 @@ class article{
     private $date_modif;
 	private $text;
 	private $projet;
+    private $ids_contributeurs;
 	private $online;
     private $tags;
 
@@ -37,6 +38,8 @@ class article{
             if($stmt->rowCount() > 0){
                 $res = $stmt->fetch(\PDO::FETCH_ASSOC);
                 foreach ($res as $k => $v) {
+                    if($k == "ids_contributeurs")
+                        $v = explode(";", $v);
                     $this->$k = $v;
                 }
                 return true;
@@ -87,6 +90,8 @@ class article{
         $tab = array();
         if(isset($params["collegue"])){
             $collegue = $params["collegue"];
+            $collegue = implode(";", $collegue);
+            $params["ids_contributeurs"] = $collegue;
             unset($params["collegue"]);
         }
         foreach ($params as $k => $v) {

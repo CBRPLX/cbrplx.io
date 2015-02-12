@@ -7,8 +7,8 @@
 	</div>
 	<div class="pls prs txtcenter row">
 		<div class="bloc-ss-titre mls mrs mts uppercase txtcenter h6-like inbl">
-			<a href="#" class="txtcenter inbl admin-onglet admin-selected" id="add_article">
-				<span class="col col-mobile txtmiddle"><span class="icone-stylo-plus-gris txtmiddle"></span></span>
+			<a href="#" class="txtcenter inbl admin-onglet" id="add_article">
+				<span class="col col-mobile txtmiddle"><span class="icone-stylo-plus-bleu txtmiddle"></span></span>
 				<span class="txtmiddle pls col col-mobile">Ajouter un article</span>
 			</a>
 		</div>
@@ -82,12 +82,13 @@
 	        hideAllChargement();
 	    // }, 0);
 	}
+		
+	// document.getElementById("add_article").click();
 	</script>
 	{% endblock %}
 
 	<div class="bloc-text proxima ptl" id="bloc-admin-block">
 		{% block admin_block %}
-			{% include 'add_article.html.twig' %}
 		{% endblock %}
 	</div>
 </div>
