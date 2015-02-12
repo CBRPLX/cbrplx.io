@@ -65,6 +65,15 @@ a, .a-like{
 	}
 }
 
+.not-a-like{
+	color: inherit;
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
 .uppercase{
 	text-transform: uppercase;
 }
@@ -72,6 +81,12 @@ a, .a-like{
 .transition{
   @include transition-property(all);
   @include transition-duration(0.1s);
+  @include transition-timing-function(ease);
+}
+
+.transition-fast{
+  @include transition-property(all);
+  @include transition-duration(0.3s);
   @include transition-timing-function(ease);
 }
 
@@ -153,5 +168,12 @@ img{
 		[class^='icone-cross']{
 			cursor: pointer;
 		}
+	}
+}
+
+.date{
+	cursor: default !important;
+	&.date-jour{
+		display: none;
 	}
 }

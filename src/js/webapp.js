@@ -212,6 +212,28 @@ function uploadPhoto(id, id_article, couverture){
     }
 }
 
+function switchDate(){
+    if(document.getElementsByClassName("date-mois").length > 0){
+        var dates = document.getElementsByClassName("date-mois");
+        for (var i = dates.length - 1; i >= 0; i--) {
+            dates[i].addEventListener("mouseover", function(){
+                this.nextSibling.nextElementSibling.style.display = "inline";
+                this.style.display = "none";
+            });
+        };
+    }
+
+    if(document.getElementsByClassName("date-jour").length > 0){
+        var dates = document.getElementsByClassName("date-jour");
+        for (var i = dates.length - 1; i >= 0; i--) {
+            dates[i].addEventListener("mouseout", function(){
+                this.previousSibling.previousElementSibling.style.display = "inline";
+                this.style.display = "none";
+            });
+        };
+    }
+}
+
 window.onload = function(){
     if(!WURFL.is_mobile || !(("standalone" in window.navigator) && !window.navigator.standalone))
         window.addEventListener("resize", function(){sizeBanieres();});
@@ -222,5 +244,5 @@ window.onload = function(){
     document.getElementById("bloc-chargement-general").style.opacity = "0";
 
     MAJScripts();
-    
+    switchDate();
 }

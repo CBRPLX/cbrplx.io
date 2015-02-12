@@ -307,6 +307,10 @@
 	.row { 
 		display: block !important;
 		width: 100% !important;
+
+		&.row-mobile{
+			display: table !important;
+		}
 	}
 
 	/* layouts for tiny screens */

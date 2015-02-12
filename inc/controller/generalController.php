@@ -53,7 +53,11 @@ class generalController {
         global $dev;
         $template = $twig->loadTemplate('a_propos.html.twig');
 
+        $projets = new \classe\article();
+        $projets = $projets->getProjets();
+
         $contenu = $template->render(array(
+            'projets' => $projets
         ));
 
         return $this->genererSquelette($contenu, true, "a_propos");

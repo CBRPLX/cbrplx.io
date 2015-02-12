@@ -10,7 +10,13 @@
 					{% endif %}
 				</div>
 				<div class="preview-txt pls inbl col col-mobile txtmiddle">
-					<a class="h5-like proxima-bold lien_article" href="#" id="{{article.get('id_article')}}">{{article.get('titre')}}</a>
+					<a class="h5-like proxima-bold lien_article" href="#" id="{{article.get('id_article')}}">
+						{% if article.get('projet') == '1' %}
+							{{article.get('id_article')}} : # : {{article.get('titre')}}
+						{% else %}
+							{{article.get('id_article')}} : &nbsp; : {{article.get('titre')}}
+						{% endif %}
+					</a>
 				</div>
 				<div class="col txtmiddle inbl right small-hidden tiny-hidden">
 					{{article.get('nb_vue')}}

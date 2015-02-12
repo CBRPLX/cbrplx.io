@@ -98,4 +98,28 @@
 			</li>
 		</ul>
 	</div>
+
+	<!-- MES PROJETS -->
+	<div class="bloc-baniere" id="mes_projets" style="background-image:url('/dist/images/projets.jpg')">
+	</div>
+	<div class="bloc-titre txtcenter pas">
+		Mes projets
+	</div>
+
+	{% for projet in projets %}
+		<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
+			<span class="icone-horloge-gris txtmiddle"></span>
+			<span class="txtmiddle pls date date-mois">{{projet.get('days_ago')}}</span>
+			<span class="txtmiddle pls date date-jour">{{projet.get('date')}}</span>
+		</div>
+		<div class="bloc-text h5-like pls prs">
+			<div class="bloc-projet transition-fast" style="background-image:url('/{{projet.getCouverture()}}')">
+				<div class="bloc-projet-contenu row row-mobile transition">
+					<a href="/article/{{projet.getUrl()}}" class="col txtwhite col-mobile h1-like proxima-bold txtmiddle txtcenter not-a-like">
+						{{projet.get('titre')}}
+					</a>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
 </div>
