@@ -242,7 +242,7 @@ class article{
 
     public function getCouverture(){
         $glob_couv = glob("assets/".$this->id_article."/".$this->id_article.".*");
-        $couverture = "dist/projets.jpg";
+        $couverture = "dist/images/default.jpg";
         if(count($glob_couv) > 0){
             $couverture = $glob_couv[0];
         }

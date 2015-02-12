@@ -54,12 +54,15 @@
 			document.getElementById("bloc-admin-block").innerHTML = "";
 			var fichier = onglet.id;
 			var retour = file("/inc/ajax/admin/afficher_onglet.php", "onglet="+fichier+"&id="+id);
-
+			// console.log(retour.getElementsByTagName("script"));
+			// eval(retour);
 			document.getElementById("bloc-admin-block").innerHTML = retour;
-			MAJScripts();
+			exec_body_scripts(document.getElementById("bloc-admin-block"));
+			// MAJScripts();
 			// window.setTimeout(function(){
 				hideAllChargement();
-			// }, 0);
+			// 	MAJScripts();
+			// }, 1000);
 		}
 	}
 
@@ -77,7 +80,8 @@
 	function afficherArticle(id){
 	    var retour = file("/inc/ajax/admin/afficher_onglet.php", "onglet=modify_article&id="+id);
 	    document.getElementById("bloc-admin-block").innerHTML = retour;
-	    MAJScripts();
+	    exec_body_scripts(document.getElementById("bloc-admin-block"));
+	    // MAJScripts();
 	    // window.setTimeout(function(){
 	        hideAllChargement();
 	    // }, 0);

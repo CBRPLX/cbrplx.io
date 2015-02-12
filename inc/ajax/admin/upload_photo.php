@@ -1,5 +1,5 @@
 <?php chdir("../../../");
-require "/inc/php/config.php";
+require "inc/php/config.php";
 
 $retour = new stdClass();
 $retour->img = false;
@@ -25,19 +25,20 @@ if(!empty($_POST["id_article"])){
 	}
 
 	foreach($_FILES as $file){
-		if(strtolower(pathinfo($file['name'])['extension']) == "png" 
-			|| strtolower(pathinfo($file['name'])['extension']) == "jpg" 
-			|| strtolower(pathinfo($file['name'])['extension']) == "jpeg"
-			|| strtolower(pathinfo($file['name'])['extension']) == "gif"){
+		$file_name = pathinfo($file['name']);
+		if(strtolower($file_name["extension"]) == "png" 
+			|| strtolower($file_name["extension"]) == "jpg" 
+			|| strtolower($file_name["extension"]) == "jpeg"
+			|| strtolower($file_name["extension"]) == "gif"){
 
 			if($_POST["couverture"] == "1"){
-				if(move_uploaded_file($file['tmp_name'], $uploaddir ."/".$id_article.".".strtolower(pathinfo($file['name'])['extension']))){
-					$retour->img = $uploaddir ."/".$id_article.".".strtolower(pathinfo($file['name'])['extension']);
+				if(move_uploaded_file($file['tmp_name'], $uploaddir ."/".$id_article.".".strtolower($file_name['extension']))){
+					$retour->img = $uploaddir ."/".$id_article.".".strtolower($file_name['extension']);
 					$retour->new_row = "";
 				}
 			}else{
-				if(move_uploaded_file($file['tmp_name'], $uploaddir ."/".$id_article."_".$nb_img.".".strtolower(pathinfo($file['name'])['extension']))){
-					$retour->img = $uploaddir ."/".$id_article."_".$nb_img.".".strtolower(pathinfo($file['name'])['extension']);
+				if(move_uploaded_file($file['tmp_name'], $uploaddir ."/".$id_article."_".$nb_img.".".strtolower($file_name['extension']))){
+					$retour->img = $uploaddir ."/".$id_article."_".$nb_img.".".strtolower($file_name['extension']);
 					$retour->new_row = file_get_contents("inc/template/image_row.html");
 					$retour->nb_img = $nb_img;
 				}

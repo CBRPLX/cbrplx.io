@@ -2197,8 +2197,8 @@ a:hover, .a-like:hover {
 .transition-fast {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.35s;
-  transition-duration: 0.35s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
 }
@@ -3168,7 +3168,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1423739138');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1423755198');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
