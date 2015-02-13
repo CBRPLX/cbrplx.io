@@ -1,8 +1,9 @@
 Options +FollowSymlinks
 RewriteEngine on
 
-RewriteCond %{QUERY_STRING} PHPSESSID=.*$ 
-RewriteRule .* %{REQUEST_URI}? [R=301,L]
+#RewriteCond %{QUERY_STRING} PHPSESSID=.*$ 
+#RewriteRule .* %{REQUEST_URI}? [R=301,L]
 
-RewriteRule ^about/$  a_propos.php [L]
-RewriteRule ^admin/$  admin.php [L]
+RewriteRule ^about/$  a_propos.php
+RewriteRule ^admin/$  admin.php
+RewriteRule ^articles/(.*)-(.*)$  article.php?id_article=$2

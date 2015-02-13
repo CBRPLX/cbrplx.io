@@ -122,6 +122,8 @@
 .bloc-rond {
 	@include border-radius(50%);
 	background-color: #FFFFFF;
+	overflow: hidden;
+
 	&.cadre {
 		border: 1px solid $gris-font;
 	}
@@ -176,6 +178,7 @@
 		line-height: 30px;
 		margin-top: 30px;
 		padding-bottom: 100px;
+		color: $gris-font;
 
 		.list-a-propos{
 			.col{
@@ -225,6 +228,83 @@
 				&:hover{
 					color: $white;
 					background-color: rgba(0,0,0,0.3);
+				}
+			}
+		}
+
+		p{
+			text-align: justify;
+		}
+
+		img{
+			width: 100%;
+		}
+
+		.legend{
+			background-color: $gris-back;
+			text-align: center;
+			font-style: italic;
+			font-size: 0.8em;
+		}
+	}
+
+	.bloc-container-footer{
+		background-color: $gris-back;
+		border-top: 1px solid $gris-border;
+		border-bottom: 1px solid $gris-border;
+
+		a{
+			color: $gris-font;
+
+			&:hover{
+				color: $gris-font;
+			}
+		}
+
+		&>.row{
+			max-width: 600px;
+			margin: auto;
+			margin-top: 70px;
+			margin-bottom: 70px;
+			display: table !important;
+
+			&>div:first-of-type{
+				padding-top: 4px;
+
+				@media (max-width: $small-screen) {
+					padding-top: 9px;
+				}
+
+				@media (max-width: $medium-screen) {
+					padding-top: 7px;
+				}
+
+				&.techno{
+					padding-top: 0;
+				}
+			}
+
+			@media (max-width: $small-screen) {
+				.col-mobile{
+					vertical-align: top !important;
+
+					&.w30{
+						width: 30% !important;
+					}
+
+					.w70{
+						width: 70% !important;
+					}
+				}
+			}
+
+			@media (max-width: $tiny-screen) {
+				.col-techno{
+					span{
+						display: block;
+						margin: auto;
+						text-align: center;
+					}
 				}
 			}
 		}

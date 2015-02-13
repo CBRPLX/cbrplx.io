@@ -117,11 +117,18 @@ class adminController {
             }
         }
 
+        if($i == 3){
+            array_push($all_photos, $photos);
+            $photos = array();
+            $i = 0;
+        }
+
         while ($i < 3) {
             array_push($photos, "");
             $i++;
         }
         array_push($all_photos, $photos);
+
 
         $users = new \classe\user();
         $users = $users->load();

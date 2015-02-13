@@ -26,7 +26,7 @@ class user{
     public function load($id_user = null){
     	global $pdo;
 
-        if(!empty($id_article)){
+        if(!empty($id_user)){
             $sql = "SELECT * FROM cbrplx_io_user WHERE id_user = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute(array($id_user));
@@ -42,6 +42,9 @@ class user{
                 }else{
                     $this->img = "assets/users/default.jpg";
                 }
+                $this->getNbPost();
+                $this->getNbContrib();
+
                 return true;
             }else{
                 return false;

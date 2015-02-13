@@ -1,0 +1,138 @@
+<div class="bloc-container proxima-bold">
+	<!-- MON EXPERIENCE -->
+	<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')">
+	</div>
+	<div class="bloc-titre txtcenter pas">
+		{{article.get("titre")}}
+	</div>
+	<!-- NANCY / PARIS -->
+	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
+		<span class="icone-horloge-gris txtmiddle"></span>
+		<span class="txtmiddle pls date date-mois">{{article.get('days_ago')}}</span>
+		<span class="txtmiddle pls date date-jour">{{article.get('date')}}</span>
+	</div>
+	<div class="bloc-text h5-like pls prs proxima">
+			{{article.get('text')|raw|nl2br}}
+	</div>
+	<div class="bloc-auteur bloc-container-footer prs pls">
+		<!-- AUTEUR -->
+		<div class="row">
+			<div class="col col-mobile w30 txttop">
+				Auteur de cet article
+			</div>
+			<div class="col col-mobile w70 txttop pls">
+				<div class="mbs">
+					<div class="bloc-rond inbl w50p txtmiddle">
+						<img src="/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+					</div>
+					<div class="txtmiddle inbl pls">
+						<a href="#">{{auteur.get('prenom')}} {{auteur.get('nom')}}</a>
+						<div class="proxima">
+							{{auteur.get('nb_post')}} post, {{auteur.get('nb_contrib')}} 
+							contribution{% if auteur.get('nb_contrib') > '1' %}s{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% if article.get('projet') == '1' %}
+			<!-- CONTRIBUTEURS -->
+			<div class="row">
+				<div class="col col-mobile w30 txttop">
+					Contributeurs du projet
+				</div>
+				<div class="col col-mobile w70 txttop pls">
+					{% for contrib in contribs %}
+						<div class="mbs">
+							<div class="bloc-rond inbl w50p txtmiddle">
+								<img src="/{{contrib.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+							</div>
+							<div class="txtmiddle inbl pls">
+								<a href="#">{{contrib.get('prenom')}} {{contrib.get('nom')}}</a>
+								<div class="proxima">
+									{{contrib.get('nb_post')}} post, {{contrib.get('nb_contrib')}} 
+									contribution{% if contrib.get('nb_contrib') > '1' %}s{% endif %}
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<!-- TECHNOLOGIES -->
+			<div class="row">
+				<div class="col col-mobile w30 txttop techno">
+					Technologies utilisées
+				</div>
+				<div class="col col-mobile w70 txttop pls">
+					<div class="mbs">
+						<div class="row row-mobile">
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="icone-css txtmiddle"></span>
+									<span class="txtmiddle">CSS 3</span>
+								</div>
+							</div>
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="icone-git txtmiddle"></span>
+									<span class="txtmiddle">Git</span>
+								</div>
+							</div>
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="icone-responsive txtmiddle"></span>
+									<span class="txtmiddle">Responsive</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mbs">
+						<div class="row row-mobile">
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="icone-machine txtmiddle"></span>
+									<span class="txtmiddle">MVC</span>
+								</div>
+							</div>
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="icone-bdd txtmiddle"></span>
+									<span class="txtmiddle">MySQL</span>
+								</div>
+							</div>
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="icone-box txtmiddle"></span>
+									<span class="txtmiddle">Node.js</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mbs">
+						<div class="row row-mobile">
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="icone-html txtmiddle"></span>
+									<span class="txtmiddle">HTML 5</span>
+								</div>
+							</div>
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="icone-illustrator txtmiddle"></span>
+									<span class="txtmiddle">Illustrator</span>
+								</div>
+							</div>
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="icone-photoshop txtmiddle"></span>
+									<span class="txtmiddle">Phtoshop</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>

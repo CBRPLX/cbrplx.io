@@ -2414,6 +2414,7 @@ img {
 .bloc-rond {
   border-radius: 50%;
   background-color: #FFFFFF;
+  overflow: hidden;
 }
 .bloc-rond.cadre {
   border: 1px solid #858383;
@@ -2461,6 +2462,7 @@ img {
   line-height: 30px;
   margin-top: 30px;
   padding-bottom: 100px;
+  color: #858383;
 }
 .bloc-container .bloc-text .list-a-propos .col:first-of-type {
   min-width: 39px;
@@ -2505,6 +2507,70 @@ img {
 .bloc-container .bloc-text .bloc-projet .bloc-projet-contenu:hover {
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
+}
+.bloc-container .bloc-text p {
+  text-align: justify;
+}
+.bloc-container .bloc-text img {
+  width: 100%;
+}
+.bloc-container .bloc-text .legend {
+  background-color: #f4f4f4;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.8em;
+}
+.bloc-container .bloc-container-footer {
+  background-color: #f4f4f4;
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+}
+.bloc-container .bloc-container-footer a {
+  color: #858383;
+}
+.bloc-container .bloc-container-footer a:hover {
+  color: #858383;
+}
+.bloc-container .bloc-container-footer > .row {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  display: table !important;
+}
+.bloc-container .bloc-container-footer > .row > div:first-of-type {
+  padding-top: 4px;
+}
+@media (max-width: 768px) {
+  .bloc-container .bloc-container-footer > .row > div:first-of-type {
+    padding-top: 9px;
+  }
+}
+@media (max-width: 1024px) {
+  .bloc-container .bloc-container-footer > .row > div:first-of-type {
+    padding-top: 7px;
+  }
+}
+.bloc-container .bloc-container-footer > .row > div:first-of-type.techno {
+  padding-top: 0;
+}
+@media (max-width: 768px) {
+  .bloc-container .bloc-container-footer > .row .col-mobile {
+    vertical-align: top !important;
+  }
+  .bloc-container .bloc-container-footer > .row .col-mobile.w30 {
+    width: 30% !important;
+  }
+  .bloc-container .bloc-container-footer > .row .col-mobile .w70 {
+    width: 70% !important;
+  }
+}
+@media (max-width: 480px) {
+  .bloc-container .bloc-container-footer > .row .col-techno span {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2556,13 +2622,13 @@ img {
 }
 
 [class^="icone-"] {
-  background: url('../images/icone-s447fe2d4c3.png');
+  background: url('../images/icone-see4a4977ee.png');
   display: inline-block;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   [class^="icone-"] {
-    background: url('../images/icone-2x-s8836d2a11e.png');
-    background-size: 55px 593px;
+    background: url('../images/icone-2x-s176e6f2965.png');
+    background-size: 55px 782px;
   }
 }
 
@@ -2572,152 +2638,206 @@ img {
   width: 19px;
 }
 
-.icone-burn-gris {
+.icone-bdd {
   background-position: 0 -24px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-box {
+  background-position: 0 -45px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-burn-gris {
+  background-position: 0 -66px;
   height: 12px;
   width: 12px;
 }
 
 .icone-burn-vert {
-  background-position: 0 -41px;
+  background-position: 0 -83px;
   height: 12px;
   width: 12px;
 }
 
 .icone-cle-bleu {
-  background-position: 0 -58px;
+  background-position: 0 -100px;
   height: 17px;
   width: 17px;
 }
 
 .icone-cle-vert {
-  background-position: 0 -80px;
+  background-position: 0 -122px;
   height: 17px;
   width: 17px;
 }
 
 .icone-coeur {
-  background-position: 0 -102px;
+  background-position: 0 -144px;
   height: 22px;
   width: 15px;
 }
 
 .icone-cross-red {
-  background-position: 0 -129px;
+  background-position: 0 -171px;
   height: 17px;
   width: 17px;
 }
 
 .icone-cross-white {
-  background-position: 0 -151px;
+  background-position: 0 -193px;
   height: 17px;
   width: 17px;
 }
 
+.icone-css {
+  background-position: 0 -215px;
+  height: 16px;
+  width: 16px;
+}
+
 .icone-fleche-bas {
-  background-position: 0 -173px;
+  background-position: 0 -236px;
   height: 18px;
   width: 55px;
 }
 
+.icone-git {
+  background-position: 0 -259px;
+  height: 16px;
+  width: 16px;
+}
+
 .icone-horloge-gris {
-  background-position: 0 -196px;
+  background-position: 0 -280px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-html {
+  background-position: 0 -301px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-illustrator {
+  background-position: 0 -322px;
   height: 16px;
   width: 16px;
 }
 
 .icone-loading-droite {
-  background-position: 0 -217px;
+  background-position: 0 -343px;
   height: 32px;
   width: 32px;
 }
 
 .icone-loading {
-  background-position: 0 -254px;
+  background-position: 0 -380px;
   height: 32px;
   width: 32px;
 }
 
 .icone-localisation {
-  background-position: 0 -291px;
+  background-position: 0 -417px;
   height: 16px;
   width: 11px;
 }
 
+.icone-machine {
+  background-position: 0 -438px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-photoshop {
+  background-position: 0 -459px;
+  height: 16px;
+  width: 16px;
+}
+
 .icone-plug {
-  background-position: 0 -312px;
+  background-position: 0 -480px;
   height: 17px;
   width: 17px;
 }
 
+.icone-responsive {
+  background-position: 0 -502px;
+  height: 16px;
+  width: 16px;
+}
+
 .icone-stats-bleu {
-  background-position: 0 -334px;
+  background-position: 0 -523px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stats-gris {
-  background-position: 0 -356px;
+  background-position: 0 -545px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-bleu {
-  background-position: 0 -378px;
+  background-position: 0 -567px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-gris {
-  background-position: 0 -400px;
+  background-position: 0 -589px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-plus-bleu {
-  background-position: 0 -422px;
+  background-position: 0 -611px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-plus-gris {
-  background-position: 0 -444px;
+  background-position: 0 -633px;
   height: 17px;
   width: 17px;
 }
 
 .icone-trash-red {
-  background-position: 0 -466px;
+  background-position: 0 -655px;
   height: 17px;
   width: 17px;
 }
 
 .icone-upload-bleu {
-  background-position: 0 -488px;
+  background-position: 0 -677px;
   height: 17px;
   width: 17px;
 }
 
 .icone-user-bleu {
-  background-position: 0 -510px;
+  background-position: 0 -699px;
   height: 17px;
   width: 17px;
 }
 
 .icone-user-gris {
-  background-position: 0 -532px;
+  background-position: 0 -721px;
   height: 17px;
   width: 17px;
 }
 
 .icone-valide-vert {
-  background-position: 0 -554px;
+  background-position: 0 -743px;
   height: 17px;
   width: 17px;
 }
 
 .icone-warning {
-  background-position: 0 -576px;
+  background-position: 0 -765px;
   height: 17px;
   width: 17px;
 }
@@ -2727,104 +2847,140 @@ img {
     background-position: 0 0;
   }
 
-  .icone-burn-gris {
+  .icone-bdd {
     background-position: 0 -24px;
   }
 
+  .icone-box {
+    background-position: 0 -45px;
+  }
+
+  .icone-burn-gris {
+    background-position: 0 -66px;
+  }
+
   .icone-burn-vert {
-    background-position: 0 -41px;
+    background-position: 0 -83px;
   }
 
   .icone-cle-bleu {
-    background-position: 0 -58px;
+    background-position: 0 -100px;
   }
 
   .icone-cle-vert {
-    background-position: 0 -80px;
+    background-position: 0 -122px;
   }
 
   .icone-coeur {
-    background-position: 0 -102px;
+    background-position: 0 -144px;
   }
 
   .icone-cross-red {
-    background-position: 0 -129px;
+    background-position: 0 -171px;
   }
 
   .icone-cross-white {
-    background-position: 0 -151px;
+    background-position: 0 -193px;
+  }
+
+  .icone-css {
+    background-position: 0 -215px;
   }
 
   .icone-fleche-bas {
-    background-position: 0 -173px;
+    background-position: 0 -236px;
+  }
+
+  .icone-git {
+    background-position: 0 -259px;
   }
 
   .icone-horloge-gris {
-    background-position: 0 -196px;
+    background-position: 0 -280px;
+  }
+
+  .icone-html {
+    background-position: 0 -301px;
+  }
+
+  .icone-illustrator {
+    background-position: 0 -322px;
   }
 
   .icone-loading-droite {
-    background-position: 0 -217px;
+    background-position: 0 -343px;
   }
 
   .icone-loading {
-    background-position: 0 -254px;
+    background-position: 0 -380px;
   }
 
   .icone-localisation {
-    background-position: 0 -291px;
+    background-position: 0 -417px;
+  }
+
+  .icone-machine {
+    background-position: 0 -438px;
+  }
+
+  .icone-photoshop {
+    background-position: 0 -459px;
   }
 
   .icone-plug {
-    background-position: 0 -312px;
+    background-position: 0 -480px;
+  }
+
+  .icone-responsive {
+    background-position: 0 -502px;
   }
 
   .icone-stats-bleu {
-    background-position: 0 -334px;
+    background-position: 0 -523px;
   }
 
   .icone-stats-gris {
-    background-position: 0 -356px;
+    background-position: 0 -545px;
   }
 
   .icone-stylo-bleu {
-    background-position: 0 -378px;
+    background-position: 0 -567px;
   }
 
   .icone-stylo-gris {
-    background-position: 0 -400px;
+    background-position: 0 -589px;
   }
 
   .icone-stylo-plus-bleu {
-    background-position: 0 -422px;
+    background-position: 0 -611px;
   }
 
   .icone-stylo-plus-gris {
-    background-position: 0 -444px;
+    background-position: 0 -633px;
   }
 
   .icone-trash-red {
-    background-position: 0 -466px;
+    background-position: 0 -655px;
   }
 
   .icone-upload-bleu {
-    background-position: 0 -488px;
+    background-position: 0 -677px;
   }
 
   .icone-user-bleu {
-    background-position: 0 -510px;
+    background-position: 0 -699px;
   }
 
   .icone-user-gris {
-    background-position: 0 -532px;
+    background-position: 0 -721px;
   }
 
   .icone-valide-vert {
-    background-position: 0 -554px;
+    background-position: 0 -743px;
   }
 
   .icone-warning {
-    background-position: 0 -576px;
+    background-position: 0 -765px;
   }
 }
 @keyframes rotating {
@@ -3168,7 +3324,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1423756858');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1423842467');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;

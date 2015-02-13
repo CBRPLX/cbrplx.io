@@ -42,6 +42,8 @@ class article{
                         $v = explode(";", $v);
                     $this->$k = $v;
                 }
+                $this->days_ago = $this->daysAgo($this->date_publication);
+                $this->date = strftime("%d %B %Y", $this->date_publication);
                 return true;
             }else{
                 return false;
@@ -61,6 +63,8 @@ class article{
                             $va = explode(";", $va);
                         $a->$ka = $va;
                     }
+                    $a->days_ago = $a->daysAgo($a->date_publication);
+                    $a->date = strftime("%d %B %Y", $a->date_publication);
                     array_push($article, $a);
                 }
                 return $article;
@@ -243,7 +247,7 @@ class article{
 
     public function getCouverture(){
         $glob_couv = glob("assets/".$this->id_article."/".$this->id_article.".*");
-        $couverture = "dist/images/default.jpg";
+        $couverture = "assets/0/0.jpg";
         if(count($glob_couv) > 0){
             $couverture = $glob_couv[0];
         }
@@ -252,5 +256,18 @@ class article{
 
     public function getUrl(){
         return preg_replace("@ @", "-", strtolower($this->titre))."-".$this->id_article;
+    }
+
+    public function getContributeurs(){
+        $contrib = array();
+        $this->ids_contributeurs = array_reverse($this->ids_contributeurs);
+        foreach ($this->ids_contributeurs as $k => $v) {
+            if(!empty($v)){
+                $c = new \classe\user();
+                $c->load($v);
+                array_push($contrib, $c);
+            }
+        }
+        return $contrib;
     }
 }

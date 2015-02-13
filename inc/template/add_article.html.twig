@@ -23,7 +23,7 @@
 		<div class="col w100">
 			<div class="preview-photo preview-couverture w100">
 				{% if couverture != false %}
-					<img src="/{{couverture}}" />
+					<img src="/{{couverture}}?{{date().timestamp}}" />
 					<div class="preview-photo-options pas" id="{{couverture}}">
 						<span class="txtwhite lh1">{{couverture}}</span>
 						<span class="icone-cross-white right" title="Supprimer la photo" onclick="delPhoto('{{couverture}}')"></span>
@@ -43,7 +43,7 @@
 				<div class="col prs pts">
 					<div class="preview-photo preview-photo-article w100">
 						{% if photo != "" %}
-							<img src="/{{photo}}" />
+							<img src="/{{photo}}?{{date().timestamp}}" />
 							<div class="preview-photo-options pas" id="{{photo}}">
 								<span class="txtwhite lh1">{{photo}}</span>
 								<span class="icone-cross-white right" title="Supprimer la photo" onclick="delPhoto('{{photo}}')"></span>

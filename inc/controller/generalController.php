@@ -7,25 +7,29 @@ class generalController {
 		
     }
 
-    public function genererSquelette($contenu, $meta = false, $id_article = null){
+    public function genererSquelette($contenu, $meta = false, $article = null){
     	global $twig;
     	global $dev;
 
-        if($meta && !empty($id_article)){
+        if($meta && !empty($article)){
             $template = $twig->loadTemplate('meta.html.twig');
 
-            if($id_article == "a_propos"){
+            if($article == "a_propos"){
                 $titre = "À propos de moi";
                 $image = "http://cbrplx.io/dist/images/share.jpg";
                 $url = "http://cbrplx.io/about/";
                 $description = "Awesome guy with an awesome website !";
-            }else if($id_article = "admin"){
+            }elseif($article == "admin"){
                 $titre = "Admin";
                 $image = "http://cbrplx.io/dist/images/share.jpg";
                 $url = "http://cbrplx.io/";
                 $description = "Awesome guy with an awesome website !";
             }else{
                 //On charge l'article
+                $titre = $article->get('titre');
+                $image = "http://cbrplx.io/".$article->getCouverture();
+                $url = "http://www.cbrplx.io/articles/".$article->getUrl();
+                $description = "ok ça va arriver";
             }
 
             return $template->render(array(
