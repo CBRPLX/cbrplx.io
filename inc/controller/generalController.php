@@ -26,9 +26,9 @@ class generalController {
                 $description = "Awesome guy with an awesome website !";
             }elseif($article == "404"){
                 $titre = "404";
-                $image = "http://cbrplx.io/dist/images/share.jpg";
+                $image = "http://cbrplx.io/dist/images/404.jpg";
                 $url = "http://cbrplx.io/";
-                $description = "Awesome guy with an awesome website !";
+                $description = "This page has been destroyed";
             }else{
                 //On charge l'article
                 $titre = $article->get('titre');
