@@ -15,19 +15,24 @@ class articleController {
         $article = new \classe\article();
         $article->load($id_article);
 
-        $auteur = new \classe\user();
-        $auteur->load($article->get('id_auteur'));
+        if($article->get("projet") == "1"){
 
-        $contribs = $article->getContributeurs();
+            $auteur = new \classe\user();
+            $auteur->load($article->get('id_auteur'));
 
-        $contenu = $template->render(array(
-            'article' => $article,
-            'auteur' => $auteur,
-            'contribs' => $contribs
-        ));
+            $contribs = $article->getContributeurs();
 
-        $controller = new \controller\generalController();
+            $contenu = $template->render(array(
+                'article' => $article,
+                'auteur' => $auteur,
+                'contribs' => $contribs
+            ));
 
-        return $controller->genererSquelette($contenu, true, $article);
+            $controller = new \controller\generalController();
+
+            return $controller->genererSquelette($contenu, true, $article);
+        }else{
+            header('Location:/404/');
+        }
     }
 }
