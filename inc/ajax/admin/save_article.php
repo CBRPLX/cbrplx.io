@@ -12,6 +12,7 @@ if(!empty($_POST["id_article"]) && !empty($_POST["query"])){
 		$_POST["query"] = stripslashes($_POST["query"]);
 	$params = urldecode($_POST["query"]);
 	$params = (array) json_decode($params);
+	
 	if($article->save($_POST["id_article"], (array) $params)){
 		echo "deal";
 	}else{

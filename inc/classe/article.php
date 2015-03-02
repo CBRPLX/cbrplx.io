@@ -90,7 +90,15 @@ class article{
 
     public function save($id_article, $params){
         global $pdo;
-        // var_dump($params);
+
+        //On enlève les technos qui seront traitées par une autre requete
+        if(isset($params["technos"])){
+            $technos = $params["technos"];
+            unset($params["technos"]);
+            $techno = new \classe\techno();
+            $techno->add($technos, $id_article);
+        }
+
         $sql = "UPDATE cbrplx_io_article SET ";
         $i = 0;
         $tab = array();
@@ -100,6 +108,7 @@ class article{
             $params["ids_contributeurs"] = ";".$collegue.";";
             unset($params["collegue"]);
         }
+
         foreach ($params as $k => $v) {
             if($i > 0) $sql .= ", ";
             $sql .= "`".$k."` = ?";

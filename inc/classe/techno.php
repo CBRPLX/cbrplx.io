@@ -30,7 +30,8 @@ class techno{
                     FROM cbrplx_io_techno_article ta, cbrplx_io_techno t, cbrplx_io_type_techno tt
                     WHERE ta.id_article = ?
                     AND ta.id_techno = t.id_techno
-                    AND t.id_type_techno = tt.id_type_techno";
+                    AND t.id_type_techno = tt.id_type_techno
+                    ORDER BY t.id_type_techno ASC, t.nom_techno ASC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute(array($id_article));
 
@@ -77,5 +78,28 @@ class techno{
         $sql = "DELETE from cbrplx_io_techno_article WHERE id_article = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array($id_article));
+    }
+
+    public function add($ids_technos, $id_article){
+        global $pdo;
+
+        $this->delFromArticle($id_article);
+
+        $sql = "INSERT INTO cbrplx_io_techno_article(id_article, id_techno) VALUES ";
+        $i = 0;
+        foreach ($ids_technos as $k => $v) {
+            if($i > 0) $sql .= ",";
+            $sql .= "('".$id_article."','".$v."') ";
+            $i++;
+        }
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
