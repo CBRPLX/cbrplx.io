@@ -94,6 +94,19 @@
 		</div>
 	</div>
 	<div class="row pas">
+		<div class="col">
+			<select multiple name="technos" id="technos" class="proxima w100 champ_add_article">
+				{% for techno in technos %}
+					{% if techno.get('id_techno') in article.getIdsTechnos() %}
+						<option value="{{techno.get('id_techno')}}" selected>{{techno.get('nom_techno')}}</option>
+					{% else %}
+						<option value="{{techno.get('id_techno')}}">{{techno.get('nom_techno')}}</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+	<div class="row pas">
 		<label><span class="col col-mobile txtmiddle"><input type="checkbox" name="projet" id="projet" class="champ_add_article" {% if article.get('projet') == "1" %}checked{% endif %} /></span><span class="col col-mobile txtmiddle pls">Cet article est un projet</span></label>
 	</div>
 	<div class="row pas">

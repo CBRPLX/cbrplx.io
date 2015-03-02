@@ -3341,6 +3341,12 @@ select[size="0"][multiple],
 select[size="1"][multiple] {
   background: none;
 }
+select[multiple]#technos,
+select[size="0"][multiple]#technos,
+select[size="1"][multiple]#technos {
+  min-height: 300px;
+  height: 300px;
+}
 
 option {
   color: #858383;

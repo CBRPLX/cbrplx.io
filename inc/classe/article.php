@@ -280,4 +280,15 @@ class article{
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array($this->nb_vue+1, $this->id_article));
     }
+
+    public function getIdsTechnos(){
+        $techno = new \classe\techno();
+        $technos = $techno->load($this->id_article);
+        $ids = array();
+        foreach ($technos as $k => $v) {
+            array_push($ids, $v->get("id_techno"));
+        }
+
+        return $ids;
+    }
 }

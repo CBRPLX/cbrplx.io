@@ -66,8 +66,12 @@ class adminController {
         $users = new \classe\user();
         $users = $users->load();
 
+        $technos = new \classe\techno();
+        $technos = $technos->load();
+
         $contenu = $template->render(array(
-            'users' => $users
+            'users' => $users,
+            'technos' => $technos
         ));
         return $contenu;
     }
@@ -133,15 +137,15 @@ class adminController {
         $users = new \classe\user();
         $users = $users->load();
 
-        $contenu = $template->render(array(
-            'users' => $users
-        ));
+        $technos = new \classe\techno();
+        $technos = $technos->load();
 
         $contenu = $template->render(array(
             'article' => $article, 
             'couverture' => $couverture,
             'all_photos' => $all_photos,
-            'users' => $users
+            'users' => $users,
+            'technos' => $technos
         ));
         return $contenu;
     }
