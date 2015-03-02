@@ -76,6 +76,12 @@
 	</div>
 	<div class="row pas">
 		<div class="col">
+			Tags :
+			<textarea class="proxima w100 champ_add_article" id="tags">{{article.get('tags')}}</textarea>
+		</div>
+	</div>
+	<div class="row pas">
+		<div class="col">
 			<select multiple name="collegue" id="collegue" class="proxima w100 champ_add_article">
 				{% for user in users %}
 					{% if user.get('id_user') in article.get('ids_contributeurs') %}

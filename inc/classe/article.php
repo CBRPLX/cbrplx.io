@@ -244,7 +244,7 @@ class article{
                 }
             }
         }
-        return $days_ago;
+        return "IL Y A ".$days_ago;
     }
 
     public function getCouverture(){

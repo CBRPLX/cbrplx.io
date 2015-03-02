@@ -3324,7 +3324,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1423842467');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1425303502');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
@@ -3351,4 +3351,8 @@ textarea {
   min-height: 400px;
   max-width: 100%;
   width: 100%;
+}
+textarea#tags {
+  min-height: 100px;
+  height: 100px;
 }

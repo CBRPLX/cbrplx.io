@@ -126,13 +126,34 @@
 							<div class="col col-mobile txtmiddle pls col-techno">
 								<div class="proxima">
 									<span class="icone-photoshop txtmiddle"></span>
-									<span class="txtmiddle">Phtoshop</span>
+									<span class="txtmiddle">Photoshop</span>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		{% endif %}
+		{% if article.get('tags') %}
+			<!-- TAGS -->
+			<div class="row">
+				<div class="col col-mobile w30 txttop">
+					Tags
+				</div>
+				<div class="col col-mobile w70 txttop pls">
+						<div class="mbs">
+							<div class="txtmiddle inbl proxima">
+								{% set itag = 0 %}
+								{% for tag in article.get('tags')|split(';') %}
+									{% if tag != "" %}
+										<a href="/tag/{{tag}}" class="tag italic">{{tag}}</a>{% if itag < (loop.length-3) %}, {% endif %}
+										{% set itag = itag +1 %}
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+				</div>
+			</div>		
 		{% endif %}
 	</div>
 </div>
