@@ -27,7 +27,7 @@
 							<img src="/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" />
 						</div>
 						<div class="txtmiddle inbl pls">
-							<a href="/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}">{{auteur.get('prenom')}} {{auteur.get('nom')}}</a>
+							<a href="/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}">{{auteur.get('prenom')}} {{auteur.get('nom')}}</a>
 							<div class="proxima">
 								{{auteur.get('nb_post')}} post, {{auteur.get('nb_contrib')}} 
 								contribution{% if auteur.get('nb_contrib') > '1' %}s{% endif %}
