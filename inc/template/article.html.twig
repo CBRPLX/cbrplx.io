@@ -65,72 +65,22 @@
 					Technologies utilisées
 				</div>
 				<div class="col col-mobile w70 txttop pls">
-					<div class="mbs">
-						<div class="row row-mobile">
-							<div class="col col-mobile txtmiddle pls col-techno">
-								<div class="proxima">
-									<span class="icone-css txtmiddle"></span>
-									<span class="txtmiddle">CSS 3</span>
-								</div>
-							</div>
-							<div class="col col-mobile txtmiddle pls col-techno">
-								<div class="proxima">
-									<span class="icone-git txtmiddle"></span>
-									<span class="txtmiddle">Git</span>
-								</div>
-							</div>
-							<div class="col col-mobile txtmiddle pls col-techno">
-								<div class="proxima">
-									<span class="icone-responsive txtmiddle"></span>
-									<span class="txtmiddle">Responsive</span>
-								</div>
+					{% for technos in tri_technos %}
+						<div class="mbs">
+							<div class="row row-mobile">
+								{% for techno in technos %}
+									<div class="col col-mobile txtmiddle pls col-techno">
+										<div class="proxima">
+											{% if techno %}
+												<span class="icone-{{techno.get('nom_type_techno')}} txtmiddle"></span>
+												<span class="txtmiddle">{{techno.get("nom_techno")}}</span>
+											{% endif %}
+										</div>
+									</div>
+								{% endfor %}
 							</div>
 						</div>
-					</div>
-					<div class="mbs">
-						<div class="row row-mobile">
-							<div class="col col-mobile txtmiddle pls col-techno">
-								<div class="proxima">
-									<span class="icone-machine txtmiddle"></span>
-									<span class="txtmiddle">MVC</span>
-								</div>
-							</div>
-							<div class="col col-mobile txtmiddle pls col-techno">
-								<div class="proxima">
-									<span class="icone-bdd txtmiddle"></span>
-									<span class="txtmiddle">MySQL</span>
-								</div>
-							</div>
-							<div class="col col-mobile txtmiddle pls col-techno">
-								<div class="proxima">
-									<span class="icone-box txtmiddle"></span>
-									<span class="txtmiddle">Node.js</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="mbs">
-						<div class="row row-mobile">
-							<div class="col col-mobile txtmiddle pls col-techno">
-								<div class="proxima">
-									<span class="icone-html txtmiddle"></span>
-									<span class="txtmiddle">HTML 5</span>
-								</div>
-							</div>
-							<div class="col col-mobile txtmiddle pls col-techno">
-								<div class="proxima">
-									<span class="icone-illustrator txtmiddle"></span>
-									<span class="txtmiddle">Illustrator</span>
-								</div>
-							</div>
-							<div class="col col-mobile txtmiddle pls col-techno">
-								<div class="proxima">
-									<span class="icone-photoshop txtmiddle"></span>
-									<span class="txtmiddle">Photoshop</span>
-								</div>
-							</div>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		{% endif %}

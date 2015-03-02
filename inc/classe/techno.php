@@ -70,4 +70,12 @@ class techno{
             }
         }
     }
+
+    public function delFromArticle($id_article){
+        global $pdo;
+
+        $sql = "DELETE from cbrplx_io_techno_article WHERE id_article = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($id_article));
+    }
 }

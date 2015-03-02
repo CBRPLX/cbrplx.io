@@ -24,10 +24,39 @@ class articleController {
 
             $contribs = $article->getContributeurs();
 
+            $all_technos = new \classe\techno();
+            $all_technos = $all_technos->load($article->get('id_article'));
+            $tri_technos = array();
+            $technos = array();
+            $i = 0;
+            foreach ($all_technos as $k => $v) {
+                if($i < 3){ //Si on a pas besoin de créer une nouvelle ligne
+                    array_push($technos, $v);
+                    $i++;
+                }else{ //Si on doit créer une nouvelle ligne
+                    array_push($tri_technos, $technos);
+                    $technos = array();
+                    array_push($technos, $v);
+                    $i = 1;
+                }
+            }
+            if($i == 3){
+                array_push($tri_technos, $technos);
+                $technos = array();
+                $i = 0;
+            }
+
+            while ($i < 3) {
+                array_push($technos, "");
+                $i++;
+            }
+            array_push($tri_technos, $technos);
+
             $contenu = $template->render(array(
                 'article' => $article,
                 'auteur' => $auteur,
-                'contribs' => $contribs
+                'contribs' => $contribs,
+                'tri_technos' => $tri_technos
             ));
 
             $controller = new \controller\generalController();

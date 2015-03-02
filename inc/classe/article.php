@@ -125,6 +125,9 @@ class article{
     public function del(){
         global $pdo;
 
+        $technos = new \classe\techno();
+        $technos->delFromArticle($article->id_article);
+
         $sql = "DELETE FROM cbrplx_io.cbrplx_io_article WHERE cbrplx_io_article.id_article = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array($this->id_article));
