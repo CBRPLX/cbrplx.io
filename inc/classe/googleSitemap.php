@@ -33,7 +33,7 @@ class googleSitemap
 
     foreach($this->items as $item)
     {
-		$item->loc = htmlentities($item->loc, ENT_QUOTES);
+		$item->loc = $item->loc;
       $map .= "\t\t<url>\n\t\t\t<loc>$item->loc</loc>\n";
 
 	  // lastmod

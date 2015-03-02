@@ -1,0 +1,21 @@
+User-agent: Googlebot-Image
+
+Disallow: /dist/images/icone/
+Disallow: /dist/images/icone-2x/
+Disallow: /dist/images/admin.jpg
+Disallow: /dist/images/*apple
+Disallow: /dist/images/default.jpg
+Disallow: /dist/images/experiences.jpg
+Disallow: /dist/images/*fav
+Disallow: /dist/images/formation.jpg
+Disallow: /dist/images/*icone
+Disallow: /dist/images/*windows
+Disallow: /src/images/
+Disallow: /src/images/admin.jpg
+Disallow: /src/images/*apple
+Disallow: /src/images/default.jpg
+Disallow: /src/images/experiences.jpg
+Disallow: /src/images/*fav
+Disallow: /src/images/formation.jpg
+Disallow: /src/images/*icone
+Disallow: /src/images/*windows

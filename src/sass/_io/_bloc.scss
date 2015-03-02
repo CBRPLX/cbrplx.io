@@ -257,8 +257,12 @@
 		a{
 			color: $gris-font;
 
-			&:hover{
-				color: $gris-font;
+			h1,h2,h3,h4,h5,h6{
+
+				&:hover{
+					color: $gris-font;
+					text-decoration: underline;
+				}
 			}
 		}
 

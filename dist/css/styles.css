@@ -2540,8 +2540,9 @@ img {
 .bloc-container .bloc-container-footer a {
   color: #858383;
 }
-.bloc-container .bloc-container-footer a:hover {
+.bloc-container .bloc-container-footer a h1:hover, .bloc-container .bloc-container-footer a h2:hover, .bloc-container .bloc-container-footer a h3:hover, .bloc-container .bloc-container-footer a h4:hover, .bloc-container .bloc-container-footer a h5:hover, .bloc-container .bloc-container-footer a h6:hover {
   color: #858383;
+  text-decoration: underline;
 }
 .bloc-container .bloc-container-footer > .row {
   max-width: 600px;
