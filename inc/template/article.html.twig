@@ -15,74 +15,82 @@
 			{{article.get('text')|raw|nl2br}}
 	</div>
 	<div class="bloc-auteur bloc-container-footer prs pls">
-		<!-- AUTEUR -->
-		<div class="row">
-			<div class="col col-mobile w30 txttop">
-				Auteur de cet article
-			</div>
-			<div class="col col-mobile w70 txttop pls">
-				<div class="mbs">
-					<div class="bloc-rond inbl w50p txtmiddle">
-						<img src="/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" />
-					</div>
-					<div class="txtmiddle inbl pls">
-						<a href="#">{{auteur.get('prenom')}} {{auteur.get('nom')}}</a>
-						<div class="proxima">
-							{{auteur.get('nb_post')}} post, {{auteur.get('nb_contrib')}} 
-							contribution{% if auteur.get('nb_contrib') > '1' %}s{% endif %}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		{% if article.get('projet') == '1' %}
-			<!-- CONTRIBUTEURS -->
+		{% if auteur %}
+			<!-- AUTEUR -->
 			<div class="row">
 				<div class="col col-mobile w30 txttop">
-					Contributeurs du projet
+					Auteur de cet article
 				</div>
 				<div class="col col-mobile w70 txttop pls">
-					{% for contrib in contribs %}
-						<div class="mbs">
-							<div class="bloc-rond inbl w50p txtmiddle">
-								<img src="/{{contrib.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+					<div class="mbs">
+						<div class="bloc-rond inbl w50p txtmiddle">
+							<img src="/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+						</div>
+						<div class="txtmiddle inbl pls">
+							<a href="#">{{auteur.get('prenom')}} {{auteur.get('nom')}}</a>
+							<div class="proxima">
+								{{auteur.get('nb_post')}} post, {{auteur.get('nb_contrib')}} 
+								contribution{% if auteur.get('nb_contrib') > '1' %}s{% endif %}
 							</div>
-							<div class="txtmiddle inbl pls">
-								<a href="#">{{contrib.get('prenom')}} {{contrib.get('nom')}}</a>
-								<div class="proxima">
-									{{contrib.get('nb_post')}} post, {{contrib.get('nb_contrib')}} 
-									contribution{% if contrib.get('nb_contrib') > '1' %}s{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+		
+		{% if article.get('projet') == '1' %}
+			{% if contribs %}
+				<!-- CONTRIBUTEURS -->
+				<div class="row">
+					<div class="col col-mobile w30 txttop">
+						Contributeurs du projet
+					</div>
+					<div class="col col-mobile w70 txttop pls">
+						{% for contrib in contribs %}
+							<div class="mbs">
+								<div class="bloc-rond inbl w50p txtmiddle">
+									<img src="/{{contrib.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+								</div>
+								<div class="txtmiddle inbl pls">
+									<a href="#">{{contrib.get('prenom')}} {{contrib.get('nom')}}</a>
+									<div class="proxima">
+										{{contrib.get('nb_post')}} post, {{contrib.get('nb_contrib')}} 
+										contribution{% if contrib.get('nb_contrib') > '1' %}s{% endif %}
+									</div>
 								</div>
 							</div>
-						</div>
-					{% endfor %}
+						{% endfor %}
+					</div>
 				</div>
-			</div>
+			{% endif %}
 
-			<!-- TECHNOLOGIES -->
-			<div class="row">
-				<div class="col col-mobile w30 txttop techno">
-					Technologies utilisées
-				</div>
-				<div class="col col-mobile w70 txttop pls">
-					{% for technos in tri_technos %}
-						<div class="mbs">
-							<div class="row row-mobile">
-								{% for techno in technos %}
-									<div class="col col-mobile txtmiddle pls col-techno">
-										<div class="proxima">
-											{% if techno %}
-												<span class="icone-{{techno.get('nom_type_techno')}} txtmiddle"></span>
-												<span class="txtmiddle">{{techno.get("nom_techno")}}</span>
-											{% endif %}
+
+			{% if tri_technos %}
+				<!-- TECHNOLOGIES -->
+				<div class="row">
+					<div class="col col-mobile w30 txttop techno">
+						Technologies utilisées
+					</div>
+					<div class="col col-mobile w70 txttop pls">
+						{% for technos in tri_technos %}
+							<div class="mbs">
+								<div class="row row-mobile">
+									{% for techno in technos %}
+										<div class="col col-mobile txtmiddle pls col-techno">
+											<div class="proxima">
+												{% if techno %}
+													<span class="icone-{{techno.get('nom_type_techno')}} txtmiddle"></span>
+													<span class="txtmiddle">{{techno.get("nom_techno")}}</span>
+												{% endif %}
+											</div>
 										</div>
-									</div>
-								{% endfor %}
+									{% endfor %}
+								</div>
 							</div>
-						</div>
-					{% endfor %}
+						{% endfor %}
+					</div>
 				</div>
-			</div>
+			{% endif %}
 		{% endif %}
 		{% if article.get('tags') %}
 			<!-- TAGS -->
