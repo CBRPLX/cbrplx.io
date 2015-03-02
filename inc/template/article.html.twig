@@ -2,9 +2,9 @@
 	<!-- MON EXPERIENCE -->
 	<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')">
 	</div>
-	<div class="bloc-titre txtcenter pas">
+	<h1 class="bloc-titre txtcenter pas man proxima-bold">
 		{{article.get("titre")}}
-	</div>
+	</h1>
 	<!-- NANCY / PARIS -->
 	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
 		<span class="icone-horloge-gris txtmiddle"></span>
@@ -27,7 +27,9 @@
 							<img src="/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" />
 						</div>
 						<div class="txtmiddle inbl pls">
-							<a href="/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}">{{auteur.get('prenom')}} {{auteur.get('nom')}}</a>
+							<a href="/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}">
+								<h6 class="man inbl normal">{{auteur.get('prenom')}} {{auteur.get('nom')}}</h6>
+							</a>
 							<div class="proxima">
 								{{auteur.get('nb_post')}} post, {{auteur.get('nb_contrib')}} 
 								contribution{% if auteur.get('nb_contrib') > '1' %}s{% endif %}
@@ -52,7 +54,9 @@
 									<img src="/{{contrib.get('img')}}=100x100xcarrex{{date().timestamp}}" />
 								</div>
 								<div class="txtmiddle inbl pls">
-									<a href="/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}">{{contrib.get('prenom')}} {{contrib.get('nom')}}</a>
+									<a href="/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}">
+										<h6 class="man inbl normal">{{contrib.get('prenom')}} {{contrib.get('nom')}}</h6>
+									</a>
 									<div class="proxima">
 										{{contrib.get('nb_post')}} post, {{contrib.get('nb_contrib')}} 
 										contribution{% if contrib.get('nb_contrib') > '1' %}s{% endif %}
@@ -80,7 +84,9 @@
 											<div class="proxima">
 												{% if techno %}
 													<span class="icone-{{techno.get('nom_type_techno')}} txtmiddle"></span>
-													<span class="txtmiddle">{{techno.get("nom_techno")}}</span>
+													<span class="txtmiddle">
+														<h6 class="man inbl normal thin">{{techno.get("nom_techno")}}</h6>
+													</span>
 												{% endif %}
 											</div>
 										</div>

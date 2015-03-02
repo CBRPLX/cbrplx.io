@@ -141,6 +141,10 @@ h6, .h6-like {
 	@include em($base-font-size / 1px - 2);
 }
 
+.normal{
+	@include em($base-font-size / 1px);
+}
+
 .big {
 	@include em($base-font-size / 1px + 2);
 }
@@ -177,6 +181,10 @@ var {
 strong,
 .bold {
 	font-weight: bold;
+}
+
+.thin{
+	font-weight: normal;
 }
 
 small,
@@ -324,6 +332,10 @@ table {
 .inbl {
 	display: inline-block !important;
 	vertical-align: top;
+}
+
+.inline{
+	display: inline !important;
 }
 
 

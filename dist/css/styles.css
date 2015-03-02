@@ -134,6 +134,10 @@ h6, .h6-like {
   font-size: 0.85714em;
 }
 
+.normal {
+  font-size: 1em;
+}
+
 .big {
   font-size: 1.14286em;
 }
@@ -170,6 +174,10 @@ var {
 strong,
 .bold {
   font-weight: bold;
+}
+
+.thin {
+  font-weight: normal;
 }
 
 small,
@@ -309,6 +317,10 @@ table {
 .inbl {
   display: inline-block !important;
   vertical-align: top;
+}
+
+.inline {
+  display: inline !important;
 }
 
 /* alignments (blocks and inline) */
@@ -3324,7 +3336,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1425303502');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1425322193');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
