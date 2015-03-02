@@ -15,7 +15,7 @@ class articleController {
         $article = new \classe\article();
         $article->load($id_article);
 
-        if($article->get("projet") == "1"){
+        if($article->get("online") == "1"){
 
             $auteur = new \classe\user();
             $auteur->load($article->get('id_auteur'));

@@ -192,19 +192,19 @@ class article{
                 $days_ago .= $interval->y." ans";
             }
 
-            if($interval->m > 0){
-                $days_ago .= " & ".$interval->m." mois";
-            }
+            // if($interval->m > 0){
+            //     $days_ago .= " & ".$interval->m." mois";
+            // }
         }elseif($interval->m > 0){
             $days_ago .= $interval->m." mois";
 
-            if($interval->d > 0){
-                if($interval->d == 1){
-                    $days_ago .= " & ".$interval->d." jour";
-                }else{
-                    $days_ago .= " & ".$interval->d." jours";
-                }
-            }
+            // if($interval->d > 0){
+            //     if($interval->d == 1){
+            //         $days_ago .= " & ".$interval->d." jour";
+            //     }else{
+            //         $days_ago .= " & ".$interval->d." jours";
+            //     }
+            // }
         }elseif($interval->d > 0){
             if($interval->d == 1){
                 $days_ago .= $interval->d." jour";
@@ -212,12 +212,13 @@ class article{
                 $days_ago .= $interval->d." jours";
             }
 
-            if($interval->h > 0){
-                if($interval->h == 1){
-                    $days_ago .= " & ".$interval->h." heure";
-                }else{
-                    $days_ago .= " & ".$interval->h." heures";
-                }
+            if($interval->h > 12){
+                $days_ago = ($interval->d+1)." jours";
+                // if($interval->h == 1){
+                //     $days_ago .= " & ".$interval->h." heure";
+                // }else{
+                //     $days_ago .= " & ".$interval->h." heures";
+                // }
             }
         }elseif($interval->h > 0){
             if($interval->h == 1){
@@ -226,12 +227,13 @@ class article{
                 $days_ago .= $interval->h." heures";
             }
 
-            if($interval->i > 0){
-                if($interval->i == 1){
-                    $days_ago .= " & ".$interval->i." minute";
-                }else{
-                    $days_ago .= " & ".$interval->i." minutes";
-                }
+            if($interval->i > 30){
+                $days_ago = ($interval->h+1)." heures";
+                // if($interval->i == 1){
+                //     $days_ago .= " & ".$interval->i." minute";
+                // }else{
+                //     $days_ago .= " & ".$interval->i." minutes";
+                // }
             }
         }else{
             if($interval->i > 0){
