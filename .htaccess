@@ -4,6 +4,9 @@ RewriteEngine on
 #RewriteCond %{QUERY_STRING} PHPSESSID=.*$ 
 #RewriteRule .* %{REQUEST_URI}? [R=301,L]
 
+RewriteRule ^404/$  404.php
 RewriteRule ^about/$  a_propos.php
 RewriteRule ^admin/$  admin.php
 RewriteRule ^articles/(.*)-(.*)$  article.php?id_article=$2
+
+ErrorDocument 404 /404/

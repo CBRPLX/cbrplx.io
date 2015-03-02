@@ -24,6 +24,11 @@ class generalController {
                 $image = "http://cbrplx.io/dist/images/share.jpg";
                 $url = "http://cbrplx.io/";
                 $description = "Awesome guy with an awesome website !";
+            }elseif($article == "404"){
+                $titre = "404";
+                $image = "http://cbrplx.io/dist/images/share.jpg";
+                $url = "http://cbrplx.io/";
+                $description = "Awesome guy with an awesome website !";
             }else{
                 //On charge l'article
                 $titre = $article->get('titre');
@@ -65,5 +70,14 @@ class generalController {
         ));
 
         return $this->genererSquelette($contenu, true, "a_propos");
+    }
+
+    public function generer404(){
+        global $twig;
+        global $dev;
+        $template = $twig->loadTemplate('404.html.twig');
+        $contenu = $template->render(array());
+
+        return $this->genererSquelette($contenu, true, "404");
     }
 }
