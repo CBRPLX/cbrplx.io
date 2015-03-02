@@ -17,6 +17,8 @@ class articleController {
 
         if($article->get("online") == "1"){
 
+            $article->oneMoreView();
+
             $auteur = new \classe\user();
             $auteur->load($article->get('id_auteur'));
 

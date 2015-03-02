@@ -272,4 +272,12 @@ class article{
         }
         return $contrib;
     }
+
+    public function oneMoreView(){
+        global $pdo;
+
+        $sql = "UPDATE cbrplx_io_article SET nb_vue = ? WHERE id_article = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($this->nb_vue+1, $this->id_article));
+    }
 }
