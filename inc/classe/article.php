@@ -9,6 +9,7 @@ class article{
 	private $id_auteur;
     private $date_publication;
     private $date_modif;
+    private $description;
 	private $text;
 	private $projet;
     private $ids_contributeurs;

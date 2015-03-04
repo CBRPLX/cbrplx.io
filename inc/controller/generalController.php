@@ -29,12 +29,17 @@ class generalController {
                 $image = "http://cbrplx.io/dist/images/404.jpg";
                 $url = "http://cbrplx.io/";
                 $description = "This page has been destroyed";
+            }elseif($article == "403"){
+                $titre = "403";
+                $image = "http://cbrplx.io/dist/images/403.jpg";
+                $url = "http://cbrplx.io/";
+                $description = "Dude, you're lost ?";
             }else{
                 //On charge l'article
                 $titre = $article->get('titre');
                 $image = "http://cbrplx.io/".$article->getCouverture();
                 $url = "http://www.cbrplx.io/articles/".$article->getUrl();
-                $description = "ok ça va arriver";
+                $description = $article->get('description');
             }
 
             return $template->render(array(
@@ -79,5 +84,14 @@ class generalController {
         $contenu = $template->render(array());
 
         return $this->genererSquelette($contenu, true, "404");
+    }
+
+    public function generer403(){
+        global $twig;
+        global $dev;
+        $template = $twig->loadTemplate('403.html.twig');
+        $contenu = $template->render(array());
+
+        return $this->genererSquelette($contenu, true, "403");
     }
 }

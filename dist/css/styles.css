@@ -2317,6 +2317,18 @@ img {
   color: #343332 !important;
 }
 
+.btn-style {
+  background-color: #4bb6d1;
+  border-radius: 3px;
+  color: white;
+  border-bottom: #3b96ac 3px solid;
+  text-shadow: #7d7d7d -1px -1px;
+}
+.btn-style:hover {
+  color: white;
+  background-color: #41aac4;
+}
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .bloc-tablette {
     width: auto !important;
@@ -2635,13 +2647,13 @@ img {
 }
 
 [class^="icone-"] {
-  background: url('../images/icone-see4a4977ee.png');
+  background: url('../images/icone-s8aa358d196.png');
   display: inline-block;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   [class^="icone-"] {
-    background: url('../images/icone-2x-s176e6f2965.png');
-    background-size: 55px 782px;
+    background: url('../images/icone-2x-sdab368363a.png');
+    background-size: 55px 826px;
   }
 }
 
@@ -2741,116 +2753,128 @@ img {
   width: 16px;
 }
 
-.icone-loading-droite {
+.icone-lightning {
   background-position: 0 -343px;
+  height: 18px;
+  width: 9px;
+}
+
+.icone-loading-droite {
+  background-position: 0 -366px;
   height: 32px;
   width: 32px;
 }
 
 .icone-loading {
-  background-position: 0 -380px;
+  background-position: 0 -403px;
   height: 32px;
   width: 32px;
 }
 
 .icone-localisation {
-  background-position: 0 -417px;
+  background-position: 0 -440px;
   height: 16px;
   width: 11px;
 }
 
 .icone-machine {
-  background-position: 0 -438px;
+  background-position: 0 -461px;
   height: 16px;
   width: 16px;
 }
 
 .icone-photoshop {
-  background-position: 0 -459px;
+  background-position: 0 -482px;
   height: 16px;
   width: 16px;
 }
 
 .icone-plug {
-  background-position: 0 -480px;
+  background-position: 0 -503px;
   height: 17px;
   width: 17px;
 }
 
 .icone-responsive {
-  background-position: 0 -502px;
+  background-position: 0 -525px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-skull {
+  background-position: 0 -546px;
   height: 16px;
   width: 16px;
 }
 
 .icone-stats-bleu {
-  background-position: 0 -523px;
-  height: 17px;
-  width: 17px;
-}
-
-.icone-stats-gris {
-  background-position: 0 -545px;
-  height: 17px;
-  width: 17px;
-}
-
-.icone-stylo-bleu {
   background-position: 0 -567px;
   height: 17px;
   width: 17px;
 }
 
-.icone-stylo-gris {
+.icone-stats-gris {
   background-position: 0 -589px;
   height: 17px;
   width: 17px;
 }
 
-.icone-stylo-plus-bleu {
+.icone-stylo-bleu {
   background-position: 0 -611px;
   height: 17px;
   width: 17px;
 }
 
-.icone-stylo-plus-gris {
+.icone-stylo-gris {
   background-position: 0 -633px;
   height: 17px;
   width: 17px;
 }
 
-.icone-trash-red {
+.icone-stylo-plus-bleu {
   background-position: 0 -655px;
   height: 17px;
   width: 17px;
 }
 
-.icone-upload-bleu {
+.icone-stylo-plus-gris {
   background-position: 0 -677px;
   height: 17px;
   width: 17px;
 }
 
-.icone-user-bleu {
+.icone-trash-red {
   background-position: 0 -699px;
   height: 17px;
   width: 17px;
 }
 
-.icone-user-gris {
+.icone-upload-bleu {
   background-position: 0 -721px;
   height: 17px;
   width: 17px;
 }
 
-.icone-valide-vert {
+.icone-user-bleu {
   background-position: 0 -743px;
   height: 17px;
   width: 17px;
 }
 
-.icone-warning {
+.icone-user-gris {
   background-position: 0 -765px;
+  height: 17px;
+  width: 17px;
+}
+
+.icone-valide-vert {
+  background-position: 0 -787px;
+  height: 17px;
+  width: 17px;
+}
+
+.icone-warning {
+  background-position: 0 -809px;
   height: 17px;
   width: 17px;
 }
@@ -2920,80 +2944,88 @@ img {
     background-position: 0 -322px;
   }
 
-  .icone-loading-droite {
+  .icone-lightning {
     background-position: 0 -343px;
   }
 
+  .icone-loading-droite {
+    background-position: 0 -365px;
+  }
+
   .icone-loading {
-    background-position: 0 -380px;
+    background-position: 0 -402px;
   }
 
   .icone-localisation {
-    background-position: 0 -417px;
+    background-position: 0 -439px;
   }
 
   .icone-machine {
-    background-position: 0 -438px;
+    background-position: 0 -460px;
   }
 
   .icone-photoshop {
-    background-position: 0 -459px;
+    background-position: 0 -481px;
   }
 
   .icone-plug {
-    background-position: 0 -480px;
-  }
-
-  .icone-responsive {
     background-position: 0 -502px;
   }
 
-  .icone-stats-bleu {
-    background-position: 0 -523px;
+  .icone-responsive {
+    background-position: 0 -524px;
   }
 
-  .icone-stats-gris {
+  .icone-skull {
     background-position: 0 -545px;
   }
 
+  .icone-stats-bleu {
+    background-position: 0 -566px;
+  }
+
+  .icone-stats-gris {
+    background-position: 0 -588px;
+  }
+
   .icone-stylo-bleu {
-    background-position: 0 -567px;
+    background-position: 0 -610px;
   }
 
   .icone-stylo-gris {
-    background-position: 0 -589px;
+    background-position: 0 -632px;
   }
 
   .icone-stylo-plus-bleu {
-    background-position: 0 -611px;
+    background-position: 0 -654px;
   }
 
   .icone-stylo-plus-gris {
-    background-position: 0 -633px;
+    background-position: 0 -676px;
   }
 
   .icone-trash-red {
-    background-position: 0 -655px;
+    background-position: 0 -698px;
   }
 
   .icone-upload-bleu {
-    background-position: 0 -677px;
+    background-position: 0 -720px;
   }
 
   .icone-user-bleu {
-    background-position: 0 -699px;
+    background-position: 0 -742px;
   }
 
   .icone-user-gris {
-    background-position: 0 -721px;
+    background-position: 0 -764px;
   }
 
   .icone-valide-vert {
-    background-position: 0 -743px;
+    background-position: 0 -786px;
   }
 
   .icone-warning {
-    background-position: 0 -765px;
+    background-position: 0 -808px;
   }
 }
 @keyframes rotating {
@@ -3337,7 +3369,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1425322193');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1425511668');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
@@ -3371,7 +3403,7 @@ textarea {
   max-width: 100%;
   width: 100%;
 }
-textarea#tags {
+textarea#tags, textarea#description {
   min-height: 100px;
   height: 100px;
 }

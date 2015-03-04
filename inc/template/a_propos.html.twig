@@ -7,7 +7,8 @@
 	</h1>
 	<!-- NANCY / PARIS -->
 	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
-		<span class="icone-localisation txtmiddle"></span><h6 class="txtmiddle pls inbl man proxima-bold">Nancy / Paris</h6>
+		<span class="icone-localisation txtmiddle"></span>
+		<h6 class="txtmiddle pls inbl man proxima-bold">Nancy / Paris</h6>
 	</div>
 	<div class="bloc-text h5-like pls prs">
 		<ul class="list-a-propos list2">
@@ -126,7 +127,7 @@
 
 	{% for projet in projets %}
 		<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
-			<span class="icone-horloge-gris txtmiddle"></span>
+			<i class="fa fa-clock-o txtmiddle"></i>
 			<span class="txtmiddle pls date date-mois">{{projet.get('days_ago')}}</span>
 			<span class="txtmiddle pls date date-jour">{{projet.get('date')}}</span>
 		</div>

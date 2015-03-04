@@ -18,3 +18,17 @@
 .btn-submit{
 	// color: $bleu-link;
 }
+
+.btn-style{
+	background-color: $bleu-link;
+	border-radius: 3px;
+	color: $white;
+	border-bottom: $bleu-link-border 3px solid;
+
+	@include text-shadow(#7D7D7D -1px -1px);
+
+	&:hover{
+		color: $white;
+		background-color: $bleu-link-hover;
+	}
+}

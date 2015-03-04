@@ -7,13 +7,20 @@
 	</h1>
 	<!-- NANCY / PARIS -->
 	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
-		<span class="icone-horloge-gris txtmiddle"></span>
+		<i class="fa fa-clock-o txtmiddle"></i>
 		<span class="txtmiddle pls date date-mois">{{article.get('days_ago')}}</span>
 		<span class="txtmiddle pls date date-jour">{{article.get('date')}}</span>
 	</div>
 	<div class="bloc-text h5-like pls prs proxima">
 			{{article.get('text')|raw|nl2br}}
 	</div>
+	{% if article.get('lien') %}
+		<div class="bloc-text h5-like pls prs proxima txtcenter">
+			<a class="not-a-like btn-style pas w100 inbl proxima-bold transition" href="{{article.get('lien')}}" target="_blank">
+				<i class="fa fa-bolt txtmiddle"></i></span><span class="txtmiddle pls">CONSULTER LE SITE</span>
+			</a>
+		</div>
+	{% endif %}
 	<div class="bloc-auteur bloc-container-footer prs pls">
 		{% if auteur %}
 			<!-- AUTEUR -->

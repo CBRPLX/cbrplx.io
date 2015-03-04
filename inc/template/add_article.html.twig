@@ -9,6 +9,7 @@
 <form>
 	<div class="row pas">
 		<div class="col">
+			Titre :
 			<input type="text" name="nom" id="titre" placeholder="Nom de l'article" class="proxima w100 champ_add_article" 
 			value="{{article.get('titre')}}" />
 			<input type="hidden" name="id_article" id="id_article" value="{{article.get('id_article')}}" />
@@ -16,6 +17,7 @@
 	</div>
 	<div class="row pas">
 		<div class="col">
+			Couverture : 
 			<input type="file" name="couverture" id="couverture" class="proxima w100" accept="image/*" onchange="changeInputPhoto('couverture')" />
 		</div>
 	</div>
@@ -34,6 +36,7 @@
 	</div>
 	<div class="row pas">
 		<div class="col">
+			Images :
 			<input type="file" name="image" id="image" class="proxima w100" accept="image/*" onchange="changeInputPhoto('image')" />
 		</div>
 	</div>
@@ -56,6 +59,7 @@
 	{% endfor %}
 	<div class="row pas">
 		<div class="col">
+			Auteur :
 			<select name="auteur" id="id_auteur"class="proxima w100 champ_add_article">
 				<option value="">Auteur</option>
 				<option value="">-----</option>
@@ -71,7 +75,20 @@
 	</div>
 	<div class="row pas">
 		<div class="col">
+			Description :
+			<textarea class="proxima w100 champ_add_article" id="description">{{article.get('description')}}</textarea>
+		</div>
+	</div>
+	<div class="row pas">
+		<div class="col">
+			Texte :
 			<textarea class="proxima w100 champ_add_article" id="text">{{article.get('text')|raw}}</textarea>
+		</div>
+	</div>
+	<div class="row pas">
+		<div class="col">
+			Lien de l'article :
+			<input type="text" class="proxima w100 champ_add_article" id="lien" value="{{article.get('lien')}}" placeholder="Lien de l'article" />
 		</div>
 	</div>
 	<div class="row pas">
@@ -82,6 +99,7 @@
 	</div>
 	<div class="row pas">
 		<div class="col">
+			Contributeurs : 
 			<select multiple name="collegue" id="collegue" class="proxima w100 champ_add_article">
 				{% for user in users %}
 					{% if user.get('id_user') in article.get('ids_contributeurs') %}
@@ -95,6 +113,7 @@
 	</div>
 	<div class="row pas">
 		<div class="col">
+			Technologies :
 			<select multiple name="technos" id="technos" class="proxima w100 champ_add_article">
 				{% for techno in technos %}
 					{% if techno.get('id_techno') in article.getIdsTechnos() %}
@@ -144,7 +163,7 @@
 			}
 		});
 	{% endblock %}
-	console.log("pdddd");
+
 	document.getElementById("add_article_submit").addEventListener("click", function(e){
 		e.preventDefault();
 		submitArticle(e);
@@ -169,7 +188,8 @@
 					hideAllChargement();
 					setTimeout(function(){
 						hideAllNotif();
-					},3000);
+						scrollToElement("top-admin");
+					},1000);
 				}else if(retour == "error"){
 					afficherAlerte("alert_error");
 					hideAllChargement();
