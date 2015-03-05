@@ -17,7 +17,7 @@ if(!empty($_POST["id_article"])){
 	if($_POST["couverture"] == "1")
 		array_map('unlink', glob($uploaddir."/".$id_article.".*"));
 
-	$files = glob($uploaddir . '/'.$id_article.'_*.*');
+	$files = glob($uploaddir . '/'.$id_article.'-*.*');
 	if ($files !== false){
 	    $nb_img = count($files);
 	}else{
@@ -37,8 +37,8 @@ if(!empty($_POST["id_article"])){
 					$retour->new_row = "";
 				}
 			}else{
-				if(move_uploaded_file($file['tmp_name'], $uploaddir ."/".$id_article."_".$nb_img.".".strtolower($file_name['extension']))){
-					$retour->img = $uploaddir ."/".$id_article."_".$nb_img.".".strtolower($file_name['extension']);
+				if(move_uploaded_file($file['tmp_name'], $uploaddir ."/".$id_article."-".$nb_img.".".strtolower($file_name['extension']))){
+					$retour->img = $uploaddir ."/".$id_article."-".$nb_img.".".strtolower($file_name['extension']);
 					$retour->new_row = file_get_contents("inc/template/image_row.html");
 					$retour->nb_img = $nb_img;
 				}

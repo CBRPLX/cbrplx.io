@@ -4672,6 +4672,7 @@ img {
   border-radius: 3px;
   color: white;
   border-bottom: #3b96ac 3px solid;
+  font-size: 18px;
   text-shadow: #7d7d7d -1px -1px;
 }
 .btn-style:hover {
@@ -4871,6 +4872,8 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.67);
   font-size: 2.5em;
+}
+.bloc-container .bloc-text .bloc-projet .bloc-projet-contenu h1 {
   color: white;
 }
 @media (max-width: 768px) {
@@ -4884,6 +4887,14 @@ img {
 }
 .bloc-container .bloc-text p {
   text-align: justify;
+}
+.bloc-container .bloc-text h1, .bloc-container .bloc-text h2, .bloc-container .bloc-text h3 {
+  font-family: "proxima-bold", Helvetica, Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  font-weight: 100 !important;
+  text-align: center;
+  color: #343332;
 }
 .bloc-container .bloc-text img {
   width: 100%;
@@ -5719,7 +5730,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1425513537');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1425547978');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;

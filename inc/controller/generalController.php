@@ -14,6 +14,7 @@ class generalController {
         if($meta && !empty($article)){
             $template = $twig->loadTemplate('meta.html.twig');
 
+            $tags = "";
             if($article == "a_propos"){
                 $titre = "À propos de moi";
                 $image = "http://cbrplx.io/dist/images/share.jpg";
@@ -40,6 +41,12 @@ class generalController {
                 $image = "http://cbrplx.io/".$article->getCouverture();
                 $url = "http://www.cbrplx.io/articles/".$article->getUrl();
                 $description = $article->get('description');
+                $tag = $article->get('tags');
+                $tag = explode(";", $tag);
+
+                foreach ($tag as $k => $v) {
+                    $tags .= $v." ";
+                }
             }
 
             return $template->render(array(
@@ -49,7 +56,8 @@ class generalController {
                 "TITRE" => $titre,
                 "IMAGE" => $image,
                 "URL" => $url,
-                "DESCRIPTION" => $description
+                "DESCRIPTION" => $description,
+                "TAGS" => $tags
             ));
         }else{
            $template = $twig->loadTemplate('squelette.html.twig');

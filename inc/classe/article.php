@@ -96,8 +96,10 @@ class article{
         if(isset($params["technos"])){
             $technos = $params["technos"];
             unset($params["technos"]);
-            $techno = new \classe\techno();
-            $techno->add($technos, $id_article);
+            if(!empty($technos)){
+                $techno = new \classe\techno();
+                $techno->add($technos, $id_article);
+            }
         }
 
         $sql = "UPDATE cbrplx_io_article SET ";
