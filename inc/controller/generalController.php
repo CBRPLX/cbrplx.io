@@ -102,4 +102,72 @@ class generalController {
 
         return $this->genererSquelette($contenu, true, "403");
     }
+
+    public function genererIndex(){
+        global $twig;
+        global $dev;
+
+        $articles = new \classe\article();
+        $articles = $articles->load();
+        $contenu = "";
+
+        foreach ($articles as $k => $article) {
+            if($article->get("online") == "1"){
+
+                $template = $twig->loadTemplate('article.html.twig');
+
+                $article->oneMoreView();
+
+                $auteur = new \classe\user();
+                $auteur->load($article->get('id_auteur'));
+
+                $contribs = $article->getContributeurs();
+
+                $all_technos = new \classe\techno();
+                $all_technos = $all_technos->load($article->get('id_article'));
+                $tri_technos = array();
+
+                if($all_technos !== false){
+                    $technos = array();
+                    $i = 0;
+                    foreach ($all_technos as $k => $v) {
+                        if($i < 3){ //Si on a pas besoin de créer une nouvelle ligne
+                            array_push($technos, $v);
+                            $i++;
+                        }else{ //Si on doit créer une nouvelle ligne
+                            array_push($tri_technos, $technos);
+                            $technos = array();
+                            array_push($technos, $v);
+                            $i = 1;
+                        }
+                    }
+                    if($i == 3){
+                        array_push($tri_technos, $technos);
+                        $technos = array();
+                        $i = 0;
+                    }
+
+                    while ($i < 3) {
+                        array_push($technos, "");
+                        $i++;
+                    }
+                    array_push($tri_technos, $technos);
+                }
+
+                $contenu .= $template->render(array(
+                    'article' => $article,
+                    'auteur' => $auteur,
+                    'contribs' => $contribs,
+                    'tri_technos' => $tri_technos
+                ));
+
+                // return $contenu;
+
+            }
+        }
+
+        $controller = new \controller\generalController();
+
+        return $controller->genererSquelette($contenu, true, "a_propos");
+    }
 }
