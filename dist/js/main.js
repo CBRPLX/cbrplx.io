@@ -1235,11 +1235,11 @@ if(document.getElementsByClassName('go-back').length > 0){
     if(("standalone" in window.navigator) && window.navigator.standalone){
 
         function displayNav(){
-            if(window.scrollY > document.getElementsByClassName('bloc-titre')[0].offsetTop){
+            if(currentYPosition() > document.getElementsByClassName('bloc-titre')[0].offsetTop){
                 if(document.getElementById('go-back').style.display != 'block')
                     document.getElementById('go-back').style.display = 'block';
 
-                if(window.scrollY > document.getElementById('go-back-bloc').offsetTop){
+                if(currentYPosition() > document.getElementById('go-back-bloc').offsetTop){
                     if(document.getElementById('go-back').style.display != 'none')
                         document.getElementById('go-back').style.display = 'none';
 
@@ -1495,6 +1495,38 @@ function switchDate(){
     }
 }
 
+var nb_article_loaded = [];
+
+function getIdArticle(id){
+    var id_article = id;
+    id_article = id_article.split("-");
+    id_article = id_article[id_article.length-1];
+
+    return id_article;
+}
+
+function chargerArticleIndex(){
+
+    if(currentYPosition()+window.innerHeight > 
+        document.getElementsByClassName('bloc-auteur')[document.getElementsByClassName('bloc-auteur').length-1].offsetTop){
+
+        var id_article = document.getElementsByClassName("bloc-container")[document.getElementsByClassName("bloc-container").length-1].id;
+        id_article = getIdArticle(id_article);
+
+        if(nb_article_loaded.indexOf(id_article) == -1){
+            nb_article_loaded[nb_article_loaded.length] = id_article;
+            console.log(nb_article_loaded);
+
+            var retour = file("/inc/ajax/index/charger_article_index.php", "id_article="+id_article);
+            
+            var html = document.getElementById('bloc-contenu').innerHTML;
+            html += retour;
+            document.getElementById('bloc-contenu').innerHTML = html;
+            sizeBanieres();
+        }
+    }
+}
+
 window.onload = function(){
     if(!WURFL.is_mobile || !(("standalone" in window.navigator) && !window.navigator.standalone))
         window.addEventListener("resize", function(){sizeBanieres();});
@@ -1506,6 +1538,12 @@ window.onload = function(){
 
     // MAJScripts();
     switchDate();
+
+    if(location.pathname == "/"){
+        window.addEventListener("scroll", function(){
+            chargerArticleIndex()
+        }, false);
+    }
 }
 
 function exec_body_scripts(body_el) {

@@ -57,11 +57,11 @@ if(document.getElementsByClassName('go-back').length > 0){
     if(("standalone" in window.navigator) && window.navigator.standalone){
 
         function displayNav(){
-            if(window.scrollY > document.getElementsByClassName('bloc-titre')[0].offsetTop){
+            if(currentYPosition() > document.getElementsByClassName('bloc-titre')[0].offsetTop){
                 if(document.getElementById('go-back').style.display != 'block')
                     document.getElementById('go-back').style.display = 'block';
 
-                if(window.scrollY > document.getElementById('go-back-bloc').offsetTop){
+                if(currentYPosition() > document.getElementById('go-back-bloc').offsetTop){
                     if(document.getElementById('go-back').style.display != 'none')
                         document.getElementById('go-back').style.display = 'none';
 
