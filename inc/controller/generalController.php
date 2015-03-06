@@ -103,15 +103,18 @@ class generalController {
         return $this->genererSquelette($contenu, true, "403");
     }
 
-    public function genererIndex(){
+    public function genererIndex($id_article = null){
         global $twig;
         global $dev;
 
-        $articles = new \classe\article();
-        $articles = $articles->load();
+        if(empty($id_article)) 
+            $id_article = 9999999;
+
+        $article = new \classe\article();
+        $article->load($id_article, true);
         $contenu = "";
 
-        foreach ($articles as $k => $article) {
+        // foreach ($articles as $k => $article) {
             if($article->get("online") == "1"){
 
                 $template = $twig->loadTemplate('article.html.twig');
@@ -154,7 +157,7 @@ class generalController {
                     array_push($tri_technos, $technos);
                 }
 
-                $contenu .= $template->render(array(
+                $contenu = $template->render(array(
                     'article' => $article,
                     'auteur' => $auteur,
                     'contribs' => $contribs,
@@ -164,10 +167,14 @@ class generalController {
                 // return $contenu;
 
             }
+        // }
+
+        if($id_article != 9999999){
+            return $contenu;
+        }else{
+            $controller = new \controller\generalController();
+
+            return $controller->genererSquelette($contenu, true, "a_propos");
         }
-
-        $controller = new \controller\generalController();
-
-        return $controller->genererSquelette($contenu, true, "a_propos");
     }
 }

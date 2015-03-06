@@ -28,14 +28,23 @@ class article{
     	$this->$attr = $value;
     }
 
-    public function load($id_article = null){
+    public function load($id_article = null, $last = null){
     	global $pdo;
 
         if(!empty($id_article)){
             $sql = "SELECT * FROM cbrplx_io_article WHERE id_article = ?";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute(array($id_article));
 
+            if(!empty($last))
+                $sql = "SELECT * FROM cbrplx_io_article WHERE online = ? AND id_article < ? 
+                        ORDER BY date_publication DESC LIMIT 0,1";
+
+            $stmt = $pdo->prepare($sql);
+            if($last){
+                $stmt->execute(array("1", $id_article));
+            }else{
+                $stmt->execute(array($id_article));
+            }
+            
             if($stmt->rowCount() > 0){
                 $res = $stmt->fetch(\PDO::FETCH_ASSOC);
                 foreach ($res as $k => $v) {
@@ -50,6 +59,7 @@ class article{
                 return false;
             }
         }else{
+
             $sql = "SELECT * FROM cbrplx_io_article ORDER BY date_publication DESC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
