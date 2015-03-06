@@ -170,6 +170,7 @@ class generalController {
         // }
 
         if($id_article != 9999999){
+            // return json_encode(array("contenu" => $contenu, "url"=>$article->getUrl()));
             return $contenu;
         }else{
             $controller = new \controller\generalController();

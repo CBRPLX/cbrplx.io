@@ -54,7 +54,7 @@ function scrollToElement(bloc){
 
 if(document.getElementsByClassName('go-back').length > 0){
 
-    if(("standalone" in window.navigator) && window.navigator.standalone){
+    if(("standalone" in window.navigator) && window.navigator.standalone && location.pathname != "/"){
 
         function displayNav(){
             if(currentYPosition() > document.getElementsByClassName('bloc-titre')[0].offsetTop){

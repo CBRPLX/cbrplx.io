@@ -1232,7 +1232,7 @@ function scrollToElement(bloc){
 
 if(document.getElementsByClassName('go-back').length > 0){
 
-    if(("standalone" in window.navigator) && window.navigator.standalone){
+    if(("standalone" in window.navigator) && window.navigator.standalone && location.pathname != "/"){
 
         function displayNav(){
             if(currentYPosition() > document.getElementsByClassName('bloc-titre')[0].offsetTop){
@@ -1518,10 +1518,11 @@ function chargerArticleIndex(){
             console.log(nb_article_loaded);
 
             var retour = file("/inc/ajax/index/charger_article_index.php", "id_article="+id_article);
-            
-            var html = document.getElementById('bloc-contenu').innerHTML;
-            html += retour;
-            document.getElementById('bloc-contenu').innerHTML = html;
+
+            var new_article = document.createElement('div');
+            new_article.setAttribute('class', 'bloc-article');
+            new_article.innerHTML = retour;
+            document.getElementsByClassName("bloc-article")[document.getElementsByClassName("bloc-article").length-1].appendChild(new_article);
             sizeBanieres();
         }
     }
