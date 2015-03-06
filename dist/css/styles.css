@@ -4653,6 +4653,42 @@ img {
   display: none;
 }
 
+.go-back {
+  line-height: 30px;
+  width: 100%;
+  background-color: white;
+}
+.go-back > div {
+  max-width: 600px;
+  margin: auto;
+}
+.go-back a {
+  padding: 0px 9px;
+  border: 2px solid #858383;
+  border-radius: 3px;
+  color: #858383;
+}
+.go-back a:hover {
+  color: white;
+  background-color: #858383;
+}
+.go-back#go-back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+  padding-top: 9px !important;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .go-back#go-back {
+    padding-top: 18px !important;
+  }
+}
+.go-back#go-back-bloc {
+  opacity: 0;
+}
+
 .btn:hover {
   text-decoration: underline;
   cursor: pointer;
@@ -5730,7 +5766,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1425547978');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1425660934');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;

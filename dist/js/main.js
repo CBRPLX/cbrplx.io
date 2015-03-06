@@ -1229,6 +1229,43 @@ function scrollToElement(bloc){
 		offset   = elemRect.top - bodyRect.top;
 	window.scrollTo(0,offset);
 }
+
+if(document.getElementsByClassName('go-back').length > 0){
+
+    if(("standalone" in window.navigator) && window.navigator.standalone){
+
+        function displayNav(){
+            if(window.scrollY > document.getElementsByClassName('bloc-titre')[0].offsetTop){
+                if(document.getElementById('go-back').style.display != 'block')
+                    document.getElementById('go-back').style.display = 'block';
+
+                if(window.scrollY > document.getElementById('go-back-bloc').offsetTop){
+                    if(document.getElementById('go-back').style.display != 'none')
+                        document.getElementById('go-back').style.display = 'none';
+
+                    if(document.getElementById('go-back-bloc').style.opacity != '1')
+                        document.getElementById('go-back-bloc').style.opacity = '1';
+                }else{
+                    if(document.getElementById('go-back').style.display != 'block')
+                        document.getElementById('go-back').style.display = 'block';
+
+                    if(document.getElementById('go-back-bloc').style.opacity != '0')
+                        document.getElementById('go-back-bloc').style.opacity = '0';
+                }
+            }else{
+                if(document.getElementById('go-back').style.display != 'none')
+                    document.getElementById('go-back').style.display = 'none';
+            }
+        }
+
+        window.addEventListener("scroll", function(){
+            displayNav()
+        }, false);
+    }else{
+        document.getElementById('go-back').style.setProperty("display", "none", "important");
+        document.getElementById('go-back-bloc').style.setProperty("display", "none", "important");
+    }
+}
 if(("standalone" in window.navigator) && window.navigator.standalone){
 
     var noddy, remotes = false;

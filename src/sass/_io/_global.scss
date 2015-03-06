@@ -177,3 +177,50 @@ img{
 		display: none;
 	}
 }
+
+.go-back{
+	line-height: 30px;
+	width: 100%;
+	background-color: $white;
+
+	&>div{
+		max-width: 600px;
+		margin: auto;
+	}
+
+	a{
+		padding: 0px 9px;
+		border: 2px solid $gris-font;
+		border-radius: 3px;
+		color: $gris-font;
+
+		&:hover{
+			color: $white;
+			background-color: $gris-font;
+		}
+	}
+
+	&#go-back{
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		display: none;
+
+		padding-top: 9px !important;
+
+		@media
+	    only screen and (-webkit-min-device-pixel-ratio: 2),
+	    only screen and ( min—moz-device-pixel-ratio: 2),
+	    only screen and ( -o-min-device-pixel-ratio: 2/1),
+	    only screen and ( min-device-pixel-ratio: 2),
+	    only screen and ( min-resolution: 192dpi),
+	    only screen and ( min-resolution: 2dppx) {
+	        padding-top: 18px !important;
+	    }
+	}
+
+	&#go-back-bloc{
+		opacity: 0;
+	}
+}
