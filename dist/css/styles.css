@@ -4696,6 +4696,8 @@ img {
 
 .btn-header {
   border: 1px solid white;
+  border-radius: 3px;
+  border-bottom: white 3px solid;
 }
 .btn-header:hover {
   text-decoration: none;
