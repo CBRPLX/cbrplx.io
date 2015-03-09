@@ -316,4 +316,44 @@ class article{
 
         return $ids;
     }
+
+    public function getBefore(){
+        global $pdo;
+
+        $sql = "SELECT id_article, titre FROM cbrplx_io_article 
+                WHERE date_publication < ? AND online = ?
+                ORDER BY ABS( date_publication - ? ) LIMIT 0,1";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($this->date_publication, "1", $this->date_publication));
+        if($stmt->rowCount() > 0){
+            $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $retour = new \classe\article();
+            foreach ($res as $k => $v) {
+                $retour->$k = $v;
+            }
+            return $retour;
+        }else{
+            return false;
+        }
+    }
+
+    public function getAfter(){
+        global $pdo;
+
+        $sql = "SELECT id_article, titre FROM cbrplx_io_article 
+                WHERE date_publication > ? AND online = ?
+                ORDER BY ABS( date_publication - ? ) LIMIT 0,1";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($this->date_publication, "1", $this->date_publication));
+        if($stmt->rowCount() > 0){
+            $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $retour = new \classe\article();
+            foreach ($res as $k => $v) {
+                $retour->$k = $v;
+            }
+            return $retour;
+        }else{
+            return false;
+        }
+    }
 }

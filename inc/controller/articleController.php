@@ -57,12 +57,17 @@ class articleController {
 
             $root = false;
 
+            $before = $article->getBefore();
+            $after = $article->getAfter();
+
             $contenu = $template->render(array(
                 'article' => $article,
                 'auteur' => $auteur,
                 'contribs' => $contribs,
                 'tri_technos' => $tri_technos,
-                'root' => $root
+                'root' => $root,
+                'before' => $before,
+                'after' => $after
             ));
 
             $controller = new \controller\generalController();

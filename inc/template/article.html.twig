@@ -24,30 +24,42 @@
 			</a>
 		</div>
 	{% endif %}
-	<div class="bloc-avant-apres row">
-		<a class="col w50 pas ptl pbl not-a-like">
-			<div class="row w100">
-				<div class="col txtmiddle w20">
-					<i class="fa fa-arrow-left"></i>
-				</div>
-				<div class="col txtmiddle plm w80">
-					<div class="titre-avant-article h3-like">{{article.get('titre')}}</div>
-					<div class="proxima">Voir l'article</div>
-				</div>
-			</div>
-		</a>
-		<a class="col w50 pas ptl pbl not-a-like txtright">
-			<div class="row w100 txtright">
-				<div class="col txtright prm w80">
-					<div class="titre-avant-article h3-like">{{article.get('titre')}}</div>
-					<div class="proxima">Voir l'article</div>
-				</div>
-				<div class="col txtmiddle w20">
-					<i class="fa fa-arrow-right"></i>
-				</div>
-			</div>
-		</a>
-	</div>
+	{% if root == false %}
+		<div class="bloc-avant-apres row">
+			<!-- BEFORE -->
+			{% if before %}
+				<a class="col w50 pas ptl pbl not-a-like" href="/articles/{{before.getUrl()}}">
+					<div class="row w100">
+						<div class="col txtmiddle w20p">
+							<i class="fa fa-arrow-left"></i>
+						</div>
+						<div class="col txtmiddle plm w80">
+							<div class="titre-avant-article h3-like">{{before.get('titre')}}</div>
+							<div class="proxima">Voir l'article</div>
+						</div>
+					</div>
+				</a>
+			{% else %}
+				<div class="col w50 pas ptl pbl not-a-like"></div>
+			{% endif %}
+			<!-- AFTER -->
+			{% if after %}
+				<a class="col w50 pas ptl pbl not-a-like txtright" href="/articles/{{after.getUrl()}}">
+					<div class="row w100 txtright">
+						<div class="col txtright prm w80">
+							<div class="titre-avant-article h3-like">{{after.get('titre')}}</div>
+							<div class="proxima">Voir l'article</div>
+						</div>
+						<div class="col txtmiddle w20p">
+							<i class="fa fa-arrow-right"></i>
+						</div>
+					</div>
+				</a>
+			{% else %}
+				<div class="col w50 pas ptl pbl not-a-like"></div>
+			{% endif %}
+		</div>
+	{% endif %}
 	{% include 'go_back.html.twig' %}
 	<div class="bloc-auteur bloc-container-footer prs pls">
 		{% if auteur %}
