@@ -24,6 +24,7 @@
 			</a>
 		</div>
 	{% endif %}
+	{% include 'go_back.html.twig' %}
 	{% if root == false %}
 		<div class="bloc-avant-apres row">
 			<!-- BEFORE -->
@@ -60,7 +61,6 @@
 			{% endif %}
 		</div>
 	{% endif %}
-	{% include 'go_back.html.twig' %}
 	<div class="bloc-auteur bloc-container-footer prs pls">
 		{% if auteur %}
 			<!-- AUTEUR -->
