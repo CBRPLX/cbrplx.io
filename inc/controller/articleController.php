@@ -55,11 +55,14 @@ class articleController {
                 array_push($tri_technos, $technos);
             }
 
+            $root = false;
+
             $contenu = $template->render(array(
                 'article' => $article,
                 'auteur' => $auteur,
                 'contribs' => $contribs,
-                'tri_technos' => $tri_technos
+                'tri_technos' => $tri_technos,
+                'root' => $root
             ));
 
             $controller = new \controller\generalController();

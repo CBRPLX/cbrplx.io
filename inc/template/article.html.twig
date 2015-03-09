@@ -3,7 +3,11 @@
 	<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')">
 	</div>
 	<h1 class="bloc-titre txtcenter pas man proxima-bold">
-		{{article.get("titre")}}
+		{% if root %}
+			<a href="/articles/{{article.getUrl()}}" class="not-a-like">{{article.get("titre")}}</a>
+		{% else %}
+			{{article.get("titre")}}
+		{% endif %}
 	</h1>
 	<!-- NANCY / PARIS -->
 	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">

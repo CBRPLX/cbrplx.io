@@ -156,12 +156,15 @@ class generalController {
                     }
                     array_push($tri_technos, $technos);
                 }
+            
+                $root = true;
 
                 $contenu = $template->render(array(
                     'article' => $article,
                     'auteur' => $auteur,
                     'contribs' => $contribs,
-                    'tri_technos' => $tri_technos
+                    'tri_technos' => $tri_technos,
+                    'root' => $root
                 ));
 
                 // return $contenu;
