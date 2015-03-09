@@ -262,6 +262,43 @@
 		}
 	}
 
+	.bloc-avant-apres{
+		&>a{
+
+			width: 50% !important;
+
+			@media (max-width: $small-screen) {
+				width: 100% !important;
+
+				.w20{
+					display: none !important;
+				}
+
+				.w80{
+					width: 100% !important;
+					padding: 0 !important;
+				}
+
+
+				*{
+					text-align: center !important;
+				}
+			}
+
+			&:hover{
+				background-color: $gris_back;
+
+				.titre-avant-article, .fa{
+					color: $bleu-link;
+				}
+			}
+
+			.col{
+				vertical-align: middle !important;
+			}
+		}
+	}
+
 	.bloc-container-footer{
 		background-color: $gris-back;
 		border-top: 1px solid $gris-border;

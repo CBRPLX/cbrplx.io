@@ -2782,6 +2782,14 @@ img.end {
   width: 100%;
 }
 
+.w10p {
+  width: 10px;
+}
+
+.w20p {
+  width: 20px;
+}
+
 .w50p {
   width: 50px;
 }
@@ -4706,16 +4714,15 @@ img {
 }
 
 .btn-style {
-  background-color: #4bb6d1;
   border-radius: 3px;
-  color: white;
+  border: 2px solid #3b96ac;
+  color: #3b96ac;
   border-bottom: #3b96ac 3px solid;
   font-size: 18px;
-  text-shadow: #7d7d7d -1px -1px;
 }
 .btn-style:hover {
   color: white;
-  background-color: #41aac4;
+  background-color: #3b96ac;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -4942,6 +4949,33 @@ img {
   text-align: center;
   font-style: italic;
   font-size: 0.8em;
+}
+.bloc-container .bloc-avant-apres > a {
+  width: 50% !important;
+}
+@media (max-width: 768px) {
+  .bloc-container .bloc-avant-apres > a {
+    width: 100% !important;
+  }
+  .bloc-container .bloc-avant-apres > a .w20 {
+    display: none !important;
+  }
+  .bloc-container .bloc-avant-apres > a .w80 {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .bloc-container .bloc-avant-apres > a * {
+    text-align: center !important;
+  }
+}
+.bloc-container .bloc-avant-apres > a:hover {
+  background-color: #f4f4f4;
+}
+.bloc-container .bloc-avant-apres > a:hover .titre-avant-article, .bloc-container .bloc-avant-apres > a:hover .fa {
+  color: #4bb6d1;
+}
+.bloc-container .bloc-avant-apres > a .col {
+  vertical-align: middle !important;
 }
 .bloc-container .bloc-container-footer {
   background-color: #f4f4f4;

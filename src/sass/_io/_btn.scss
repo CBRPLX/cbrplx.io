@@ -22,16 +22,17 @@
 }
 
 .btn-style{
-	background-color: $bleu-link;
+	// background-color: $bleu-link;
 	border-radius: 3px;
-	color: $white;
+	border: 2px solid $bleu-link-border;
+	color: $bleu-link-border;
 	border-bottom: $bleu-link-border 3px solid;
 	font-size: 18px;
 
-	@include text-shadow($txt-shadow);
+	// @include text-shadow($txt-shadow);
 
 	&:hover{
 		color: $white;
-		background-color: $bleu-link-hover;
+		background-color: $bleu-link-border;
 	}
 }

@@ -1,5 +1,4 @@
 <div class="bloc-container proxima-bold" id="{{article.getUrl()}}">
-	<!-- MON EXPERIENCE -->
 	<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')">
 	</div>
 	<h1 class="bloc-titre txtcenter pas man proxima-bold">
@@ -9,7 +8,6 @@
 			{{article.get("titre")}}
 		{% endif %}
 	</h1>
-	<!-- NANCY / PARIS -->
 	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
 		<i class="fa fa-clock-o txtmiddle"></i>
 		<span class="txtmiddle pls date date-mois">{{article.get('days_ago')}}</span>
@@ -26,6 +24,30 @@
 			</a>
 		</div>
 	{% endif %}
+	<div class="bloc-avant-apres row">
+		<a class="col w50 pas ptl pbl not-a-like">
+			<div class="row w100">
+				<div class="col txtmiddle w20">
+					<i class="fa fa-arrow-left"></i>
+				</div>
+				<div class="col txtmiddle plm w80">
+					<div class="titre-avant-article h3-like">{{article.get('titre')}}</div>
+					<div class="proxima">Voir l'article</div>
+				</div>
+			</div>
+		</a>
+		<a class="col w50 pas ptl pbl not-a-like txtright">
+			<div class="row w100 txtright">
+				<div class="col txtright prm w80">
+					<div class="titre-avant-article h3-like">{{article.get('titre')}}</div>
+					<div class="proxima">Voir l'article</div>
+				</div>
+				<div class="col txtmiddle w20">
+					<i class="fa fa-arrow-right"></i>
+				</div>
+			</div>
+		</a>
+	</div>
 	{% include 'go_back.html.twig' %}
 	<div class="bloc-auteur bloc-container-footer prs pls">
 		{% if auteur %}
