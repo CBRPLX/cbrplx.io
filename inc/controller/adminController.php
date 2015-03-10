@@ -104,7 +104,7 @@ class adminController {
             $couverture = $glob_couv[0];
         }
 
-        $glob_photos = glob("assets/".$id."/".$id."_*.*");
+        $glob_photos = glob("assets/".$id."/".$id."-*.*");
         $all_photos = array();
         $i = 0;
         $photos = array();
