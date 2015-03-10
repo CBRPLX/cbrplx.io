@@ -1,7 +1,57 @@
 <div class="bloc-newsletter bloc-text">
-	<form id="form_news txtcenter">
-		<input type="text" name="nom_news" placeholder="Nom Prénom" class="pas proxima-bold" />
-		<input type="text" name="email_news" placeholder="Email" class="pas proxima-bold" />
-		<input type="submit" name="news_submit" value="Subscribe" class="pas proxima-bold" />
+	<div class="proxima-bold uppercase pas">Inscrivez-vous à la newsletter pour ne rien rater :</div>
+	<form id="form_news txtcenter" class="pas ptn">
+		<div class="col w30 prs mts">
+			<input type="text" name="nom_news" id="nom_news" placeholder="Nom Prénom" class="pas proxima-bold inbl w100" />
+		</div>
+		<div class="col w40 prs mts">
+			<input type="email" name="email_news" id="email_news" placeholder="Email" class="pas proxima-bold inbl w100" />
+		</div>
+		<div class="col w30 mts">
+			<button type="submit" name="news_submit" id="news_submit" class="pas proxima-bold inbl w100">
+				<span id="submit-msg">Subscribe</span> <i id="news_icon" class="fa fa-envelope mls"></i>
+			</button>
+		</div>
 	</form>
 </div>
+
+<script type="text/javascript">
+document.getElementById("news_submit").addEventListener("click", function(e){
+	e.preventDefault();
+	submitNews(e);
+});
+
+function submitNews(e){
+	document.getElementById("news_submit").setAttribute("class", "pas proxima-bold inbl w100");
+	document.getElementById("news_icon").setAttribute("class", "fa fa-refresh fa-spin mls");
+	document.getElementById("submit-msg").innerHTML = "Subscribe";
+
+	var error = {deal: true, message: ""};
+	if(document.getElementById("nom_news").value == "" || document.getElementById("email_news").value == ""){
+		error.deal = false;
+		error.message = "Un des champs est vide";
+	}
+
+	if(error.deal){
+		var nom = document.getElementById("nom_news").value;
+		var email = document.getElementById("email_news").value;
+		var retour = file("/inc/ajax/newsletter/add_newsletter.php", "nom="+nom+"&email="+email);
+
+		console.log(retour);
+
+		if(retour == true){
+			document.getElementById("news_submit").setAttribute("class", "pas proxima-bold inbl w100 news-deal");
+			document.getElementById("news_icon").setAttribute("class", "fa fa-check mls");
+			document.getElementById("submit-msg").innerHTML = "Deal";
+		}else{
+			document.getElementById("news_submit").setAttribute("class", "pas proxima-bold inbl w100 news-error");
+			document.getElementById("news_icon").setAttribute("class", "fa fa-times mls");
+			document.getElementById("submit-msg").innerHTML = "Error";
+		}
+	}else{
+		document.getElementById("news_submit").setAttribute("class", "pas proxima-bold inbl w100 news-error");
+		document.getElementById("news_icon").setAttribute("class", "fa fa-times mls");
+		document.getElementById("submit-msg").innerHTML = "Error";
+	}
+}
+</script>

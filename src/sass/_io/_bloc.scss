@@ -155,27 +155,93 @@
 	padding: 140px 0;
 	max-width: 600px;
 	margin: auto;
-	line-height: 30px;
+	line-height: 1.2em;
 	color: $white;
+	font-size: 1.2em;
 
-	input{
-		border: 2px solid $white !important;
-		border-radius: 3px;
-		color: $gris-title;
-		background-color: $white;
-		font-size: 1.2em;
+	&>div{
+		font-size: 0.85em;
+	}
 
-		@include input-placeholder{
-			color: $gris-title;
-		}
+	// .news-msg-parent{
+	// 	position: relative;
 
-		&[type="submit"]{
-			background-color: transparent;
-			color: $white;
+	// 	.news-msg{
+	// 		opacity: 0;
+	// 		position: absolute;
+	// 		width: 100%;
+	// 		top: 0;
+	// 		left: 0;
 
-			&:hover{
-				background-color: $white;
+	// 		&>div{
+	// 			color: $white;
+	// 			border-radius: 3px;
+	// 		}
+
+	// 		&#news-error{
+	// 			&>div{
+	// 				background-color: $rouge;
+	// 			}
+	// 		}
+
+	// 		&#news-deal{
+	// 			&>div{
+	// 				background-color: $vert;
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	form{
+		div{
+			input{
+				border: 2px solid $white !important;
+				border-radius: 3px;
 				color: $gris-title;
+				background-color: $white;
+				font-size: 1em;
+
+				@include input-placeholder{
+					color: $gris-title;
+				}
+			}
+
+			button{
+				background-color: transparent;
+				color: $white;
+				width: 100%;
+				border-radius: 3px;
+				font-size: 1em;
+				border: 1px solid $white !important;
+				border-bottom: 3px solid $white !important;
+
+				&:hover{
+					background-color: $white;
+					color: $gris-title;
+				}
+
+				&.news-error{
+					color: $white;
+					background-color: $rouge !important;
+					border-color: $rouge !important;
+				}
+
+				&.news-deal{
+					color: $white;
+					background-color: rgba(60, 216, 35, 0.87) !important;
+					border-color: rgba(60, 216, 35, 0.87) !important;
+				}
+			}
+
+			&.w30{
+				width: 35%;
+			}
+
+
+
+			@media (max-width: $small-screen) {
+				width: 100% !important;
+				padding: 0 !important;
 			}
 		}
 	}

@@ -4858,35 +4858,63 @@ img {
   padding: 140px 0;
   max-width: 600px;
   margin: auto;
-  line-height: 30px;
+  line-height: 1.2em;
   color: white;
+  font-size: 1.2em;
 }
-.bloc-newsletter input {
+.bloc-newsletter > div {
+  font-size: 0.85em;
+}
+.bloc-newsletter form div input {
   border: 2px solid white !important;
   border-radius: 3px;
   color: #343332;
   background-color: white;
-  font-size: 1.2em;
+  font-size: 1em;
 }
-.bloc-newsletter input:-moz-placeholder {
+.bloc-newsletter form div input:-moz-placeholder {
   color: #343332;
 }
-.bloc-newsletter input::-moz-placeholder {
+.bloc-newsletter form div input::-moz-placeholder {
   color: #343332;
 }
-.bloc-newsletter input:-ms-input-placeholder {
+.bloc-newsletter form div input:-ms-input-placeholder {
   color: #343332;
 }
-.bloc-newsletter input::-webkit-input-placeholder {
+.bloc-newsletter form div input::-webkit-input-placeholder {
   color: #343332;
 }
-.bloc-newsletter input[type="submit"] {
+.bloc-newsletter form div button {
   background-color: transparent;
   color: white;
+  width: 100%;
+  border-radius: 3px;
+  font-size: 1em;
+  border: 1px solid white !important;
+  border-bottom: 3px solid white !important;
 }
-.bloc-newsletter input[type="submit"]:hover {
+.bloc-newsletter form div button:hover {
   background-color: white;
   color: #343332;
+}
+.bloc-newsletter form div button.news-error {
+  color: white;
+  background-color: #f56361 !important;
+  border-color: #f56361 !important;
+}
+.bloc-newsletter form div button.news-deal {
+  color: white;
+  background-color: rgba(60, 216, 35, 0.87) !important;
+  border-color: rgba(60, 216, 35, 0.87) !important;
+}
+.bloc-newsletter form div.w30 {
+  width: 35%;
+}
+@media (max-width: 768px) {
+  .bloc-newsletter form div {
+    width: 100% !important;
+    padding: 0 !important;
+  }
 }
 
 .bloc-container .bloc-baniere {
@@ -5837,7 +5865,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1425943465');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1425982289');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
