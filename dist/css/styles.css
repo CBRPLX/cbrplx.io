@@ -4558,8 +4558,8 @@ a:hover, .a-like:hover {
 .transition {
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
+  -webkit-transition-duration: 0.04s;
+  transition-duration: 0.04s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
 }
@@ -4990,6 +4990,18 @@ img {
 }
 .bloc-container .bloc-text p {
   text-align: justify;
+}
+.bloc-container .bloc-text .info {
+  font-style: italic;
+  font-size: 0.8em;
+  background-color: #f4f4f4;
+  border-radius: 3px;
+  position: relative;
+  padding: 1em;
+}
+.bloc-container .bloc-text .info i {
+  color: #4bb6d1;
+  font-size: 1.3em;
 }
 .bloc-container .bloc-text h1, .bloc-container .bloc-text h2, .bloc-container .bloc-text h3 {
   font-family: "proxima-bold", Helvetica, Arial, sans-serif !important;
@@ -5865,7 +5877,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1425982289');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1425998252');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;

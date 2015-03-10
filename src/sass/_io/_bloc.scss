@@ -135,19 +135,12 @@
 	background-size: cover;
 	color:$white;
 	background-position: 50% 82%;
-	// height: 300px;
-	// min-height: 300px;
-	// max-height: 300px;
 
 	.bloc-footer-contenu{
 		width: 100%;
 		height: 100%;
 		background-color: rgba(0,0,0,0.67);
 		padding: 0 0 140px 0;
-
-		// &>div{
-		// 	padding-top: 142px;
-		// }
 	}
 }
 
@@ -162,35 +155,6 @@
 	&>div{
 		font-size: 0.85em;
 	}
-
-	// .news-msg-parent{
-	// 	position: relative;
-
-	// 	.news-msg{
-	// 		opacity: 0;
-	// 		position: absolute;
-	// 		width: 100%;
-	// 		top: 0;
-	// 		left: 0;
-
-	// 		&>div{
-	// 			color: $white;
-	// 			border-radius: 3px;
-	// 		}
-
-	// 		&#news-error{
-	// 			&>div{
-	// 				background-color: $rouge;
-	// 			}
-	// 		}
-
-	// 		&#news-deal{
-	// 			&>div{
-	// 				background-color: $vert;
-	// 			}
-	// 		}
-	// 	}
-	// }
 
 	form{
 		div{
@@ -334,8 +298,20 @@
 
 		p{
 			text-align: justify;
+		}
 
+		.info{
+			font-style: italic;
+			font-size: 0.8em;
+			background-color: $gris-back;
+			border-radius: 3px;
+			position: relative;
+			padding: 1em;
 
+			i{
+				color: $bleu-link;
+				font-size: 1.3em;
+			}
 		}
 
 		h1,h2,h3{

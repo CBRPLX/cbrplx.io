@@ -37,10 +37,6 @@ if(("standalone" in window.navigator) && window.navigator.standalone){
     }, false);
 }
 
-addToHomescreen({
-  message: '<p class="proxima" style="z-index:9999;">Yo ajoute là comme une appli, on est bien ... Allez viens .. on est bien. Bien bien bien</p>'
-});
-
 document.getElementById("icone-fleche-bas").addEventListener("click", function(){
   smoothScroll('bloc-contenu');
 });

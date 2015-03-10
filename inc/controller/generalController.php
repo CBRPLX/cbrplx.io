@@ -39,7 +39,7 @@ class generalController {
                 //On charge l'article
                 $titre = $article->get('titre');
                 $image = "http://cbrplx.io/".$article->getCouverture();
-                $url = "http://www.cbrplx.io/articles/".$article->getUrl();
+                $url = "http://cbrplx.io/articles/".$article->getUrl();
                 $description = $article->get('description');
                 $tag = $article->get('tags');
                 $tag = explode(";", $tag);
