@@ -13,7 +13,7 @@
 
 		if($v->get('online') == "1"){
 			array_push($cats, array(
-				"loc" => "http://cbrplx.io/".$v->getUrl(),
+				"loc" => "http://cbrplx.io/".preg_replace("@&@", "et", $v->getUrl()),
 				"changefreq" => "weekly",
 				"priority" => "0.8"
 			));
