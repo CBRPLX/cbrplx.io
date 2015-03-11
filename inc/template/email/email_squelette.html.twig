@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Template_squelette</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+    @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+    </style>
+   
+</head>
+<body style="background-color: #e1e1e1; margin: 0; padding: 0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none; min-height: 100%; font-family: 'Montserrat', 'Dosis', Helvetica, Arial, sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #e1e1e1;">
+        <tbody>
+            <tr>
+                <td class="small-hidden marge" valign="top" style="background-color: #e1e1e1;">
+                    <div style="min-height: 210px; max-height: 210px; height: 210px; background-color: #0b2439;">
+                        &nbsp;
+                    </div>
+                </td>
+                <td class="" style="width:600px;" style="background-color: #e1e1e1;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="" align="center" >
+                        <tbody>
+                            <tr>
+                                <td align="center" bgcolor="#0b2439" id="" style="background-color: #0b2439; margin: auto; text-align: center; padding: 48px 16px 48px 16px; position: relative; display: block; background-image: url('http://cbrplx.io/dist/images/bg-33.png'); background-repeat: no-repeat; background-position: center">
+                                    <img src="http://cbrplx.io/dist/images/logo-principal.png" alt="Logo Cbrplx.io" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" width="100%" id="" style="position: relative;">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="float: left;">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <!-- Partie contenu -->
+                                                    {{contenu|raw}}
+                                                    <!-- Fin de la partie contenu -->
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- BEGIN HOTLINE -->
+                            {% if last %}
+                            <tr>
+                                <td align="center" width="100%" id="" style="position: relative; padding-top:1em;">
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="float: left;">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <table width="100%" style="box-shadow: 0px 0px 4px 1px #B8B8B8; background-color: #ffffff; padding: 1em 2em 2em 2em; min-height: 200px;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <table width="100%" style="padding-top:10px;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td width="75px">
+                                                                                    <img src="http://cbrplx.io/dist/images/icone/email-article.png" />
+                                                                                </td>
+                                                                                <td align="left" style="font-weight: normal; font-size: 22px; color:#0b2439;">
+                                                                                    Dernier article
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <table width="100%" style="padding: 0 0 0 82px; color: #818181;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <a href="http://cbrplx.io/articles/{{article.getUrl()}}">
+                                                                                        <img src="http://cbrplx.io/{{article.getCouverture()}}=444x200xcrop" />
+                                                                                    </a>
+                                                                                    <a href="http://cbrplx.io/articles/{{article.getUrl()}}" style="text-decoration:none; ouline:none;">
+                                                                                        <div style="color:#343332; padding-top:20px; padding-bottom:20px; font-weight:bold; font-size:18px;">
+                                                                                            {{article.get('titre')}}
+                                                                                        </div>
+                                                                                    </a>
+                                                                                    <div style="font-size:12px; line-height:20px;">{{article.get('description')}}</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- END HOTLINE -->
+                            {% endif %}
+                            <!-- BEGIN FOOTER -->
+                            <tr>
+                                <td align="center" style="padding-top:2em;">
+                                    <table width="100%">
+                                        <tbody>
+                                            {# <tr>
+                                                <td style="color:#23b8ca" align="center">SUIVEZ-NOUS :</td>
+                                            </tr>
+                                            <tr style="">
+                                                <td align="center">
+                                                    <a href="http://www.facebook.com/neonomadecom" style="text-decoration:none; outline:none; border:none;">
+                                                        <img src="http://pro.neo-nomade.com/image/icone-1/fb.png" alt="Facebook" />
+                                                    </a>
+                                                    <a href="http://twitter.com/neonomade_com" style="text-decoration:none; outline:none; border:none;">
+                                                        <img src="http://pro.neo-nomade.com/image/icone-2/twitter.png" alt="Twitter" />
+                                                    </a>
+                                                    <a href="http://fr.linkedin.com/company/neo-nomade-com" style="text-decoration:none; outline:none; border:none;">
+                                                        <img src="http://pro.neo-nomade.com/image/icone-2/linkedin.png" alt="Linked in" />
+                                                    </a>
+                                                    <a href="http://plus.google.com/102549198905849304896" style="text-decoration:none; outline:none; border:none;">
+                                                        <img src="http://pro.neo-nomade.com/image/icone-1/gplus.png" alt="Google Plus" />
+                                                    </a>
+                                                </td>
+                                            </tr> #}
+                                            <tr style="">
+                                                <td align="center" style="color:#454545; font-size:14px;padding-top:1em; padding-bottom:2em;">
+                                                   Awesome guy with an awesome website !
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- END FOOTER -->
+                        </tbody>
+                    </table>
+                </td>
+                <td class="small-hidden marge" valign="top" style="background-color: #e1e1e1;">
+                    <div style="min-height: 210px; max-height: 210px; height: 210px; background-color: #0b2439;">
+                        &nbsp;
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
