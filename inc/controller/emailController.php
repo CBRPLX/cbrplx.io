@@ -52,4 +52,17 @@ class emailController {
 
         return $this->genererSquelette($contenu, true);
     }
+
+    public function genererNouvelleInscription($nom, $email){
+        global $twig;
+        global $dev;
+        $template = $twig->loadTemplate('email/new_inscription.html.twig');
+
+        $contenu = $template->render(array(
+            'nom' => $nom,
+            'email' => $email
+        ));
+
+        return $this->genererSquelette($contenu);
+    }
 }

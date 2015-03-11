@@ -11,6 +11,9 @@ if(!empty($_POST["nom"]) && !empty($_POST["email"])){
 		$destinataire = ucfirst(strtolower($_POST["nom"]))." <".$_POST["email"].">";
 		$pageController->envoyerEmail($destinataire, "Inscription à la newsletter cbrplx.io", $contenu);
 
+		$contenu = $pageController->genererNouvelleInscription($_POST["nom"], $_POST["email"]);
+		$pageController->envoyerEmail('cbrplx.io <robin.pierrot@gmail.com>', "Nouvelle inscription à la newsletter cbrplx.io", $contenu);
+
 		echo $newsletter->add($_POST["nom"], $_POST["email"]);
 	}else{
 		echo false;
