@@ -16,7 +16,7 @@ class articleController {
         $article = new \classe\article();
         $article->load($id_article);
 
-        if($article->get("online") == "1"){
+        if($article->get("online") == "1" || isset($_GET["preview"])){
 
             $article->oneMoreView();
 
@@ -69,7 +69,8 @@ class articleController {
                 'root' => $root,
                 'before' => $before,
                 'after' => $after,
-                'refresh' => $refresh
+                'refresh' => $refresh,
+                'dev' => $dev
             ));
 
             $controller = new \controller\generalController();

@@ -1,19 +1,24 @@
-<div class="bloc-container proxima-bold" id="{{article.getUrl()}}">
-	<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')">
+<div class="bloc-container proxima-bold" id="{{article.getUrl()}}" itemscope itemtype="http://schema.org/Article">
+	<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')" itemprop="image">
 	</div>
-	<h1 class="bloc-titre txtcenter pas man proxima-bold">
+	<h1 class="bloc-titre txtcenter pas man proxima-bold" itemprop="about" itemscope itemtype="http://schema.org/Thing">
 		{% if root %}
-			<a href="/articles/{{article.getUrl()}}" class="not-a-like">{{article.get("titre")}}</a>
+			{% if dev %}
+				<a href="/articles/{{article.getUrl()}}" class="not-a-like" itemprop="name">{{article.get("titre")}}</a>
+			{% else %}
+				<a href="http://cbrplx.io/articles/{{article.getUrl()}}" class="not-a-like" itemprop="name">{{article.get("titre")}}</a>
+			{% endif %}
 		{% else %}
-			{{article.get("titre")}}
+			<span  itemprop="name">{{article.get("titre")}}</span>
 		{% endif %}
+		<link itemprop="url" href="http://cbrplx.io/articles/{{article.getUrl()}}" />
 	</h1>
 	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
 		<i class="fa fa-clock-o txtmiddle"></i>
 		<span class="txtmiddle pls date date-mois">{{article.get('days_ago')}}</span>
-		<span class="txtmiddle pls date date-jour">{{article.get('date')}}</span>
+		<span class="txtmiddle pls date date-jour" itemprop="datePublished">{{article.get('date')}}</span>
 	</div>
-	<div class="bloc-text h5-like pls prs proxima">
+	<div class="bloc-text h5-like pls prs proxima" itemprop="articleBody">
 			{{article.get('text')|raw|nl2br}}
 	</div>
 	{% if article.get('lien') %}
@@ -31,7 +36,11 @@
 		<div class="bloc-avant-apres row">
 			<!-- BEFORE -->
 			{% if before %}
-				<a class="col w50 pas ptl pbl not-a-like" href="/articles/{{before.getUrl()}}">
+				{% if dev %}
+					<a class="col w50 pas ptl pbl not-a-like" href="/articles/{{before.getUrl()}}">
+				{% else %}
+					<a class="col w50 pas ptl pbl not-a-like" href="http://cbrplx.io/articles/{{before.getUrl()}}">
+				{% endif %}
 					<div class="row w100">
 						<div class="col txtmiddle w20p">
 							<i class="fa fa-chevron-left"></i>
@@ -47,7 +56,11 @@
 			{% endif %}
 			<!-- AFTER -->
 			{% if after %}
-				<a class="col w50 pas ptl pbl not-a-like txtright" href="/articles/{{after.getUrl()}}">
+				{% if dev %}
+					<a class="col w50 pas ptl pbl not-a-like txtright" href="/articles/{{after.getUrl()}}">
+				{% else %}
+					<a class="col w50 pas ptl pbl not-a-like txtright" href="http://cbrplx.io/articles/{{after.getUrl()}}">
+				{% endif %}
 					<div class="row w100 txtright">
 						<div class="col txtright prm w80">
 							<div class="titre-avant-article h3-like">{{after.get('titre')}}</div>
@@ -71,17 +84,21 @@
 					Auteur de cet article
 				</div>
 				<div class="col col-mobile w70 txttop pls">
-					<div class="mbs">
+					<div class="mbs" itemprop="author" itemscope itemtype="http://schema.org/Person">
 						<div class="bloc-rond inbl w50p txtmiddle">
 							{% if refresh %}
-								<img src="/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+								<img src="http://cbrplx.io/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" itemprop="image" />
 							{% else %}
-								<img src="/{{auteur.get('img')}}=100x100xcarre" />
+								<img src="http://cbrplx.io/{{auteur.get('img')}}=100x100xcarre" itemprop="image" />
 							{% endif %}
 						</div>
 						<div class="txtmiddle inbl pls">
-							<a href="/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}">
-								<h6 class="man inbl normal proxima-bold">{{auteur.get('prenom')}} {{auteur.get('nom')}}</h6>
+							{% if dev %}
+								<a href="/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}" itemprop="url">
+							{% else %}
+								<a href="http://cbrplx.io/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}" itemprop="url">
+							{% endif %}
+								<h6 class="man inbl normal proxima-bold" itemprop="name">{{auteur.get('prenom')}} {{auteur.get('nom')}}</h6>
 							</a>
 							<div class="proxima">
 								{{auteur.get('nb_post')}} post, {{auteur.get('nb_contrib')}} 
@@ -102,17 +119,21 @@
 					</div>
 					<div class="col col-mobile w70 txttop pls">
 						{% for contrib in contribs %}
-							<div class="mbs">
+							<div class="mbs" itemprop="contributor" itemscope itemtype="http://schema.org/Person">
 								<div class="bloc-rond inbl w50p txtmiddle">
 								{% if refresh %}
-									<img src="/{{contrib.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+									<img src="/{{contrib.get('img')}}=100x100xcarrex{{date().timestamp}}" itemprop="image" />
 								{% else %}
-									<img src="/{{contrib.get('img')}}=100x100xcarre" />
+									<img src="/{{contrib.get('img')}}=100x100xcarre" itemprop="image" />
 								{% endif %}
 								</div>
 								<div class="txtmiddle inbl pls">
-									<a href="/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}">
-										<h6 class="man inbl normal proxima-bold">{{contrib.get('prenom')}} {{contrib.get('nom')}}</h6>
+									{% if dev %}
+										<a href="/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}"  itemprop="url">
+									{% else %}
+										<a href="http://cbrplx.io/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}"  itemprop="url">
+									{% endif %}
+										<h6 class="man inbl normal proxima-bold" itemprop="name">{{contrib.get('prenom')}} {{contrib.get('nom')}}</h6>
 									</a>
 									<div class="proxima">
 										{{contrib.get('nb_post')}} post, {{contrib.get('nb_contrib')}} 
@@ -163,7 +184,7 @@
 				</div>
 				<div class="col col-mobile w70 txttop pls">
 						<div class="mbs">
-							<div class="txtmiddle inbl proxima">
+							<div class="txtmiddle inbl proxima" itemprop="keywords">
 								{% set itag = 0 %}
 								{% for tag in article.get('tags')|split(';') %}
 									{% if tag != "" %}

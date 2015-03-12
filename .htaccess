@@ -15,6 +15,7 @@ RewriteRule ^403/$  403.php
 RewriteRule ^about/$  a_propos.php
 RewriteRule ^admin/$  admin.php
 RewriteRule ^articles/(.*)-(.*)$  article.php?id_article=$2
+RewriteRule ^preview/(.*)-(.*)$  article.php?id_article=$2&preview
 
 ErrorDocument 404 /404/
 ErrorDocument 403 /403/

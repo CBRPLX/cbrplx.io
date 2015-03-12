@@ -172,7 +172,8 @@ class generalController {
                     'auteur' => $auteur,
                     'contribs' => $contribs,
                     'tri_technos' => $tri_technos,
-                    'root' => $root
+                    'root' => $root,
+                    'dev' => $dev
                 ));
 
                 // return $contenu;
