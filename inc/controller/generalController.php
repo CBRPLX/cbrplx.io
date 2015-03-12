@@ -16,9 +16,14 @@ class generalController {
 
             $tags = "";
             if($article == "a_propos"){
-                $titre = "À propos de moi";
+                $titre = "À propos de Robin Pierrot";
                 $image = "http://cbrplx.io/dist/images/share.jpg";
                 $url = "http://cbrplx.io/about/";
+                $description = "Awesome guy with an awesome website !";
+            }elseif($article == "index"){
+                $titre = "Nouveautés et astuces du web - Articles, blog et projets";
+                $image = "http://cbrplx.io/dist/images/share.jpg";
+                $url = "http://cbrplx.io/";
                 $description = "Awesome guy with an awesome website !";
             }elseif($article == "admin"){
                 $titre = "Admin";
@@ -39,6 +44,9 @@ class generalController {
                 //On charge l'article
                 $titre = $article->get('titre');
                 $image = "http://cbrplx.io/".$article->getCouverture();
+                if($article->get('id_article') == 3)
+                    $image .= "?v=1";
+
                 $url = "http://cbrplx.io/articles/".$article->getUrl();
                 $description = $article->get('description');
                 $tag = $article->get('tags');
@@ -178,7 +186,7 @@ class generalController {
         }else{
             $controller = new \controller\generalController();
 
-            return $controller->genererSquelette($contenu, true, "a_propos");
+            return $controller->genererSquelette($contenu, true, "index");
         }
     }
 }

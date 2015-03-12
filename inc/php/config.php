@@ -9,6 +9,9 @@ if($_SERVER["SERVER_NAME"] == "cbrplx.io" || $_SERVER["SERVER_NAME"] == "www.cbr
 	$dev = false;
 }
 
+$refresh = false;
+if(isset($_GET["refresh"])) $refresh = true;
+
 require_once "vendor/autoload.php";
 require_once "inc/php/pdo.php";
 

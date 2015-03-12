@@ -178,9 +178,10 @@ class article{
     public function getProjets(){
         global $pdo;
 
-        $sql = "SELECT id_article, titre, date_publication FROM cbrplx_io_article WHERE projet = ? AND online = ? ORDER BY date_publication DESC";
+        $sql = "SELECT id_article, titre, date_publication FROM cbrplx_io_article WHERE projet = ? 
+                AND online = ? AND id_auteur = ? ORDER BY date_publication DESC";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(array('1', '1'));
+        $stmt->execute(array('1', '1', '1'));
 
         if($stmt->rowCount() > 0){
             $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);

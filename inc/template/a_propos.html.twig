@@ -14,8 +14,13 @@
 			<span class="txtmiddle pls date date-jour">{{projet.get('date')}}</span>
 		</div>
 		<div class="bloc-text h5-like pls prs">
-			<div class="bloc-projet transition-fast" 
-				style="background-image:url('/{{projet.getCouverture()}}=1160x798xcropx{{date().timestamp}}')">
+			{% if refresh %}
+				<div class="bloc-projet transition-fast" 
+					style="background-image:url('/{{projet.getCouverture()}}=1160x798xcropx{{date().timestamp}}')">
+			{% else %}
+				<div class="bloc-projet transition-fast" 
+					style="background-image:url('/{{projet.getCouverture()}}=1160x798xcrop')">
+			{% endif %}
 				<div class="bloc-projet-contenu row row-mobile transition">
 					<a href="/articles/{{projet.getUrl()}}" class="col txtwhite col-mobile h1-like proxima-bold txtmiddle txtcenter not-a-like">
 						<h1 class="proxima-bold man">{{projet.get('titre')}}</h1>

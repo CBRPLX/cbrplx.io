@@ -10,6 +10,7 @@ class articleController {
     public function genererArticle($id_article = null){
         global $twig;
         global $dev;
+        global $refresh;
         $template = $twig->loadTemplate('article.html.twig');
 
         $article = new \classe\article();
@@ -67,7 +68,8 @@ class articleController {
                 'tri_technos' => $tri_technos,
                 'root' => $root,
                 'before' => $before,
-                'after' => $after
+                'after' => $after,
+                'refresh' => $refresh
             ));
 
             $controller = new \controller\generalController();

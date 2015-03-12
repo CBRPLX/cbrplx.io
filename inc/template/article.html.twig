@@ -73,7 +73,11 @@
 				<div class="col col-mobile w70 txttop pls">
 					<div class="mbs">
 						<div class="bloc-rond inbl w50p txtmiddle">
-							<img src="/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+							{% if refresh %}
+								<img src="/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+							{% else %}
+								<img src="/{{auteur.get('img')}}=100x100xcarre" />
+							{% endif %}
 						</div>
 						<div class="txtmiddle inbl pls">
 							<a href="/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}">
@@ -100,7 +104,11 @@
 						{% for contrib in contribs %}
 							<div class="mbs">
 								<div class="bloc-rond inbl w50p txtmiddle">
+								{% if refresh %}
 									<img src="/{{contrib.get('img')}}=100x100xcarrex{{date().timestamp}}" />
+								{% else %}
+									<img src="/{{contrib.get('img')}}=100x100xcarre" />
+								{% endif %}
 								</div>
 								<div class="txtmiddle inbl pls">
 									<a href="/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}">
