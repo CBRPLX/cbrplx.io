@@ -48,6 +48,8 @@ class generalController {
                     $image .= "?v=1";
 
                 $url = "http://cbrplx.io/articles/".$article->getUrl();
+                if(isset($_GET["preview"]))
+                    $url = "http://cbrplx.io/preview/".$article->getUrl();
                 $description = $article->get('description');
                 $tag = $article->get('tags');
                 $tag = explode(";", $tag);

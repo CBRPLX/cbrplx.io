@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block del_article %}
+<div class="row pas txtleft">
+	<a class="not-a-like btn txtbleu proxima-bold" href="/preview/{{article.getUrl()}}" target="_blank"><i class="fa fa-code"></i><span class="pls">Preview</span></a>
+</div>
 
 <div class="row pas txtleft">
 	<div id="delete_article" class="txtrouge btn btn-supprimer proxima-bold"><span class="icone-trash-red txtmiddle"></span><span class="txtmiddle pls">Supprimer</span></div>
