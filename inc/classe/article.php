@@ -130,7 +130,7 @@ class article{
         }
         $sql .= ", `date_modif` = ? ";
         $sql .= "WHERE `id_article` = ?";
-        // return $sql;
+        // var_dump($params);
         array_push($tab, time());
         array_push($tab, $id_article);
         $stmt = $pdo->prepare($sql);
