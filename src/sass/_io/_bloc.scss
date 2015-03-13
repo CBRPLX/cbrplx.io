@@ -333,6 +333,26 @@
 			font-style: italic;
 			font-size: 0.8em;
 		}
+
+		pre{
+			background-color: #999999;
+			color: #F5F5F5;
+			line-height: 10px;
+			border-radius: 3px;
+			box-shadow: inset 0px 0px 14px #717171;
+			padding: 25px;
+			font-size: 0.8em;
+
+			white-space: pre-wrap;       /* css-3 */
+			white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+			white-space: -pre-wrap;      /* Opera 4-6 */
+			white-space: -o-pre-wrap;    /* Opera 7 */
+			word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
+			.color{
+				color: #F4FE48;
+			}
+		}
 	}
 
 	.bloc-avant-apres{

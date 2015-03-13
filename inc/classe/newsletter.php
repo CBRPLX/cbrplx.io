@@ -34,6 +34,15 @@ class newsletter{
             $stmt->execute(array($nom, $email, time()));
             if($stmt->rowCount() > 0){
                 return true;
+                
+                $pageController = new \controller\emailController();
+                $contenu = $pageController->genererInscriptionNews($_POST["nom"]);
+                
+                $destinataire = ucfirst(strtolower($_POST["nom"]))." <".$_POST["email"].">";
+                $pageController->envoyerEmail($destinataire, "Inscription à la newsletter cbrplx.io", $contenu);
+
+                $contenu = $pageController->genererNouvelleInscription($_POST["nom"], $_POST["email"]);
+                $pageController->envoyerEmail('cbrplx.io <robin.pierrot@gmail.com>', "Nouvelle inscription à la newsletter cbrplx.io", $contenu);
             }else{
                 return false;
             }
