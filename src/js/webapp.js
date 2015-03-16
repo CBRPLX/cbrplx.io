@@ -252,6 +252,7 @@ function chargerArticleIndex(){
             new_article.innerHTML = retour;
             document.getElementsByClassName("bloc-article")[document.getElementsByClassName("bloc-article").length-1].appendChild(new_article);
             sizeBanieres();
+            testGoBack();
         }
     }
 }

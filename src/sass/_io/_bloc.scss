@@ -298,6 +298,11 @@
 
 		p{
 			text-align: justify;
+			margin: 2em 0;
+
+			&:nth-last-child(1){
+				margin-bottom: 0;
+			}
 		}
 
 		.info{
@@ -321,10 +326,13 @@
 			font-weight: 100 !important;
 			text-align: center;
 			color: $gris-title;
+			margin: 3em 0;
 		}
 
 		img{
 			width: 100%;
+			margin: 50px 0 0;
+			display: block;
 		}
 
 		.legend{
@@ -337,11 +345,12 @@
 		pre{
 			background-color: #999999;
 			color: #F5F5F5;
-			line-height: 10px;
+			line-height: 6px;
 			border-radius: 3px;
 			box-shadow: inset 0px 0px 14px #717171;
 			padding: 25px;
 			font-size: 0.8em;
+			margin: 2em 0;
 
 			white-space: pre-wrap;       /* css-3 */
 			white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
@@ -349,9 +358,49 @@
 			white-space: -o-pre-wrap;    /* Opera 7 */
 			word-wrap: break-word;       /* Internet Explorer 5.5+ */
 
-			.color{
+			code{
+				padding: 0;
+
+				&.new-line{
+					margin: 3px;
+				}
+			}
+
+			.color1{
 				color: #F4FE48;
 			}
+
+			.color2{
+				color: #FFBB00;
+			}
+		}
+	}
+
+	.share-buttons{
+
+		a{
+			// border-radius: 3px;		
+			// padding: 5px;	
+		}
+
+		.btn-fb{
+			color: #3b5998;
+			// border: 2px solid #3b5998;
+			// border-bottom: 3px solid #3b5998;
+		}
+
+		.btn-twt{
+			color: #4099FF;
+			// border: 2px solid #4099FF;
+			// border-bottom: 3px solid #4099FF;
+		}
+
+		.btn-gg{
+			color: #dd4b39;
+		}
+
+		.btn-pnt{
+			color: #cb2027;
 		}
 	}
 

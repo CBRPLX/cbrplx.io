@@ -4665,6 +4665,7 @@ img {
   line-height: 30px;
   width: 100%;
   background-color: white;
+  display: none;
 }
 .go-back > div {
   max-width: 600px;
@@ -4990,6 +4991,10 @@ img {
 }
 .bloc-container .bloc-text p {
   text-align: justify;
+  margin: 2em 0;
+}
+.bloc-container .bloc-text p:nth-last-child(1) {
+  margin-bottom: 0;
 }
 .bloc-container .bloc-text .info {
   font-style: italic;
@@ -5010,9 +5015,12 @@ img {
   font-weight: 100 !important;
   text-align: center;
   color: #343332;
+  margin: 3em 0;
 }
 .bloc-container .bloc-text img {
   width: 100%;
+  margin: 50px 0 0;
+  display: block;
 }
 .bloc-container .bloc-text .legend {
   background-color: #f4f4f4;
@@ -5023,11 +5031,12 @@ img {
 .bloc-container .bloc-text pre {
   background-color: #999999;
   color: #F5F5F5;
-  line-height: 10px;
+  line-height: 6px;
   border-radius: 3px;
   box-shadow: inset 0px 0px 14px #717171;
   padding: 25px;
   font-size: 0.8em;
+  margin: 2em 0;
   white-space: pre-wrap;
   /* css-3 */
   white-space: -moz-pre-wrap;
@@ -5039,8 +5048,29 @@ img {
   word-wrap: break-word;
   /* Internet Explorer 5.5+ */
 }
-.bloc-container .bloc-text pre .color {
+.bloc-container .bloc-text pre code {
+  padding: 0;
+}
+.bloc-container .bloc-text pre code.new-line {
+  margin: 3px;
+}
+.bloc-container .bloc-text pre .color1 {
   color: #F4FE48;
+}
+.bloc-container .bloc-text pre .color2 {
+  color: #FFBB00;
+}
+.bloc-container .share-buttons .btn-fb {
+  color: #3b5998;
+}
+.bloc-container .share-buttons .btn-twt {
+  color: #4099FF;
+}
+.bloc-container .share-buttons .btn-gg {
+  color: #dd4b39;
+}
+.bloc-container .share-buttons .btn-pnt {
+  color: #cb2027;
 }
 .bloc-container .bloc-avant-apres > a {
   width: 50% !important;
@@ -5919,7 +5949,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1426263082');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1426502361');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;

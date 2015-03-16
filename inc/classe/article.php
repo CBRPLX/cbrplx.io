@@ -54,6 +54,7 @@ class article{
                 }
                 $this->days_ago = $this->daysAgo($this->date_publication);
                 $this->date = strftime("%d %B %Y", $this->date_publication);
+                $this->text = preg_replace('@\[<\]@', '&lt;', $this->text);
                 return true;
             }else{
                 return false;
@@ -283,7 +284,10 @@ class article{
     }
 
     public function getUrl(){
-        return preg_replace("@ @", "-", strtolower($this->titre))."-".$this->id_article;
+        $url = preg_replace("@ @", "-", strtolower($this->titre))."-".$this->id_article;
+        $url = preg_replace("@&@", "et", $url);
+        $url = preg_replace("@é@", "e", $url);
+        return $url;
     }
 
     public function getContributeurs(){
@@ -302,9 +306,11 @@ class article{
     public function oneMoreView(){
         global $pdo;
 
-        $sql = "UPDATE cbrplx_io_article SET nb_vue = ? WHERE id_article = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(array($this->nb_vue+1, $this->id_article));
+        if(!isset($_GET["preview"])){
+            $sql = "UPDATE cbrplx_io_article SET nb_vue = ? WHERE id_article = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(array($this->nb_vue+1, $this->id_article));
+        }
     }
 
     public function getIdsTechnos(){
