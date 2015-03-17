@@ -32,9 +32,7 @@ class newsletter{
                     VALUES (?,?,?)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute(array($nom, $email, time()));
-            if($stmt->rowCount() > 0){
-                return true;
-                
+            if($stmt->rowCount() > 0){                
                 $pageController = new \controller\emailController();
                 $contenu = $pageController->genererInscriptionNews($_POST["nom"]);
                 
@@ -43,6 +41,8 @@ class newsletter{
 
                 $contenu = $pageController->genererNouvelleInscription($_POST["nom"], $_POST["email"]);
                 $pageController->envoyerEmail('cbrplx.io <robin.pierrot@gmail.com>', "Nouvelle inscription à la newsletter cbrplx.io", $contenu);
+
+                return true;
             }else{
                 return false;
             }
