@@ -50,24 +50,28 @@ class partage{
         }
     }
 
-    public function add($plateforme, $id_article){
+    public function add($plateforme, $id_article, $timestamp){
         global $pdo;
 
         $p = new \classe\partage();
 
         if($p->load($id_article)){
-            $sql = "UPDATE SET ? = ? WHERE id_article = ?";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute(array($plateforme, $p->get($plateforme)+1, $id_article));
-            if($stmt->rowCount() > 0){
-                return true;
+            if($timestamp != $p->get('last_partage')){
+                $sql = "UPDATE cbrplx_io_partage_article SET $plateforme = ?, last_partage = ? WHERE id_article = ?";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute(array($p->get($plateforme)+1, time(), $id_article));
+                if($stmt->rowCount() > 0){
+                    return true;
+                }else{
+                    return false;
+                }
             }else{
                 return false;
             }
         }else{
-            $sql = "INSERT INTO cbrplx_io_partage_article(id_article,?) VALUES (?,1)";
+            $sql = "INSERT INTO cbrplx_io_partage_article(id_article, $plateforme, last_partage) VALUES (?, '1', ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute(array($plateforme, $id_article));
+            $stmt->execute(array($id_article, time()));
             if($stmt->rowCount() > 0){
                 return true;
             }else{

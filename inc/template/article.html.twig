@@ -40,24 +40,24 @@
 			</a>
 		</div>
 	{% endif %}
-	<div class="bloc-text pls prs mtn share-buttons row row-mobile">
+	<div class="bloc-text pls prs mtn share-buttons row row-mobile" id="{{article.get('id_article')}}">
 		<div class="txtcenter col-mobile">
-			<a href="https://www.facebook.com/dialog/share?app_id=629248243841508&display=page&href=http://cbrplx.io/articles/{{article.getUrl()}}&redirect_uri=http://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-fb">
+			<a href="https://www.facebook.com/dialog/share?app_id=629248243841508&display=page&href=http://cbrplx.io/articles/{{article.getUrl()}}&redirect_uri=http://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-fb btn-share" plateforme="facebook">
 				<i class="fa fa-facebook txtmiddle"></i> <span class="txtmiddle">Partager</span>
 			</a>
 		</div>
 		<div class="txtcenter col-mobile">
-			<a href="https://twitter.com/intent/tweet?original_referer=http://cbrplx.io/articles/{{article.getUrl()}}&tw_p=tweetbutton&url=http://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-twt">
+			<a href="https://twitter.com/intent/tweet?original_referer=http://cbrplx.io/articles/{{article.getUrl()}}&tw_p=tweetbutton&url=http://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-twt btn-share" plateforme="twitter">
 				<i class="fa fa-twitter txtmiddle"></i> <span class="txtmiddle">Twitter</span>
 			</a>
 		</div>
 		<div class="txtcenter col-mobile">
-			<a href="https://plus.google.com/share?url=http://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-gg">
+			<a href="https://plus.google.com/share?url=http://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-gg btn-share" plateforme="google">
 				<i class="fa fa-google txtmiddle"></i> <span class="txtmiddle">Partager</span>
 			</a>
 		</div>
 		<div class="txtcenter col-mobile">
-			<a href="https://www.pinterest.com/pin/create/button/?url=http://cbrplx.io/articles/{{article.getUrl()}}&media=http://cbrplx.io/{{article.getCouverture()}}&description={{article.get('titre')}}" target="_blank" new-window="1" class="not-a-like btn-pnt">
+			<a href="https://www.pinterest.com/pin/create/button/?url=http://cbrplx.io/articles/{{article.getUrl()}}&media=http://cbrplx.io/{{article.getCouverture()}}&description={{article.get('titre')}}" target="_blank" new-window="1" class="not-a-like btn-pnt btn-share" plateforme="pinterest">
 				<i class="fa fa-pinterest-p txtmiddle"></i> <span class="txtmiddle">Pin it</span>
 			</a>
 		</div>
