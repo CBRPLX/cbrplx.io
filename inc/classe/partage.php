@@ -54,7 +54,6 @@ class partage{
         global $pdo;
 
         $p = new \classe\partage();
-
         if($p->load($id_article)){
             if($timestamp != $p->get('last_partage')){
                 $sql = "UPDATE cbrplx_io_partage_article SET $plateforme = ?, last_partage = ? WHERE id_article = ?";

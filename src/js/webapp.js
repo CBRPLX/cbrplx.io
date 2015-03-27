@@ -240,7 +240,7 @@ function shareEvent(){
         btn_share[i].addEventListener("click", function(e){
             var plateforme = this.getAttribute('plateforme');
             var id_article = this.parentNode.parentNode.getAttribute('id');
-            file('/inc/ajax/partage/add_partage.php', "plateforme="+plateforme+"&id_article="+id_article+"&timestamp="+Math.floor(Date.now() / 1000));
+            var retour = file('/inc/ajax/partage/add_partage.php', "plateforme="+plateforme+"&id_article="+id_article+"&timestamp="+Math.floor(Date.now() / 1000));
         });
     };
 }
