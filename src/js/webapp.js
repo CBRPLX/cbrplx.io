@@ -265,6 +265,7 @@ function chargerArticleIndex(){
             sizeBanieres();
             testGoBack();
             shareEvent();
+            switchDate();
         }
     }
 }
