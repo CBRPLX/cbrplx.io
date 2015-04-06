@@ -28,7 +28,7 @@ class article{
     	$this->$attr = $value;
     }
 
-    public function load($id_article = null, $last = null){
+    public function load($id_article = null, $last = null, $admin = null){
     	global $pdo;
 
         if(!empty($id_article)){
@@ -54,7 +54,8 @@ class article{
                 }
                 $this->days_ago = $this->daysAgo($this->date_publication);
                 $this->date = strftime("%d %B %Y", $this->date_publication);
-                $this->text = preg_replace('@\[<\]@', '&lt;', $this->text);
+                if(empty($admin))
+                    $this->text = preg_replace('@\[<\]@', '&lt;', $this->text);
                 return true;
             }else{
                 return false;

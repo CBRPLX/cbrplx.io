@@ -96,7 +96,7 @@ class adminController {
         $template = $twig->loadTemplate('modify_article.html.twig');
 
         $article = new \classe\article();
-        $article->load($id);
+        $article->load($id, null, true);
 
         $couverture = false;
         $glob_couv = glob("assets/".$id."/".$id.".*");

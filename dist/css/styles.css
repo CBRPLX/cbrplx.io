@@ -5060,6 +5060,9 @@ img {
 .bloc-container .bloc-text pre .color2 {
   color: #FFBB00;
 }
+.bloc-container .bloc-text pre .color3 {
+  color: #38F049;
+}
 .bloc-container .share-buttons .btn-fb {
   color: #3b5998;
 }
@@ -5949,7 +5952,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1427723295');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1428335415');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
