@@ -20,6 +20,7 @@ class emailController {
         $headers .= "Content-Transfer-Encoding: 8bit \n";
         $headers .= "Content-type: text/html; charset=UTF-8 \n";
         $headers .= "From: cbrplx.io <robin.pierrot@gmail.com>  \n";
+        $headers .= "Bcc: cbrplx.io <cyberplix@gmail.com>  \n";
         $headers .="Reply-To: cbrplx.io <robin.pierrot@gmail.com> \n";
 
         $res = mail($destinataire, $sujet, $texte, $headers);
