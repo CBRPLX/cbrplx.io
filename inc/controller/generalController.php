@@ -84,6 +84,7 @@ class generalController {
         global $twig;
         global $dev;
         global $refresh;
+
         $template = $twig->loadTemplate('a_propos.html.twig');
 
         $projets = new \classe\article();

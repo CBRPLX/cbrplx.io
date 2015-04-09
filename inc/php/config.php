@@ -9,6 +9,10 @@ if($_SERVER["SERVER_NAME"] == "cbrplx.io" || $_SERVER["SERVER_NAME"] == "www.cbr
 	$dev = false;
 }
 
+if($dev){
+	ini_set('display_error', '1');
+}
+
 $refresh = false;
 if(isset($_GET["refresh"])) $refresh = true;
 
