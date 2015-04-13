@@ -15,22 +15,22 @@ while ($res = $stm->fetch(\PDO::FETCH_OBJ)) {
 	$article = new \classe\article();
 	$article->load($res->id_article);
 
-	// echo $article->getNbViews()." <br/>";
+	echo $article->getNbViews()." <br/>";
 
-	for($i = 0; $i < $article->nb_vue; $i++){
+	// for($i = 0; $i < $article->nb_vue; $i++){
 
-		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-		    $ip = $_SERVER['HTTP_CLIENT_IP'];
-		} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-		    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-		} else {
-		    $ip = $_SERVER['REMOTE_ADDR'];
-		}
+	// 	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+	// 	    $ip = $_SERVER['HTTP_CLIENT_IP'];
+	// 	} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+	// 	    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	// 	} else {
+	// 	    $ip = $_SERVER['REMOTE_ADDR'];
+	// 	}
 
-		$sql = "INSERT INTO cbrplx_io_article_view (id_article, timestamp, ip) 
-				VALUES (?,?,?)";
-		$stmt = $pdo->prepare($sql);
-		$stmt->execute(array($res->id_article, time(), $ip));
-		echo "$i : ".$stmt->rowCount()." <br/>";
-	}
+	// 	$sql = "INSERT INTO cbrplx_io_article_view (id_article, timestamp, ip) 
+	// 			VALUES (?,?,?)";
+	// 	$stmt = $pdo->prepare($sql);
+	// 	$stmt->execute(array($res->id_article, time(), $ip));
+	// 	echo "$i : ".$stmt->rowCount()." <br/>";
+	// }
 }

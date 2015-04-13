@@ -209,6 +209,30 @@
 				</div>
 			{% endif %}
 		{% endif %}
+
+		{% if article.getNbViews() > 50 %}
+			<!-- VUES -->
+			<div class="row">
+				<div class="col col-mobile w30 txttop techno">
+					Nombre de lectures
+				</div>
+				<div class="col col-mobile w70 txttop pls">
+					<div class="mbs">
+						<div class="row row-mobile">
+							<div class="col col-mobile txtmiddle pls col-techno">
+								<div class="proxima">
+									<span class="fa fa-line-chart"></span>
+									<span class="pls">
+										<h6 class="man inbl normal thin proxima">{{article.getNbViews()}}</h6>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
 		{% if article.get('tags') %}
 			<!-- TAGS -->
 			<div class="row">
