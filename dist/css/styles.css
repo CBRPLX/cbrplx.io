@@ -5063,7 +5063,7 @@ img {
 }
 .bloc-container .bloc-text .a_lire {
   border-left: 3px solid #666666;
-  background-color: #cdcdcd;
+  background-color: #E5E5E5;
   padding: 1em 1.5em;
   font-family: "proxima-bold", Helvetica, Arial, sans-serif;
   color: #666666;
@@ -5955,7 +5955,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1428940802');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1428950253');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
