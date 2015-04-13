@@ -24,3 +24,6 @@ assets/
 ### fonts ###
 dist/fonts/
 src/fonts/
+
+*.sublime-project
+*.sublime-workspace
