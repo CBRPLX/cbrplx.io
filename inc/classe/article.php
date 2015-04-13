@@ -308,10 +308,36 @@ class article{
         global $pdo;
 
         if(!isset($_GET["preview"])){
-            $sql = "UPDATE cbrplx_io_article SET nb_vue = ? WHERE id_article = ?";
+
+            if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                $ip = $_SERVER['HTTP_CLIENT_IP'];
+            } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            } else {
+                $ip = $_SERVER['REMOTE_ADDR'];
+            }
+
+            $sql = "INSERT INTO cbrplx_io_article_view (id_article, timestamp, ip) 
+                    VALUES (?,?,?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute(array($this->nb_vue+1, $this->id_article));
+            $stmt->execute(array($this->id_article, time(), $ip));
         }
+    }
+
+    public function getNbViews(){
+        global $pdo;
+
+        $sql = "SELECT COUNT(id_article_view) as nb_views FROM cbrplx_io_article_view WHERE id_article = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($this->id_article));
+
+        $nb_views = 0;
+        if($stmt->rowCount() > 0){
+            $res = $stmt->fetch(\PDO::FETCH_OBJ);
+            $nb_views = $res->nb_views;
+        }
+
+        return $nb_views;
     }
 
     public function getIdsTechnos(){
