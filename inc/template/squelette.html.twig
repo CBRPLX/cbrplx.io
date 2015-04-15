@@ -119,7 +119,18 @@ ________________________________________________________________________________
 	<div class="bloc-chargement txtcenter transition" id="bloc-chargement-general">
 		<div class="icone-loading-droite rotating-droite"></div>
 	</div>
-	<div id="search-overlay"></div>
+	<div id="search-overlay" class="pal">
+		<div id="close-search-overlay" class="close-search-overlay pam">
+			&times;
+		</div>
+		<form class="form-search" id="form-search">
+			<input type="text" id="search-keywords" name="keywords" placeholder="Recherche d'articles..." class="proxima italic pam" />
+			<label for="submit-form-search" id="label-submit-search" class="pam">
+				<i class="fa fa-search pls"></i>
+			</label>
+			<input type="submit" id="submit-form-search" />
+		</form>
+	</div>
 	<div id="bloc-body" class="bloc-body transition-medium proxima">
 		<div class="menu-barre">
 			<div class="menu-barre-body">

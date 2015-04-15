@@ -707,6 +707,21 @@ document.getElementById("icone-fleche-bas").addEventListener("click", function()
   smoothScroll('bloc-contenu');
 });
 
+document.getElementById('close-search-overlay').addEventListener("click", function(){
+    document.getElementById("search-overlay").style.display = "none";
+});
+
+document.getElementById("search-button").addEventListener("click", function(){
+    document.getElementById("search-overlay").style.display = "block";
+});
+
+document.getElementById('form-search').addEventListener("submit", function(e){
+    e.preventDefault();
+
+    var keywords = document.getElementById("search-keywords").value;
+    window.location.href="/recherche/"+keywords;
+});
+
 function sizeBanieres(){
     var banieres = document.getElementsByClassName("bloc-baniere");
     var w = window,
