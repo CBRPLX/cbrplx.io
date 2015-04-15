@@ -2,33 +2,54 @@
 
 	<div class="bloc-baniere" id="mes_projets" style="background-image:url('/dist/images/search.jpg')">
 	</div>
-	<h1 class="bloc-titre txtcenter pas man proxima-bold">
-		Recherche : "{{keywords}}"
-	</h1>
+	<div class="bloc-search">
+		<h1 class="bloc-titre txtcenter pas man proxima-bold">
+			Recherche : "{{keywords}}"
+		</h1>
 
-	{% for article in articles %}
-		<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
-			<i class="fa fa-clock-o txtmiddle"></i>
-			<span class="txtmiddle pls date date-mois">{{article.get('days_ago')}}</span>
-			<span class="txtmiddle pls date date-jour">{{article.get('date')}}</span>
-		</div>
-		<div class="bloc-text h5-like pls prs">
-			{% if refresh %}
-				<div class="bloc-projet transition-fast" 
-					style="background-image:url('/{{article.getCouverture()}}=1160x798xcropx{{date().timestamp}}')">
-			{% else %}
-				<div class="bloc-projet transition-fast" 
-					style="background-image:url('/{{article.getCouverture()}}=1160x798xcrop')">
-			{% endif %}
-				<div class="bloc-projet-contenu row row-mobile transition">
-					<a href="/articles/{{article.getUrl()}}" class="col txtwhite col-mobile h1-like proxima-bold txtmiddle txtcenter not-a-like">
-						<h1 class="proxima-bold man">{{article.get('titre')}}</h1>
-						<h6 class="proxima italic pll prl">{{article.get('description')}}</h6>
-					</a>
+		{% for article in articles %}
+			<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
+				<i class="fa fa-clock-o txtmiddle"></i>
+				<span class="txtmiddle pls date date-mois">{{article.get('days_ago')}}</span>
+				<span class="txtmiddle pls date date-jour">{{article.get('date')}}</span>
+			</div>
+			<div class="bloc-text h5-like pls prs">
+				{% if refresh %}
+					<div class="bloc-projet transition-fast" 
+						style="background-image:url('/{{article.getCouverture()}}=1160x798xcropx{{date().timestamp}}')">
+				{% else %}
+					<div class="bloc-projet transition-fast" 
+						style="background-image:url('/{{article.getCouverture()}}=1160x798xcrop')">
+				{% endif %}
+					<div class="bloc-projet-contenu row row-mobile transition">
+						<a href="/articles/{{article.getUrl()}}" class="col txtwhite col-mobile h1-like proxima-bold txtmiddle txtcenter not-a-like">
+							<h1 class="proxima-bold man">{{article.get('titre')}}</h1>
+							<h6 class="proxima italic pll prl">{{article.get('description')}}</h6>
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
-	{% endfor %}
+		{% endfor %}
+
+		{% if articles|length == 0 %}
+			<div class="bloc-ss-titre prs pls mbl pbl uppercase txtcenter h6-like">
+				<span class="icone-skull txtmiddle"></span>
+				<h6 class="txtmiddle pls man inbl proxima-bold">Aucun résultat</h6>
+			</div>
+
+			<script type="text/javascript">
+				var quatre = document.getElementById("search");
+			    var w = window,
+			    d = document,
+			    e = d.documentElement,
+			    g = d.getElementsByTagName('body')[0],
+			    x = w.innerWidth || e.clientWidth || g.clientWidth,
+			    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+			    var demi_ecran = y/2;
+			    quatre.style.minHeight = demi_ecran+"px";
+			</script>
+		{% endif %}
+	</div>
 	
 	{% include 'go_back.html.twig' %}
 </div>
