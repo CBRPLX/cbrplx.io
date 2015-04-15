@@ -245,7 +245,7 @@
 								{% set itag = 0 %}
 								{% for tag in article.get('tags')|split(';') %}
 									{% if tag != "" %}
-										<a href="/tag/{{tag}}" class="tag italic"><h6 class="man inbl thin italic normal proxima">{{tag}}</h6></a>{% if itag < (loop.length-3) %}, {% endif %}
+										<a href="/search/{{tag}}" class="tag italic"><h6 class="man inbl thin italic normal proxima">{{tag}}</h6></a>{% if itag < (loop.length-3) %}, {% endif %}
 										{% set itag = itag +1 %}
 									{% endif %}
 								{% endfor %}

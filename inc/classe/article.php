@@ -390,4 +390,35 @@ class article{
             return false;
         }
     }
+
+    public static function recherche($keywords){
+        global $pdo;
+
+        $keywords = explode(' ', $keywords);
+
+        $sql = "SELECT a.id_article, a.titre FROM cbrplx_io_article a";
+        $params = array();
+        foreach ($keywords as $k => $v) {
+            if($k == 0){
+                $sql .= " WHERE (a.titre LIKE ? OR a.text LIKE ?)";
+            }else{
+                $sql .= " AND (a.titre LIKE ? OR a.text LIKE ?)";
+            }
+            array_push($params, '%'.$v.'%');
+            array_push($params, '%'.$v.'%');
+        }
+        $sql .= " ORDER BY a.id_article DESC";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        if($stmt->rowCount() > 0){
+            $res = $stmt->fetchAll(\PDO::FETCH_OBJ);
+            var_dump($res);
+            // $retour = new \classe\article();
+            // foreach ($res as $k => $v) {
+            //     $retour->$k = $v;
+            // }
+            // return $retour;
+        }
+    }
 }
