@@ -26,6 +26,25 @@
 	}
 }
 
+.menu-barre{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	min-width: 100%;
+	color: $white;
+
+	.menu-barre-body{
+		max-width: 90%;
+		margin: auto;
+
+		@media (max-width: $small-screen) {
+			.pam{
+				padding: 7px !important;
+			}
+		}
+	}
+}
+
 .bloc-header{
 	min-height: 465px;
 	max-height: 100%;
