@@ -193,4 +193,5 @@ return array(
     'controller\\articleController' => $baseDir . '/inc/controller/articleController.php',
     'controller\\emailController' => $baseDir . '/inc/controller/emailController.php',
     'controller\\generalController' => $baseDir . '/inc/controller/generalController.php',
+    'controller\\rechercheController' => $baseDir . '/inc/controller/rechercheController.php',
 );

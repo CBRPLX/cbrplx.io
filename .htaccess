@@ -16,7 +16,7 @@ RewriteRule ^about/$  a_propos.php
 RewriteRule ^admin/$  admin.php
 RewriteRule ^articles/(.*)-(.*)$  article.php?id_article=$2
 RewriteRule ^preview/(.*)-(.*)$  article.php?id_article=$2&preview
-RewriteRule ^search/(.*)$  search.php?keywords=$1
+RewriteRule ^recherche/(.*)$  search.php?keywords=$1
 
 ErrorDocument 404 /404/
 ErrorDocument 403 /403/

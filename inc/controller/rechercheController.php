@@ -25,6 +25,6 @@ class rechercheController {
 
         $controller = new \controller\generalController();
 
-        return $controller->genererSquelette($contenu, true);
+        return $controller->genererSquelette($contenu, true, "index");
     }
 }
