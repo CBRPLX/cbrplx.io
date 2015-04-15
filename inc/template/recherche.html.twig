@@ -6,28 +6,29 @@
 		Recherche : "{{keywords}}"
 	</h1>
 
-	{# {% for projet in projets %}
+	{% for article in articles %}
 		<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
 			<i class="fa fa-clock-o txtmiddle"></i>
-			<span class="txtmiddle pls date date-mois">{{projet.get('days_ago')}}</span>
-			<span class="txtmiddle pls date date-jour">{{projet.get('date')}}</span>
+			<span class="txtmiddle pls date date-mois">{{article.get('days_ago')}}</span>
+			<span class="txtmiddle pls date date-jour">{{article.get('date')}}</span>
 		</div>
 		<div class="bloc-text h5-like pls prs">
 			{% if refresh %}
 				<div class="bloc-projet transition-fast" 
-					style="background-image:url('/{{projet.getCouverture()}}=1160x798xcropx{{date().timestamp}}')">
+					style="background-image:url('/{{article.getCouverture()}}=1160x798xcropx{{date().timestamp}}')">
 			{% else %}
 				<div class="bloc-projet transition-fast" 
-					style="background-image:url('/{{projet.getCouverture()}}=1160x798xcrop')">
+					style="background-image:url('/{{article.getCouverture()}}=1160x798xcrop')">
 			{% endif %}
 				<div class="bloc-projet-contenu row row-mobile transition">
-					<a href="/articles/{{projet.getUrl()}}" class="col txtwhite col-mobile h1-like proxima-bold txtmiddle txtcenter not-a-like">
-						<h1 class="proxima-bold man">{{projet.get('titre')}}</h1>
+					<a href="/articles/{{article.getUrl()}}" class="col txtwhite col-mobile h1-like proxima-bold txtmiddle txtcenter not-a-like">
+						<h1 class="proxima-bold man">{{article.get('titre')}}</h1>
+						<h6 class="proxima italic pll prl">{{article.get('description')}}</h6>
 					</a>
 				</div>
 			</div>
 		</div>
-	{% endfor %} #}
+	{% endfor %}
 	
 	{% include 'go_back.html.twig' %}
 </div>

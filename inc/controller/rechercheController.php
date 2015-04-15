@@ -10,19 +10,17 @@ class rechercheController {
     public function genererRecherche($keywords){
         global $twig;
         global $dev;
+        global $refresh;
         
         $template = $twig->loadTemplate('recherche.html.twig');
 
-        // $article = new \classe\article();
-        // $article->load($id_article);
-
         $articles = \classe\article::recherche($keywords);
-        // var_dump($articles);
 
         $contenu = $template->render(array(
             'keywords' => $keywords,
             'refresh' => $refresh,
-            'dev' => $dev
+            'dev' => $dev,
+            'articles' => $articles
         ));
 
         $controller = new \controller\generalController();

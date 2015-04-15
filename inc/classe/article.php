@@ -396,7 +396,8 @@ class article{
 
         $keywords = explode(' ', $keywords);
 
-        $sql = "SELECT a.id_article, a.titre FROM cbrplx_io_article a";
+        $sql = "SELECT a.id_article, a.titre, a.date_publication, a.description 
+                FROM cbrplx_io_article a";
         $params = array();
         foreach ($keywords as $k => $v) {
             if($k == 0){
@@ -412,13 +413,18 @@ class article{
         $stmt = $pdo->prepare($sql);
         $stmt->execute($params);
         if($stmt->rowCount() > 0){
-            $res = $stmt->fetchAll(\PDO::FETCH_OBJ);
-            var_dump($res);
-            // $retour = new \classe\article();
-            // foreach ($res as $k => $v) {
-            //     $retour->$k = $v;
-            // }
-            // return $retour;
+            $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $articles = array();
+            foreach ($res as $k => $v) {
+                $a = new \classe\article();
+                foreach ($v as $ka => $va) {
+                    $a->$ka = $va;
+                    $a->days_ago = $a->daysAgo($a->date_publication);
+                    $a->date = strftime("%d %B %Y", $a->date_publication);
+                }
+                array_push($articles, $a);
+            }
+            return $articles;
         }
     }
 }

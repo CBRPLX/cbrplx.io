@@ -280,9 +280,16 @@
 				height: 100%;
 				background-color: rgba(0,0,0,0.67);
 				font-size: 2.5em;
+				position: relative;
 
 				h1{
 					color: $white;
+				}
+
+				h6{
+					line-height: 1.2em;
+					font-size: 0.4em;
+					position: absolute;
 				}
 
 				@media (max-width: $small-screen) {
