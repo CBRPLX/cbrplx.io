@@ -15,6 +15,8 @@ class rechercheController {
         $template = $twig->loadTemplate('recherche.html.twig');
 
         $articles = \classe\article::recherche($keywords);
+        $recherche = new \classe\recherche();
+        $recherche->add($keywords);
 
         $contenu = $template->render(array(
             'keywords' => $keywords,

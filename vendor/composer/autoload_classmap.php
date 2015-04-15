@@ -187,6 +187,7 @@ return array(
     'classe\\googleSitemapItem' => $baseDir . '/inc/classe/googleSitemapItem.php',
     'classe\\newsletter' => $baseDir . '/inc/classe/newsletter.php',
     'classe\\partage' => $baseDir . '/inc/classe/partage.php',
+    'classe\\recherche' => $baseDir . '/inc/classe/recherche.php',
     'classe\\techno' => $baseDir . '/inc/classe/techno.php',
     'classe\\user' => $baseDir . '/inc/classe/user.php',
     'controller\\adminController' => $baseDir . '/inc/controller/adminController.php',
