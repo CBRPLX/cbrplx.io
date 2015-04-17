@@ -102,7 +102,7 @@
 
 		@media (max-width: $small-screen) {
 			.pam{
-				padding: 7px !important;
+				padding: 15px 7px 7px !important;
 			}
 		}
 	}
@@ -173,7 +173,7 @@
 				.photo-profil{
 					width: 150px;
 					height: 150px;
-					background-image: url("/assets/users/1.jpg=300x300xcarre");
+					background-image: url("/dist/images/photo-profil.jpg");
 					background-size: 150px 150px;
 				}
 			}

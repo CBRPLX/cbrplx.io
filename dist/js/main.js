@@ -709,6 +709,7 @@ document.getElementById("icone-fleche-bas").addEventListener("click", function()
 
 document.getElementById('close-search-overlay').addEventListener("click", function(){
     document.getElementById("search-overlay").style.display = "none";
+    document.getElementById("search-keywords").value = "";
 });
 
 document.getElementById("search-button").addEventListener("click", function(){
