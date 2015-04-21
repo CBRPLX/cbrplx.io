@@ -17,6 +17,7 @@ RewriteRule ^admin/$  admin.php
 RewriteRule ^articles/(.*)-(.*)$  article.php?id_article=$2
 RewriteRule ^preview/(.*)-(.*)$  article.php?id_article=$2&preview
 RewriteRule ^recherche/(.*)$  search.php?keywords=$1
+RewriteRule ^users/(.*)-(.*)$  user.php?id_user=$2
 
 ErrorDocument 404 /404/
 ErrorDocument 403 /403/
