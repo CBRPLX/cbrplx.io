@@ -209,6 +209,10 @@
 	&.cadre {
 		border: 1px solid $gris-font;
 	}
+
+	&.cadre-blanc{
+		border: 3px solid $white;
+	}
 }
 
 .bloc-footer{
@@ -300,6 +304,21 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		height: 300px;
+
+		&.user{
+
+			*{
+				color: $white;
+			}
+
+			.txtmiddle{
+				vertical-align: middle !important;
+			}
+
+			img{
+				max-width: 150px;
+			}
+		}
 	}
 
 	.bloc-titre{

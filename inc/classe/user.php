@@ -36,11 +36,20 @@ class user{
                 foreach ($res as $k => $v) {
                     $this->$k = $v;
                 }
+                // Image de profile
                 $img = glob("assets/users/".$this->id_user.".*");
                 if(count($img) > 0){
                     $this->img = $img[0];
                 }else{
                     $this->img = "assets/users/default.jpg";
+                }
+
+                //Image blured
+                $img = glob("assets/users/".$this->id_user."-blur.*");
+                if(count($img) > 0){
+                    $this->img_blur = $img[0];
+                }else{
+                    $this->img_blur = "assets/users/default-blur.jpg";
                 }
                 $this->getNbPost();
                 $this->getNbContrib();
@@ -128,5 +137,34 @@ class user{
         }else{
             return false;
         }
+    }
+
+    public function getArticles(){
+        global $pdo;
+
+        $sql = "SELECT a.id_article, a.titre, a.date_publication, a.description 
+                FROM cbrplx_io_article a 
+                WHERE id_auteur = ?
+                ORDER BY id_article DESC";
+        
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($this->id_user));
+
+        $articles = array();
+        if($stmt->rowCount() > 0){
+            $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $articles = array();
+            foreach ($res as $k => $v) {
+                $a = new \classe\article();
+                foreach ($v as $ka => $va) {
+                    $a->set($ka,$va);
+                    $a->set('days_ago', $a->daysAgo($a->get('date_publication')));
+                    $a->set('date', strftime("%d %B %Y", $a->get('date_publication')));
+                }
+                array_push($articles, $a);
+            }
+        }
+
+        return $articles;
     }
 }

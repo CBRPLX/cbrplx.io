@@ -15,11 +15,13 @@ class userController {
 
         $user = new \classe\user();
         $user->load($id_user);
-        var_dump($user);
+
+        $articles = $user->getArticles();
+
         if(!empty($user)){
             $contenu = $template->render(array(
                 'user' => $user,
-                // 'auteur' => $auteur,
+                'articles' => $articles,
                 // 'contribs' => $contribs,
                 // 'tri_technos' => $tri_technos,
                 // 'root' => $root,
@@ -31,7 +33,7 @@ class userController {
 
             $controller = new \controller\generalController();
 
-            return $controller->genererSquelette($contenu, true, $article);
+            return $controller->genererSquelette($contenu, true, "index");
         }else{
             header('Location:/404/');
         }

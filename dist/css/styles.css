@@ -4922,6 +4922,9 @@ img {
 .bloc-rond.cadre {
   border: 1px solid #858383;
 }
+.bloc-rond.cadre-blanc {
+  border: 3px solid white;
+}
 
 .bloc-footer {
   background-image: url("/dist/images/stan.jpg");
@@ -5005,6 +5008,15 @@ img {
   background-size: cover;
   background-repeat: no-repeat;
   height: 300px;
+}
+.bloc-container .bloc-baniere.user * {
+  color: white;
+}
+.bloc-container .bloc-baniere.user .txtmiddle {
+  vertical-align: middle !important;
+}
+.bloc-container .bloc-baniere.user img {
+  max-width: 150px;
 }
 .bloc-container .bloc-titre {
   font-size: 4.5em;
@@ -6051,7 +6063,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1429635593');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1429638991');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
