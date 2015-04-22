@@ -5079,6 +5079,7 @@ img {
   line-height: 1.2em;
   font-size: 0.4em;
   position: absolute;
+  width: 100%;
 }
 @media (max-width: 768px) {
   .bloc-container .bloc-text .bloc-projet .bloc-projet-contenu {
@@ -6063,7 +6064,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1429638991');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1429714550');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
