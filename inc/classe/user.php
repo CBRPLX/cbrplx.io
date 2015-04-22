@@ -144,11 +144,13 @@ class user{
 
         $sql = "SELECT a.id_article, a.titre, a.date_publication, a.description 
                 FROM cbrplx_io_article a 
-                WHERE id_auteur = ?
+                WHERE (id_auteur = ?
+                    OR ids_contributeurs LIKE ?
+                )
                 ORDER BY id_article DESC";
         
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(array($this->id_user));
+        $stmt->execute(array($this->id_user, '%'.$this->id_user.'%'));
 
         $articles = array();
         if($stmt->rowCount() > 0){
