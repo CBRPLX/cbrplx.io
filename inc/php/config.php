@@ -11,6 +11,7 @@ if($_SERVER["SERVER_NAME"] == "cbrplx.io" || $_SERVER["SERVER_NAME"] == "www.cbr
 
 if($dev){
 	ini_set('display_error', '1');
+	error_reporting(-1);
 }
 
 $refresh = false;
