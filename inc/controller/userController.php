@@ -21,7 +21,7 @@ class userController {
         $social = new \classe\social();
         $socials = $social->loadFromUser($user->get('id_user'));
 
-        if(!empty($user)){
+        if(!empty($user->get('id_user'))){
             $contenu = $template->render(array(
                 'user' => $user,
                 'articles' => $articles,
