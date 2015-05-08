@@ -72,4 +72,28 @@ class social{
             return false;
         }
     }
+
+    public function loadFromUser($id_user = null){
+        global $pdo;
+
+        if(!empty($id_user)){
+            $sql = "SELECT s.nom_social, s.icone_social, us.link
+                    FROM cbrplx_io_social s, cbrplx_io_user_social us, cbrplx_io_user u
+                    WHERE s.id_social = us.id_social
+                    AND us.id_user = u.id_user
+                    AND u.id_user = ?
+                    ORDER BY s.ordre";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(array($id_user));
+
+            if($stmt->rowCount() > 0){
+                $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+                return $res;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
 }
