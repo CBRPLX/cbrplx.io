@@ -18,10 +18,14 @@ class userController {
 
         $articles = $user->getArticles();
 
+        $social = new \classe\social();
+        $socials = $social->loadFromUser($user->get('id_user'));
+
         if(!empty($user)){
             $contenu = $template->render(array(
                 'user' => $user,
                 'articles' => $articles,
+                'socials' => $socials,
                 // 'contribs' => $contribs,
                 // 'tri_technos' => $tri_technos,
                 // 'root' => $root,

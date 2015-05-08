@@ -5,6 +5,17 @@
 				<img src="/{{user.get('img')}}" class="bloc-rond" />
 			</div>
 			<h1 class="h2-like proxima-bold">{{user.get('prenom')}} {{user.get('nom')}}</h1>
+			{% if socials|length > 0 %}
+				<div>
+					{% for social in socials %}
+						<span class="mrs mls">
+							<a href="{{social.link}}" target="_blank" title="{{social.nom_social}}">
+								<i class="fa {{social.icone_social}} fa-lg"></i>
+							</a>
+						</span>
+					{% endfor %}
+				</div>
+			{% endif %}
 		</div>
 	</div>
 	<div id="user-profile">
