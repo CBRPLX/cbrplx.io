@@ -5007,6 +5007,9 @@ img {
   background-repeat: no-repeat;
   height: 300px;
 }
+.bloc-container .bloc-baniere.user .col {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .bloc-container .bloc-baniere.user * {
   color: #ffffff;
 }
@@ -6056,7 +6059,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1431864516');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1431866737');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
