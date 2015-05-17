@@ -1,6 +1,6 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
-setlocale (LC_TIME, 'fr_FR.utf8','fra');
+setlocale (LC_TIME, 'fr_FR.utf8','fra', 'fr_FR');
 ini_set('date.timezone', 'Europe/Paris');
 session_start();
 
