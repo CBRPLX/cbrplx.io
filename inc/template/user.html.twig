@@ -1,21 +1,23 @@
 <div class="bloc-container proxima-bold">
-	<div class="bloc-baniere user row row-mobile" style="background-image:url('/{{user.get('img_blur')}}')">
-		<div class="txtcenter txtmiddle col col-mobile">
-			<div class="bloc-rond inbl cadre-blanc">
-				<img src="/{{user.get('img')}}" class="bloc-rond" />
-			</div>
-			<h1 class="h2-like proxima-bold">{{user.get('prenom')}} {{user.get('nom')}}</h1>
-			{% if socials|length > 0 %}
-				<div>
-					{% for social in socials %}
-						<span class="mrs mls">
-							<a href="{{social.link}}" target="_blank" title="{{social.nom_social}}">
-								<i class="fa {{social.icone_social}} fa-lg"></i>
-							</a>
-						</span>
-					{% endfor %}
+	<div class="bloc-baniere user row row-mobile" style="background-image:url('/{{user.get('img_blur')}}');">
+		<div style="background-color:rgba(0,0,0,0.5);" class="txtcenter txtmiddle col col-mobile">
+			<div>
+				<div class="bloc-rond inbl cadre-blanc">
+					<img src="/{{user.get('img')}}" class="bloc-rond" />
 				</div>
-			{% endif %}
+				<h1 class="h2-like proxima-bold">{{user.get('prenom')}} {{user.get('nom')}}</h1>
+				{% if socials|length > 0 %}
+					<div>
+						{% for social in socials %}
+							<span class="mrs mls">
+								<a href="{{social.link}}" target="_blank" title="{{social.nom_social}}">
+									<i class="fa {{social.icone_social}} fa-lg"></i>
+								</a>
+							</span>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 	<div id="user-profile">
@@ -40,7 +42,7 @@
 					<div class="bloc-projet-contenu row row-mobile transition">
 						<a href="/articles/{{article.getUrl()}}" class="col txtwhite col-mobile h1-like proxima-bold txtmiddle txtcenter not-a-like">
 							<h1 class="proxima-bold man">{{article.get('titre')}}</h1>
-							<h6 class="proxima italic pll prl">{{article.get('description')}}</h6>
+							<h6 class="proxima pll prl">{{article.get('description')}}</h6>
 						</a>
 					</div>
 				</div>
