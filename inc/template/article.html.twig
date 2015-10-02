@@ -13,7 +13,7 @@
 		</div>
 	{% endif %}
 	<img itemprop="image" src="/{{article.getCouverture()}}" class="dnone" />
-	<h1 class="bloc-titre txtcenter pas man proxima-bold" itemprop="about" itemscope itemtype="http://schema.org/Thing">
+	<h1 class="bloc-titre txtcenter pas man proxima-bold">
 		{% if root %}
 			{% if dev %}
 				<a href="/articles/{{article.getUrl()}}" class="not-a-like" itemprop="headline">{{article.get("titre")}}</a>
