@@ -5,14 +5,14 @@
 		{% else %}
 			<a href="http://cbrplx.io/articles/{{article.getUrl()}}" class="not-a-like">
 		{% endif %}
-			<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')" itemprop="image">
+			<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')">
 			</div>
-			<img itemprop="image" src="/{{article.getCouverture()}}" class="dnone" />
 		</a>
 	{% else %}
-		<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')" itemprop="image">
+		<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')">
 		</div>
 	{% endif %}
+	<img itemprop="image" src="/{{article.getCouverture()}}" class="dnone" />
 	<h1 class="bloc-titre txtcenter pas man proxima-bold" itemprop="about" itemscope itemtype="http://schema.org/Thing">
 		{% if root %}
 			{% if dev %}
