@@ -7,6 +7,7 @@
 		{% endif %}
 			<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')" itemprop="image">
 			</div>
+			<img itemprop="image" src="/{{article.getCouverture()}}" class="dnone" />
 		</a>
 	{% else %}
 		<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')" itemprop="image">
@@ -15,19 +16,20 @@
 	<h1 class="bloc-titre txtcenter pas man proxima-bold" itemprop="about" itemscope itemtype="http://schema.org/Thing">
 		{% if root %}
 			{% if dev %}
-				<a href="/articles/{{article.getUrl()}}" class="not-a-like" itemprop="name">{{article.get("titre")}}</a>
+				<a href="/articles/{{article.getUrl()}}" class="not-a-like" itemprop="headline">{{article.get("titre")}}</a>
 			{% else %}
-				<a href="http://cbrplx.io/articles/{{article.getUrl()}}" class="not-a-like" itemprop="name">{{article.get("titre")}}</a>
+				<a href="http://cbrplx.io/articles/{{article.getUrl()}}" class="not-a-like" itemprop="headline">{{article.get("titre")}}</a>
 			{% endif %}
 		{% else %}
-			<span  itemprop="name">{{article.get("titre")}}</span>
+			<span  itemprop="headline">{{article.get("titre")}}</span>
 		{% endif %}
 		<link itemprop="url" href="http://cbrplx.io/articles/{{article.getUrl()}}" />
 	</h1>
 	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
 		<i class="fa fa-clock-o txtmiddle"></i>
 		<span class="txtmiddle pls date date-mois">{{article.get('days_ago')}}</span>
-		<span class="txtmiddle pls date date-jour" itemprop="datePublished">{{article.get('date')}}</span>
+		<span class="txtmiddle pls date date-jour">{{article.get('date')}}</span>
+		<span class="dnone" itemprop="datePublished">{{article.get('date_google')}}</span>
 	</div>
 	<div class="bloc-text h5-like pls prs proxima" itemprop="articleBody">
 			{{article.get('text')|raw}}

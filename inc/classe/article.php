@@ -54,6 +54,7 @@ class article{
                 }
                 $this->days_ago = $this->daysAgo($this->date_publication);
                 $this->date = strftime("%d %B %Y", $this->date_publication);
+                $this->date_google = date('c', $this->date_publication);
                 if(empty($admin))
                     $this->text = preg_replace('@\[<\]@', '&lt;', $this->text);
                 return true;
@@ -78,6 +79,7 @@ class article{
                     }
                     $a->days_ago = $a->daysAgo($a->date_publication);
                     $a->date = strftime("%d %B %Y", $a->date_publication);
+                    $a->date_google = date('c', $a->date_publication);
                     array_push($article, $a);
                 }
                 return $article;
