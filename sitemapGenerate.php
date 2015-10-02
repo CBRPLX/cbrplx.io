@@ -14,7 +14,7 @@
 		if($v->get('online') == "1"){
 			array_push($cats, array(
 				"loc" => "http://cbrplx.io/articles/".preg_replace("@&@", "et", $v->getUrl()),
-				"changefreq" => "weekly",
+				"changefreq" => "monthly",
 				"priority" => "0.8"
 			));
 		}
@@ -22,13 +22,13 @@
 
 	$cats[] = array(
 						"loc" => "http://cbrplx.io/",
-						"changefreq" => "weekly",
+						"changefreq" => "monthly",
 						"priority" => "1"
 					);
 
 	$cats[] = array(
 						"loc" => "http://cbrplx.io/about/",
-						"changefreq" => "weekly",
+						"changefreq" => "monthly",
 						"priority" => "1"
 					);
 
@@ -48,6 +48,6 @@
 
 	$xml = $site_map_container->build();
 
-	file_put_contents("sitemap.xml", $xml);
+	var_dump(file_put_contents("sitemap.xml", $xml));
 
 ?>

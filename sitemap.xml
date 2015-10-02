@@ -1,32 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
 		<url>
-			<loc>http://cbrplx.io/nique-ta-m&Atilde;&uml;re-un-peu-3</loc>
-			<changefreq>weekly</changefreq>
+			<loc>http://cbrplx.io/articles/creer-une-webapp-en-5-etapes-12</loc>
+			<changefreq>monthly</changefreq>
 			<priority>0.8</priority>
 		</url>
 
 		<url>
-			<loc>http://cbrplx.io/un-super-projet-2</loc>
-			<changefreq>weekly</changefreq>
+			<loc>http://cbrplx.io/articles/opengraph-et-le-seo-sur-les-reseaux-sociaux-11</loc>
+			<changefreq>monthly</changefreq>
 			<priority>0.8</priority>
 		</url>
 
 		<url>
-			<loc>http://cbrplx.io/outlookcsvparser-1</loc>
-			<changefreq>weekly</changefreq>
+			<loc>http://cbrplx.io/articles/chronostan-10</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.8</priority>
+		</url>
+
+		<url>
+			<loc>http://cbrplx.io/articles/usa-et-canada-trip-9</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.8</priority>
+		</url>
+
+		<url>
+			<loc>http://cbrplx.io/articles/outlook-csv-parser-8</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.8</priority>
+		</url>
+
+		<url>
+			<loc>http://cbrplx.io/articles/webplug-7</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.8</priority>
+		</url>
+
+		<url>
+			<loc>http://cbrplx.io/articles/pictorest-6</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.8</priority>
+		</url>
+
+		<url>
+			<loc>http://cbrplx.io/articles/dark-aci-5</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.8</priority>
+		</url>
+
+		<url>
+			<loc>http://cbrplx.io/articles/the-broscanner-4</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.8</priority>
+		</url>
+
+		<url>
+			<loc>http://cbrplx.io/articles/robin-pierrot.fr-3</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.8</priority>
+		</url>
+
+		<url>
+			<loc>http://cbrplx.io/articles/lan-aci-2</loc>
+			<changefreq>monthly</changefreq>
+			<priority>0.8</priority>
+		</url>
+
+		<url>
+			<loc>http://cbrplx.io/articles/appartathon-nancy-2013-1</loc>
+			<changefreq>monthly</changefreq>
 			<priority>0.8</priority>
 		</url>
 
 		<url>
 			<loc>http://cbrplx.io/</loc>
-			<changefreq>weekly</changefreq>
+			<changefreq>monthly</changefreq>
 			<priority>1</priority>
 		</url>
 
 		<url>
 			<loc>http://cbrplx.io/about/</loc>
-			<changefreq>weekly</changefreq>
+			<changefreq>monthly</changefreq>
 			<priority>1</priority>
 		</url>
 
