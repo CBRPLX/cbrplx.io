@@ -19,3 +19,6 @@ Disallow: /src/images/*fav
 Disallow: /src/images/formation.jpg
 Disallow: /src/images/*icone
 Disallow: /src/images/*windows
+
+User-Agent: *    
+Disallow: /recherche/

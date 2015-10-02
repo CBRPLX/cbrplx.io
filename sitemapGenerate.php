@@ -48,6 +48,6 @@
 
 	$xml = $site_map_container->build();
 
-	var_dump(file_put_contents("sitemap.xml", $xml));
+	file_put_contents("sitemap.xml", $xml);
 
 ?>
