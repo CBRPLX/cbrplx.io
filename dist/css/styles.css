@@ -4651,6 +4651,9 @@ img {
 .preview-photo .preview-photo-options [class^='icone-cross'] {
   cursor: pointer;
 }
+.preview-photo img {
+  margin: 0 !important;
+}
 
 .date {
   cursor: default !important;
