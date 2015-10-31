@@ -5163,7 +5163,10 @@ img {
   color: #FFBB00;
 }
 .bloc-container .bloc-text pre .color3 {
-  color: #38F049;
+  color: #49D650;
+}
+.bloc-container .bloc-text pre .commentaire {
+  color: #6F6F6F;
 }
 .bloc-container .bloc-text .a_lire {
   border-left: 3px solid #666666;
@@ -6059,7 +6062,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1431866737');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1446331904');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
