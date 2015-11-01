@@ -208,7 +208,9 @@ function uploadPhoto(id, id_article, couverture){
         formData.append('id_article', id_article);
         xhr.open("POST", "/inc/ajax/admin/upload_photo.php");
         // xhr.setRequestHeader('Content-type','multipart/form-data');
-        xhr.onload = function(){afficherNomPhoto(xhr.responseText, c)};
+        xhr.onload = function(){
+            afficherNomPhoto(xhr.responseText, c)
+        };
         // xhr.onload = function(){console.log(xhr.responseText)};
         xhr.send(formData);
         return "ok";

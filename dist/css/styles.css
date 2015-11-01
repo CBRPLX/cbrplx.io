@@ -5096,7 +5096,7 @@ img {
 }
 .bloc-container .bloc-text p {
   text-align: justify;
-  margin: 2em 0;
+  margin: 50px 0;
 }
 .bloc-container .bloc-text p:nth-last-child(1) {
   margin-bottom: 0;
@@ -6065,7 +6065,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1446331904');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1446339692');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
