@@ -5329,405 +5329,415 @@ img {
 }
 
 [class^="icone-"] {
-  background: url('../images/icone-s16c81244c4.png');
+  background: url('../images/icone-s126c763ece.png');
   display: inline-block;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   [class^="icone-"] {
-    background: url('../images/icone-2x-s0cb0913935.png');
-    background-size: 62px 960px;
+    background: url('../images/icone-2x-scfc184dbde.png');
+    background-size: 62px 981px;
   }
 }
 
-.icone-arrow-down-gris {
+.icone-api {
   background-position: 0 0;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-arrow-down-gris {
+  background-position: 0 -21px;
   height: 19px;
   width: 19px;
 }
 
 .icone-bdd {
-  background-position: 0 -24px;
-  height: 16px;
-  width: 16px;
-}
-
-.icone-box {
   background-position: 0 -45px;
   height: 16px;
   width: 16px;
 }
 
-.icone-burn-gris {
+.icone-box {
   background-position: 0 -66px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-burn-gris {
+  background-position: 0 -87px;
   height: 12px;
   width: 12px;
 }
 
 .icone-burn-vert {
-  background-position: 0 -83px;
+  background-position: 0 -104px;
   height: 12px;
   width: 12px;
 }
 
 .icone-cle-bleu {
-  background-position: 0 -100px;
+  background-position: 0 -121px;
   height: 17px;
   width: 17px;
 }
 
 .icone-cle-vert {
-  background-position: 0 -122px;
+  background-position: 0 -143px;
   height: 17px;
   width: 17px;
 }
 
 .icone-coeur {
-  background-position: 0 -144px;
+  background-position: 0 -165px;
   height: 22px;
   width: 15px;
 }
 
 .icone-cross-red {
-  background-position: 0 -171px;
+  background-position: 0 -192px;
   height: 17px;
   width: 17px;
 }
 
 .icone-cross-white {
-  background-position: 0 -193px;
+  background-position: 0 -214px;
   height: 17px;
   width: 17px;
 }
 
 .icone-css {
-  background-position: 0 -215px;
+  background-position: 0 -236px;
   height: 16px;
   width: 16px;
 }
 
 .icone-email-article {
-  background-position: 0 -236px;
+  background-position: 0 -257px;
   height: 62px;
   width: 62px;
 }
 
 .icone-email-icone {
-  background-position: 0 -303px;
+  background-position: 0 -324px;
   height: 62px;
   width: 62px;
 }
 
 .icone-fleche-bas {
-  background-position: 0 -370px;
+  background-position: 0 -391px;
   height: 18px;
   width: 55px;
 }
 
 .icone-git {
-  background-position: 0 -393px;
-  height: 16px;
-  width: 16px;
-}
-
-.icone-horloge-gris {
   background-position: 0 -414px;
   height: 16px;
   width: 16px;
 }
 
-.icone-html {
+.icone-horloge-gris {
   background-position: 0 -435px;
   height: 16px;
   width: 16px;
 }
 
-.icone-illustrator {
+.icone-html {
   background-position: 0 -456px;
   height: 16px;
   width: 16px;
 }
 
-.icone-lightning {
+.icone-illustrator {
   background-position: 0 -477px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-lightning {
+  background-position: 0 -498px;
   height: 18px;
   width: 9px;
 }
 
 .icone-loading-droite {
-  background-position: 0 -500px;
+  background-position: 0 -521px;
   height: 32px;
   width: 32px;
 }
 
 .icone-loading {
-  background-position: 0 -537px;
+  background-position: 0 -558px;
   height: 32px;
   width: 32px;
 }
 
 .icone-localisation {
-  background-position: 0 -574px;
+  background-position: 0 -595px;
   height: 16px;
   width: 11px;
 }
 
 .icone-machine {
-  background-position: 0 -595px;
-  height: 16px;
-  width: 16px;
-}
-
-.icone-photoshop {
   background-position: 0 -616px;
   height: 16px;
   width: 16px;
 }
 
-.icone-plug {
+.icone-photoshop {
   background-position: 0 -637px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-plug {
+  background-position: 0 -658px;
   height: 17px;
   width: 17px;
 }
 
 .icone-responsive {
-  background-position: 0 -659px;
-  height: 16px;
-  width: 16px;
-}
-
-.icone-skull {
   background-position: 0 -680px;
   height: 16px;
   width: 16px;
 }
 
-.icone-stats-bleu {
+.icone-skull {
   background-position: 0 -701px;
+  height: 16px;
+  width: 16px;
+}
+
+.icone-stats-bleu {
+  background-position: 0 -722px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stats-gris {
-  background-position: 0 -723px;
+  background-position: 0 -744px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-bleu {
-  background-position: 0 -745px;
+  background-position: 0 -766px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-gris {
-  background-position: 0 -767px;
+  background-position: 0 -788px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-plus-bleu {
-  background-position: 0 -789px;
+  background-position: 0 -810px;
   height: 17px;
   width: 17px;
 }
 
 .icone-stylo-plus-gris {
-  background-position: 0 -811px;
+  background-position: 0 -832px;
   height: 17px;
   width: 17px;
 }
 
 .icone-trash-red {
-  background-position: 0 -833px;
+  background-position: 0 -854px;
   height: 17px;
   width: 17px;
 }
 
 .icone-upload-bleu {
-  background-position: 0 -855px;
+  background-position: 0 -876px;
   height: 17px;
   width: 17px;
 }
 
 .icone-user-bleu {
-  background-position: 0 -877px;
+  background-position: 0 -898px;
   height: 17px;
   width: 17px;
 }
 
 .icone-user-gris {
-  background-position: 0 -899px;
+  background-position: 0 -920px;
   height: 17px;
   width: 17px;
 }
 
 .icone-valide-vert {
-  background-position: 0 -921px;
+  background-position: 0 -942px;
   height: 17px;
   width: 17px;
 }
 
 .icone-warning {
-  background-position: 0 -943px;
+  background-position: 0 -964px;
   height: 17px;
   width: 17px;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .icone-arrow-down-gris {
+  .icone-api {
     background-position: 0 0;
   }
 
-  .icone-bdd {
-    background-position: 0 -24px;
+  .icone-arrow-down-gris {
+    background-position: 0 -21px;
   }
 
-  .icone-box {
+  .icone-bdd {
     background-position: 0 -45px;
   }
 
-  .icone-burn-gris {
+  .icone-box {
     background-position: 0 -66px;
   }
 
+  .icone-burn-gris {
+    background-position: 0 -87px;
+  }
+
   .icone-burn-vert {
-    background-position: 0 -83px;
+    background-position: 0 -104px;
   }
 
   .icone-cle-bleu {
-    background-position: 0 -100px;
+    background-position: 0 -121px;
   }
 
   .icone-cle-vert {
-    background-position: 0 -122px;
+    background-position: 0 -143px;
   }
 
   .icone-coeur {
-    background-position: 0 -144px;
+    background-position: 0 -165px;
   }
 
   .icone-cross-red {
-    background-position: 0 -171px;
+    background-position: 0 -192px;
   }
 
   .icone-cross-white {
-    background-position: 0 -193px;
+    background-position: 0 -214px;
   }
 
   .icone-css {
-    background-position: 0 -215px;
-  }
-
-  .icone-email-article {
     background-position: 0 -236px;
   }
 
+  .icone-email-article {
+    background-position: 0 -257px;
+  }
+
   .icone-email-icone {
-    background-position: 0 -303px;
+    background-position: 0 -324px;
   }
 
   .icone-fleche-bas {
-    background-position: 0 -370px;
+    background-position: 0 -391px;
   }
 
   .icone-git {
-    background-position: 0 -393px;
-  }
-
-  .icone-horloge-gris {
     background-position: 0 -414px;
   }
 
-  .icone-html {
+  .icone-horloge-gris {
     background-position: 0 -435px;
   }
 
-  .icone-illustrator {
+  .icone-html {
     background-position: 0 -456px;
   }
 
-  .icone-lightning {
+  .icone-illustrator {
     background-position: 0 -477px;
   }
 
+  .icone-lightning {
+    background-position: 0 -498px;
+  }
+
   .icone-loading-droite {
-    background-position: 0 -499px;
+    background-position: 0 -520px;
   }
 
   .icone-loading {
-    background-position: 0 -536px;
+    background-position: 0 -557px;
   }
 
   .icone-localisation {
-    background-position: 0 -573px;
-  }
-
-  .icone-machine {
     background-position: 0 -594px;
   }
 
-  .icone-photoshop {
+  .icone-machine {
     background-position: 0 -615px;
   }
 
-  .icone-plug {
+  .icone-photoshop {
     background-position: 0 -636px;
   }
 
-  .icone-responsive {
-    background-position: 0 -658px;
+  .icone-plug {
+    background-position: 0 -657px;
   }
 
-  .icone-skull {
+  .icone-responsive {
     background-position: 0 -679px;
   }
 
-  .icone-stats-bleu {
+  .icone-skull {
     background-position: 0 -700px;
   }
 
+  .icone-stats-bleu {
+    background-position: 0 -721px;
+  }
+
   .icone-stats-gris {
-    background-position: 0 -722px;
+    background-position: 0 -743px;
   }
 
   .icone-stylo-bleu {
-    background-position: 0 -744px;
+    background-position: 0 -765px;
   }
 
   .icone-stylo-gris {
-    background-position: 0 -766px;
+    background-position: 0 -787px;
   }
 
   .icone-stylo-plus-bleu {
-    background-position: 0 -788px;
+    background-position: 0 -809px;
   }
 
   .icone-stylo-plus-gris {
-    background-position: 0 -810px;
+    background-position: 0 -831px;
   }
 
   .icone-trash-red {
-    background-position: 0 -832px;
+    background-position: 0 -853px;
   }
 
   .icone-upload-bleu {
-    background-position: 0 -854px;
+    background-position: 0 -875px;
   }
 
   .icone-user-bleu {
-    background-position: 0 -876px;
+    background-position: 0 -897px;
   }
 
   .icone-user-gris {
-    background-position: 0 -898px;
+    background-position: 0 -919px;
   }
 
   .icone-valide-vert {
-    background-position: 0 -920px;
+    background-position: 0 -941px;
   }
 
   .icone-warning {
-    background-position: 0 -942px;
+    background-position: 0 -963px;
   }
 }
 @keyframes rotating {
@@ -6065,7 +6075,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1446339692');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1446396754');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
