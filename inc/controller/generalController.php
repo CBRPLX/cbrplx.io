@@ -17,39 +17,39 @@ class generalController {
             $tags = "";
             if($article == "a_propos"){
                 $titre = "À propos de Robin Pierrot";
-                $image = "http://cbrplx.io/dist/images/share.jpg";
-                $url = "http://cbrplx.io/about/";
+                $image = "https://cbrplx.io/dist/images/share.jpg";
+                $url = "https://cbrplx.io/about/";
                 $description = "Awesome guy with an awesome website !";
             }elseif($article == "index"){
                 $titre = "Nouveautés et astuces du web - Articles, blog et projets";
-                $image = "http://cbrplx.io/dist/images/share.jpg";
-                $url = "http://cbrplx.io/";
+                $image = "https://cbrplx.io/dist/images/share.jpg";
+                $url = "https://cbrplx.io/";
                 $description = "Awesome guy with an awesome website !";
             }elseif($article == "admin"){
                 $titre = "Admin";
-                $image = "http://cbrplx.io/dist/images/share.jpg";
-                $url = "http://cbrplx.io/";
+                $image = "https://cbrplx.io/dist/images/share.jpg";
+                $url = "https://cbrplx.io/";
                 $description = "Awesome guy with an awesome website !";
             }elseif($article == "404"){
                 $titre = "404";
-                $image = "http://cbrplx.io/dist/images/404.jpg";
-                $url = "http://cbrplx.io/";
+                $image = "https://cbrplx.io/dist/images/404.jpg";
+                $url = "https://cbrplx.io/";
                 $description = "This page has been destroyed";
             }elseif($article == "403"){
                 $titre = "403";
-                $image = "http://cbrplx.io/dist/images/403.jpg";
-                $url = "http://cbrplx.io/";
+                $image = "https://cbrplx.io/dist/images/403.jpg";
+                $url = "https://cbrplx.io/";
                 $description = "Dude, you're lost ?";
             }else{
                 //On charge l'article
                 $titre = $article->get('titre');
-                $image = "http://cbrplx.io/".$article->getCouverture();
+                $image = "https://cbrplx.io/".$article->getCouverture();
                 if($article->get('id_article') == 3)
                     $image .= "?v=1";
 
-                $url = "http://cbrplx.io/articles/".$article->getUrl();
+                $url = "https://cbrplx.io/articles/".$article->getUrl();
                 if(isset($_GET["preview"]))
-                    $url = "http://cbrplx.io/preview/".$article->getUrl();
+                    $url = "https://cbrplx.io/preview/".$article->getUrl();
                 $description = $article->get('description');
                 $tag = $article->get('tags');
                 $tag = explode(";", $tag);

@@ -13,7 +13,7 @@
 
 		if($v->get('online') == "1"){
 			array_push($cats, array(
-				"loc" => "http://cbrplx.io/articles/".preg_replace("@&@", "et", $v->getUrl()),
+				"loc" => "https://cbrplx.io/articles/".preg_replace("@&@", "et", $v->getUrl()),
 				"changefreq" => "monthly",
 				"priority" => "0.8"
 			));
@@ -21,13 +21,13 @@
 	}
 
 	$cats[] = array(
-						"loc" => "http://cbrplx.io/",
+						"loc" => "https://cbrplx.io/",
 						"changefreq" => "monthly",
 						"priority" => "1"
 					);
 
 	$cats[] = array(
-						"loc" => "http://cbrplx.io/about/",
+						"loc" => "https://cbrplx.io/about/",
 						"changefreq" => "monthly",
 						"priority" => "1"
 					);

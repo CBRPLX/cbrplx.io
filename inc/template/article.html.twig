@@ -3,7 +3,7 @@
 		{% if dev %}
 			<a href="/articles/{{article.getUrl()}}" class="not-a-like">
 		{% else %}
-			<a href="http://cbrplx.io/articles/{{article.getUrl()}}" class="not-a-like">
+			<a href="https://cbrplx.io/articles/{{article.getUrl()}}" class="not-a-like">
 		{% endif %}
 			<div class="bloc-baniere" id="mon_experience" style="background-image:url('/{{article.getCouverture()}}')">
 			</div>
@@ -18,12 +18,12 @@
 			{% if dev %}
 				<a href="/articles/{{article.getUrl()}}" class="not-a-like" itemprop="headline">{{article.get("titre")}}</a>
 			{% else %}
-				<a href="http://cbrplx.io/articles/{{article.getUrl()}}" class="not-a-like" itemprop="headline">{{article.get("titre")}}</a>
+				<a href="https://cbrplx.io/articles/{{article.getUrl()}}" class="not-a-like" itemprop="headline">{{article.get("titre")}}</a>
 			{% endif %}
 		{% else %}
 			<span  itemprop="headline">{{article.get("titre")}}</span>
 		{% endif %}
-		<link itemprop="url" href="http://cbrplx.io/articles/{{article.getUrl()}}" />
+		<link itemprop="url" href="https://cbrplx.io/articles/{{article.getUrl()}}" />
 	</h1>
 	<div class="bloc-ss-titre prs pls uppercase txtcenter h6-like">
 		<i class="fa fa-clock-o txtmiddle"></i>
@@ -44,22 +44,22 @@
 	{% endif %}
 	<div class="bloc-text pls prs mtn share-buttons row row-mobile" id="{{article.get('id_article')}}">
 		<div class="txtcenter col-mobile">
-			<a href="https://www.facebook.com/dialog/share?app_id=629248243841508&display=page&href=http://cbrplx.io/articles/{{article.getUrl()}}&redirect_uri=http://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-fb btn-share" plateforme="facebook">
+			<a href="https://www.facebook.com/dialog/share?app_id=629248243841508&display=page&href=https://cbrplx.io/articles/{{article.getUrl()}}&redirect_uri=https://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-fb btn-share" plateforme="facebook">
 				<i class="fa fa-facebook txtmiddle"></i> <span class="txtmiddle">Partager</span>
 			</a>
 		</div>
 		<div class="txtcenter col-mobile">
-			<a href="https://twitter.com/intent/tweet?original_referer=http://cbrplx.io/articles/{{article.getUrl()}}&tw_p=tweetbutton&url=http://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-twt btn-share" plateforme="twitter">
+			<a href="https://twitter.com/intent/tweet?original_referer=https://cbrplx.io/articles/{{article.getUrl()}}&tw_p=tweetbutton&url=https://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-twt btn-share" plateforme="twitter">
 				<i class="fa fa-twitter txtmiddle"></i> <span class="txtmiddle">Twitter</span>
 			</a>
 		</div>
 		<div class="txtcenter col-mobile">
-			<a href="https://plus.google.com/share?url=http://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-gg btn-share" plateforme="google">
+			<a href="https://plus.google.com/share?url=https://cbrplx.io/articles/{{article.getUrl()}}" target="_blank" new-window="1" class="not-a-like btn-gg btn-share" plateforme="google">
 				<i class="fa fa-google txtmiddle"></i> <span class="txtmiddle">Partager</span>
 			</a>
 		</div>
 		<div class="txtcenter col-mobile">
-			<a href="https://www.pinterest.com/pin/create/button/?url=http://cbrplx.io/articles/{{article.getUrl()}}&media=http://cbrplx.io/{{article.getCouverture()}}&description={{article.get('titre')}}" target="_blank" new-window="1" class="not-a-like btn-pnt btn-share" plateforme="pinterest">
+			<a href="https://www.pinterest.com/pin/create/button/?url=https://cbrplx.io/articles/{{article.getUrl()}}&media=https://cbrplx.io/{{article.getCouverture()}}&description={{article.get('titre')}}" target="_blank" new-window="1" class="not-a-like btn-pnt btn-share" plateforme="pinterest">
 				<i class="fa fa-pinterest-p txtmiddle"></i> <span class="txtmiddle">Pin it</span>
 			</a>
 		</div>
@@ -74,7 +74,7 @@
 				{% if dev %}
 					<a class="col w50 pas ptl pbl not-a-like" href="/articles/{{before.getUrl()}}">
 				{% else %}
-					<a class="col w50 pas ptl pbl not-a-like" href="http://cbrplx.io/articles/{{before.getUrl()}}">
+					<a class="col w50 pas ptl pbl not-a-like" href="https://cbrplx.io/articles/{{before.getUrl()}}">
 				{% endif %}
 					<div class="row w100">
 						<div class="col txtmiddle w20p">
@@ -94,7 +94,7 @@
 				{% if dev %}
 					<a class="col w50 pas ptl pbl not-a-like txtright" href="/articles/{{after.getUrl()}}">
 				{% else %}
-					<a class="col w50 pas ptl pbl not-a-like txtright" href="http://cbrplx.io/articles/{{after.getUrl()}}">
+					<a class="col w50 pas ptl pbl not-a-like txtright" href="https://cbrplx.io/articles/{{after.getUrl()}}">
 				{% endif %}
 					<div class="row w100 txtright">
 						<div class="col txtright prm w80">
@@ -122,16 +122,16 @@
 					<div class="mbs" itemprop="author" itemscope itemtype="http://schema.org/Person">
 						<div class="bloc-rond inbl w50p txtmiddle">
 							{% if refresh %}
-								<img src="http://cbrplx.io/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" itemprop="image" />
+								<img src="https://cbrplx.io/{{auteur.get('img')}}=100x100xcarrex{{date().timestamp}}" itemprop="image" />
 							{% else %}
-								<img src="http://cbrplx.io/{{auteur.get('img')}}=100x100xcarre" itemprop="image" />
+								<img src="https://cbrplx.io/{{auteur.get('img')}}=100x100xcarre" itemprop="image" />
 							{% endif %}
 						</div>
 						<div class="txtmiddle inbl pls">
 							{% if dev %}
 								<a href="/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}" itemprop="url">
 							{% else %}
-								<a href="http://cbrplx.io/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}" itemprop="url">
+								<a href="https://cbrplx.io/users/{{auteur.get('login')}}-{{auteur.get('id_user')}}" itemprop="url">
 							{% endif %}
 								<h6 class="man inbl normal proxima-bold" itemprop="name">{{auteur.get('prenom')}} {{auteur.get('nom')}}</h6>
 							</a>
@@ -166,7 +166,7 @@
 									{% if dev %}
 										<a href="/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}"  itemprop="url">
 									{% else %}
-										<a href="http://cbrplx.io/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}"  itemprop="url">
+										<a href="https://cbrplx.io/users/{{contrib.get('login')}}-{{contrib.get('id_user')}}"  itemprop="url">
 									{% endif %}
 										<h6 class="man inbl normal proxima-bold" itemprop="name">{{contrib.get('prenom')}} {{contrib.get('nom')}}</h6>
 									</a>
