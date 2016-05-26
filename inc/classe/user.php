@@ -147,6 +147,7 @@ class user{
                 WHERE (id_auteur = ?
                     OR ids_contributeurs LIKE ?
                 )
+                AND a.projet = 0
                 ORDER BY id_article DESC";
         
         $stmt = $pdo->prepare($sql);
