@@ -156,7 +156,6 @@ class user{
         $articles = array();
         if($stmt->rowCount() > 0){
             $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            var_dump($res);
             $articles = array();
             foreach ($res as $k => $v) {
                 $a = new \classe\article();
