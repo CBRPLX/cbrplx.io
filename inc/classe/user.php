@@ -147,7 +147,7 @@ class user{
                 WHERE (id_auteur = ?
                     OR ids_contributeurs LIKE ?
                 )
-                AND a.projet = 0
+                AND a.online = 1
                 ORDER BY id_article DESC";
         
         $stmt = $pdo->prepare($sql);
@@ -156,6 +156,7 @@ class user{
         $articles = array();
         if($stmt->rowCount() > 0){
             $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            var_dump($res);
             $articles = array();
             foreach ($res as $k => $v) {
                 $a = new \classe\article();
