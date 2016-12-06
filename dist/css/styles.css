@@ -5329,12 +5329,12 @@ img {
 }
 
 [class^="icone-"] {
-  background: url('../images/icone-s890790e601.png');
+  background: url('../images/icone-s7e0585ea45.png');
   display: inline-block;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min—moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   [class^="icone-"] {
-    background: url('../images/icone-2x-s84322ae832.png');
+    background: url('../images/icone-2x-sbf647ef375.png');
     background-size: 62px 1002px;
   }
 }
@@ -6085,7 +6085,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1481041599');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1481041989');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
