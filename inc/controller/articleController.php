@@ -7,7 +7,7 @@ class articleController {
 		
     }
 
-    public function genererArticle($id_article = null){
+    public function genererArticle($id_article = null, $preview = false){
         global $twig;
         global $dev;
         global $refresh;
@@ -16,7 +16,7 @@ class articleController {
         $article = new \classe\article();
         $article->load($id_article);
 
-        if($article->get("online") == "1" || isset($_GET["preview"])){
+        if($article->get("online") == "1" || $preview){
 
             $article->oneMoreView();
 

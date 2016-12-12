@@ -4,17 +4,3 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule . index.php [L]
-
-######
-
-#RewriteRule ^404/$  404.php
-#RewriteRule ^403/$  403.php
-#RewriteRule ^about/$  a_propos.php
-#RewriteRule ^admin/$  admin.php
-#RewriteRule ^articles/(.*)-(.*)$  article.php?id_article=$2
-#RewriteRule ^preview/(.*)-(.*)$  article.php?id_article=$2&preview
-#RewriteRule ^recherche/(.*)$  search.php?keywords=$1
-#RewriteRule ^users/(.*)-(.*)$  user.php?id_user=$2
-
-#ErrorDocument 404 /404/
-#ErrorDocument 403 /403/
