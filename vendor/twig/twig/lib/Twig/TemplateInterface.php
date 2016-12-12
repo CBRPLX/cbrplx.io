@@ -18,8 +18,8 @@
  */
 interface Twig_TemplateInterface
 {
-    const ANY_CALL    = 'any';
-    const ARRAY_CALL  = 'array';
+    const ANY_CALL = 'any';
+    const ARRAY_CALL = 'array';
     const METHOD_CALL = 'method';
 
     /**
@@ -42,7 +42,7 @@ interface Twig_TemplateInterface
     /**
      * Returns the bound environment for this template.
      *
-     * @return Twig_Environment The current environment
+     * @return Twig_Environment
      */
     public function getEnvironment();
 }
