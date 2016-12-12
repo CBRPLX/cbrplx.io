@@ -12,7 +12,7 @@ class Twig_Node_Expression_Function extends Twig_Node_Expression_Call
 {
     public function __construct($name, Twig_NodeInterface $arguments, $lineno)
     {
-        parent::__construct(array('arguments' => $arguments), array('name' => $name, 'is_defined_test' => false), $lineno);
+        parent::__construct(array('arguments' => $arguments), array('name' => $name), $lineno);
     }
 
     public function compile(Twig_Compiler $compiler)
@@ -27,15 +27,7 @@ class Twig_Node_Expression_Function extends Twig_Node_Expression_Call
         $this->setAttribute('needs_context', $function->needsContext());
         $this->setAttribute('arguments', $function->getArguments());
         if ($function instanceof Twig_FunctionCallableInterface || $function instanceof Twig_SimpleFunction) {
-            $callable = $function->getCallable();
-            if ('constant' === $name && $this->getAttribute('is_defined_test')) {
-                $callable = 'twig_constant_is_defined';
-            }
-
-            $this->setAttribute('callable', $callable);
-        }
-        if ($function instanceof Twig_SimpleFunction) {
-            $this->setAttribute('is_variadic', $function->isVariadic());
+            $this->setAttribute('callable', $function->getCallable());
         }
 
         $this->compileCallable($compiler);

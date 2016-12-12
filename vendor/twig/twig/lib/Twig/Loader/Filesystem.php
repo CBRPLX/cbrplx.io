@@ -14,28 +14,21 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderInterface, Twig_SourceContextLoaderInterface
+class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderInterface
 {
     /** Identifier of the main namespace. */
     const MAIN_NAMESPACE = '__main__';
 
     protected $paths = array();
     protected $cache = array();
-    protected $errorCache = array();
-
-    private $rootPath;
 
     /**
-     * @param string|array $paths    A path or an array of paths where to look for templates
-     * @param string|null  $rootPath The root path common to all relative paths (null for getcwd())
+     * Constructor.
+     *
+     * @param string|array $paths A path or an array of paths where to look for templates
      */
-    public function __construct($paths = array(), $rootPath = null)
+    public function __construct($paths = array())
     {
-        $this->rootPath = (null === $rootPath ? getcwd() : $rootPath).DIRECTORY_SEPARATOR;
-        if (false !== $realPath = realpath($rootPath)) {
-            $this->rootPath = $realPath.DIRECTORY_SEPARATOR;
-        }
-
         if ($paths) {
             $this->setPaths($paths);
         }
@@ -87,18 +80,17 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
      * Adds a path where templates are stored.
      *
      * @param string $path      A path where to look for templates
-     * @param string $namespace A path namespace
+     * @param string $namespace A path name
      *
      * @throws Twig_Error_Loader
      */
     public function addPath($path, $namespace = self::MAIN_NAMESPACE)
     {
         // invalidate the cache
-        $this->cache = $this->errorCache = array();
+        $this->cache = array();
 
-        $checkPath = $this->isAbsolutePath($path) ? $path : $this->rootPath.$path;
-        if (!is_dir($checkPath)) {
-            throw new Twig_Error_Loader(sprintf('The "%s" directory does not exist ("%s").', $path, $checkPath));
+        if (!is_dir($path)) {
+            throw new Twig_Error_Loader(sprintf('The "%s" directory does not exist.', $path));
         }
 
         $this->paths[$namespace][] = rtrim($path, '/\\');
@@ -108,18 +100,17 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
      * Prepends a path where templates are stored.
      *
      * @param string $path      A path where to look for templates
-     * @param string $namespace A path namespace
+     * @param string $namespace A path name
      *
      * @throws Twig_Error_Loader
      */
     public function prependPath($path, $namespace = self::MAIN_NAMESPACE)
     {
         // invalidate the cache
-        $this->cache = $this->errorCache = array();
+        $this->cache = array();
 
-        $checkPath = $this->isAbsolutePath($path) ? $path : $this->rootPath.$path;
-        if (!is_dir($checkPath)) {
-            throw new Twig_Error_Loader(sprintf('The "%s" directory does not exist ("%s").', $path, $checkPath));
+        if (!is_dir($path)) {
+            throw new Twig_Error_Loader(sprintf('The "%s" directory does not exist.', $path));
         }
 
         $path = rtrim($path, '/\\');
@@ -136,19 +127,7 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
      */
     public function getSource($name)
     {
-        @trigger_error(sprintf('Calling "getSource" on "%s" is deprecated since 1.27. Use getSourceContext() instead.', get_class($this)), E_USER_DEPRECATED);
-
         return file_get_contents($this->findTemplate($name));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getSourceContext($name)
-    {
-        $path = $this->findTemplate($name);
-
-        return new Twig_Source(file_get_contents($path), $name, $path);
     }
 
     /**
@@ -156,13 +135,7 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
      */
     public function getCacheKey($name)
     {
-        $path = $this->findTemplate($name);
-        $len = strlen($this->rootPath);
-        if (0 === strncmp($this->rootPath, $path, $len)) {
-            return substr($path, $len);
-        }
-
-        return $path;
+        return $this->findTemplate($name);
     }
 
     /**
@@ -177,10 +150,10 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
         }
 
         try {
-            return false !== $this->findTemplate($name, false);
-        } catch (Twig_Error_Loader $exception) {
-            @trigger_error(sprintf('In %s::findTemplate(), you must accept a second argument that when set to "false" returns "false" instead of throwing an exception. Not supporting this argument is deprecated since version 1.27.', get_class($this)), E_USER_DEPRECATED);
+            $this->findTemplate($name);
 
+            return true;
+        } catch (Twig_Error_Loader $exception) {
             return false;
         }
     }
@@ -195,19 +168,10 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
 
     protected function findTemplate($name)
     {
-        $throw = func_num_args() > 1 ? func_get_arg(1) : true;
         $name = $this->normalizeName($name);
 
         if (isset($this->cache[$name])) {
             return $this->cache[$name];
-        }
-
-        if (isset($this->errorCache[$name])) {
-            if (!$throw) {
-                return false;
-            }
-
-            throw new Twig_Error_Loader($this->errorCache[$name]);
         }
 
         $this->validateName($name);
@@ -215,20 +179,10 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
         list($namespace, $shortname) = $this->parseName($name);
 
         if (!isset($this->paths[$namespace])) {
-            $this->errorCache[$name] = sprintf('There are no registered paths for namespace "%s".', $namespace);
-
-            if (!$throw) {
-                return false;
-            }
-
-            throw new Twig_Error_Loader($this->errorCache[$name]);
+            throw new Twig_Error_Loader(sprintf('There are no registered paths for namespace "%s".', $namespace));
         }
 
         foreach ($this->paths[$namespace] as $path) {
-            if (!$this->isAbsolutePath($path)) {
-                $path = $this->rootPath.'/'.$path;
-            }
-
             if (is_file($path.'/'.$shortname)) {
                 if (false !== $realpath = realpath($path.'/'.$shortname)) {
                     return $this->cache[$name] = $realpath;
@@ -238,13 +192,7 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
             }
         }
 
-        $this->errorCache[$name] = sprintf('Unable to find template "%s" (looked into: %s).', $name, implode(', ', $this->paths[$namespace]));
-
-        if (!$throw) {
-            return false;
-        }
-
-        throw new Twig_Error_Loader($this->errorCache[$name]);
+        throw new Twig_Error_Loader(sprintf('Unable to find template "%s" (looked into: %s).', $name, implode(', ', $this->paths[$namespace])));
     }
 
     protected function parseName($name, $default = self::MAIN_NAMESPACE)
@@ -265,7 +213,7 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
 
     protected function normalizeName($name)
     {
-        return preg_replace('#/{2,}#', '/', str_replace('\\', '/', (string) $name));
+        return preg_replace('#/{2,}#', '/', strtr((string) $name, '\\', '/'));
     }
 
     protected function validateName($name)
@@ -288,16 +236,5 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
                 throw new Twig_Error_Loader(sprintf('Looks like you try to load a template outside configured directories (%s).', $name));
             }
         }
-    }
-
-    private function isAbsolutePath($file)
-    {
-        return strspn($file, '/\\', 0, 1)
-            || (strlen($file) > 3 && ctype_alpha($file[0])
-                && substr($file, 1, 1) === ':'
-                && strspn($file, '/\\', 2, 1)
-            )
-            || null !== parse_url($file, PHP_URL_SCHEME)
-        ;
     }
 }

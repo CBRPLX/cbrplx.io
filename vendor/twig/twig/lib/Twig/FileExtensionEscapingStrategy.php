@@ -13,7 +13,7 @@
  * Default autoescaping strategy based on file names.
  *
  * This strategy sets the HTML as the default autoescaping strategy,
- * but changes it based on the template name.
+ * but changes it based on the filename.
  *
  * Note that there is no runtime performance impact as the
  * default autoescaping strategy is set at compilation time.
@@ -25,23 +25,17 @@ class Twig_FileExtensionEscapingStrategy
     /**
      * Guesses the best autoescaping strategy based on the file name.
      *
-     * @param string $name The template name
+     * @param string $filename The template file name
      *
-     * @return string|false The escaping strategy name to use or false to disable
+     * @return string The escaping strategy name to use
      */
-    public static function guess($name)
+    public static function guess($filename)
     {
-        if (in_array(substr($name, -1), array('/', '\\'))) {
-            return 'html'; // return html for directories
+        if (!preg_match('{\.(js|css|txt)(?:\.[^/\\\\]+)?$}', $filename, $match)) {
+            return 'html';
         }
 
-        if ('.twig' === substr($name, -5)) {
-            $name = substr($name, 0, -5);
-        }
-
-        $extension = pathinfo($name, PATHINFO_EXTENSION);
-
-        switch ($extension) {
+        switch ($match[1]) {
             case 'js':
                 return 'js';
 
@@ -50,9 +44,6 @@ class Twig_FileExtensionEscapingStrategy
 
             case 'txt':
                 return false;
-
-            default:
-                return 'html';
         }
     }
 }

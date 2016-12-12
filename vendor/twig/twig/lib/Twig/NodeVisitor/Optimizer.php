@@ -19,13 +19,13 @@
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
+class Twig_NodeVisitor_Optimizer implements Twig_NodeVisitorInterface
 {
-    const OPTIMIZE_ALL = -1;
-    const OPTIMIZE_NONE = 0;
-    const OPTIMIZE_FOR = 2;
-    const OPTIMIZE_RAW_FILTER = 4;
-    const OPTIMIZE_VAR_ACCESS = 8;
+    const OPTIMIZE_ALL         = -1;
+    const OPTIMIZE_NONE        = 0;
+    const OPTIMIZE_FOR         = 2;
+    const OPTIMIZE_RAW_FILTER  = 4;
+    const OPTIMIZE_VAR_ACCESS  = 8;
 
     protected $loops = array();
     protected $loopsTargets = array();
@@ -34,6 +34,8 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
     protected $inABody = false;
 
     /**
+     * Constructor.
+     *
      * @param int $optimizers The optimizer mode
      */
     public function __construct($optimizers = -1)
@@ -48,13 +50,13 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doEnterNode(Twig_Node $node, Twig_Environment $env)
+    public function enterNode(Twig_NodeInterface $node, Twig_Environment $env)
     {
         if (self::OPTIMIZE_FOR === (self::OPTIMIZE_FOR & $this->optimizers)) {
             $this->enterOptimizeFor($node, $env);
         }
 
-        if (PHP_VERSION_ID < 50400 && self::OPTIMIZE_VAR_ACCESS === (self::OPTIMIZE_VAR_ACCESS & $this->optimizers) && !$env->isStrictVariables() && !$env->hasExtension('Twig_Extension_Sandbox')) {
+        if (PHP_VERSION_ID < 50400 && self::OPTIMIZE_VAR_ACCESS === (self::OPTIMIZE_VAR_ACCESS & $this->optimizers) && !$env->isStrictVariables() && !$env->hasExtension('sandbox')) {
             if ($this->inABody) {
                 if (!$node instanceof Twig_Node_Expression) {
                     if (get_class($node) !== 'Twig_Node') {
@@ -74,7 +76,7 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doLeaveNode(Twig_Node $node, Twig_Environment $env)
+    public function leaveNode(Twig_NodeInterface $node, Twig_Environment $env)
     {
         $expression = $node instanceof Twig_Node_Expression;
 
@@ -88,14 +90,14 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
 
         $node = $this->optimizePrintNode($node, $env);
 
-        if (self::OPTIMIZE_VAR_ACCESS === (self::OPTIMIZE_VAR_ACCESS & $this->optimizers) && !$env->isStrictVariables() && !$env->hasExtension('Twig_Extension_Sandbox')) {
+        if (self::OPTIMIZE_VAR_ACCESS === (self::OPTIMIZE_VAR_ACCESS & $this->optimizers) && !$env->isStrictVariables() && !$env->hasExtension('sandbox')) {
             if ($node instanceof Twig_Node_Body) {
                 $this->inABody = false;
             } elseif ($this->inABody) {
                 if (!$expression && get_class($node) !== 'Twig_Node' && $prependedNodes = array_shift($this->prependedNodes)) {
                     $nodes = array();
                     foreach (array_unique($prependedNodes) as $name) {
-                        $nodes[] = new Twig_Node_SetTemp($name, $node->getTemplateLine());
+                        $nodes[] = new Twig_Node_SetTemp($name, $node->getLine());
                     }
 
                     $nodes[] = $node;
@@ -112,7 +114,7 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
         if ('Twig_Node_Expression_Name' === get_class($node) && $node->isSimple()) {
             $this->prependedNodes[0][] = $node->getAttribute('name');
 
-            return new Twig_Node_Expression_TempName($node->getAttribute('name'), $node->getTemplateLine());
+            return new Twig_Node_Expression_TempName($node->getAttribute('name'), $node->getLine());
         }
 
         return $node;
@@ -125,7 +127,8 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
      *
      *   * "echo $this->render(Parent)Block()" with "$this->display(Parent)Block()"
      *
-     * @return Twig_NodeInterface
+     * @param Twig_NodeInterface $node A Node
+     * @param Twig_Environment   $env  The current Twig environment
      */
     protected function optimizePrintNode(Twig_NodeInterface $node, Twig_Environment $env)
     {
@@ -133,14 +136,13 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
             return $node;
         }
 
-        $exprNode = $node->getNode('expr');
         if (
-            $exprNode instanceof Twig_Node_Expression_BlockReference ||
-            $exprNode instanceof Twig_Node_Expression_Parent
+            $node->getNode('expr') instanceof Twig_Node_Expression_BlockReference ||
+            $node->getNode('expr') instanceof Twig_Node_Expression_Parent
         ) {
-            $exprNode->setAttribute('output', true);
+            $node->getNode('expr')->setAttribute('output', true);
 
-            return $exprNode;
+            return $node->getNode('expr');
         }
 
         return $node;
@@ -149,7 +151,8 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
     /**
      * Removes "raw" filters.
      *
-     * @return Twig_NodeInterface
+     * @param Twig_NodeInterface $node A Node
+     * @param Twig_Environment   $env  The current Twig environment
      */
     protected function optimizeRawFilter(Twig_NodeInterface $node, Twig_Environment $env)
     {
@@ -162,6 +165,9 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
 
     /**
      * Optimizes "for" tag by removing the "loop" variable creation whenever possible.
+     *
+     * @param Twig_NodeInterface $node A Node
+     * @param Twig_Environment   $env  The current Twig environment
      */
     protected function enterOptimizeFor(Twig_NodeInterface $node, Twig_Environment $env)
     {
@@ -226,6 +232,9 @@ class Twig_NodeVisitor_Optimizer extends Twig_BaseNodeVisitor
 
     /**
      * Optimizes "for" tag by removing the "loop" variable creation whenever possible.
+     *
+     * @param Twig_NodeInterface $node A Node
+     * @param Twig_Environment   $env  The current Twig environment
      */
     protected function leaveOptimizeFor(Twig_NodeInterface $node, Twig_Environment $env)
     {

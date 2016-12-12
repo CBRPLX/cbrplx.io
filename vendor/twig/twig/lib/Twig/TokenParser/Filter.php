@@ -20,10 +20,17 @@
  */
 class Twig_TokenParser_Filter extends Twig_TokenParser
 {
+    /**
+     * Parses a token and returns a node.
+     *
+     * @param Twig_Token $token A Twig_Token instance
+     *
+     * @return Twig_NodeInterface A Twig_NodeInterface instance
+     */
     public function parse(Twig_Token $token)
     {
         $name = $this->parser->getVarName();
-        $ref = new Twig_Node_Expression_BlockReference(new Twig_Node_Expression_Constant($name, $token->getLine()), null, $token->getLine(), $this->getTag());
+        $ref = new Twig_Node_Expression_BlockReference(new Twig_Node_Expression_Constant($name, $token->getLine()), true, $token->getLine(), $this->getTag());
 
         $filter = $this->parser->getExpressionParser()->parseFilterExpressionRaw($ref, $this->getTag());
         $this->parser->getStream()->expect(Twig_Token::BLOCK_END_TYPE);
@@ -42,6 +49,11 @@ class Twig_TokenParser_Filter extends Twig_TokenParser
         return $token->test('endfilter');
     }
 
+    /**
+     * Gets the tag name associated with this token parser.
+     *
+     * @return string The tag name
+     */
     public function getTag()
     {
         return 'filter';

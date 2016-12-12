@@ -11,11 +11,11 @@
 
 class Twig_Extension_Profiler extends Twig_Extension
 {
-    private $actives = array();
+    private $actives;
 
     public function __construct(Twig_Profiler_Profile $profile)
     {
-        $this->actives[] = $profile;
+        $this->actives = array($profile);
     }
 
     public function enter(Twig_Profiler_Profile $profile)
@@ -34,11 +34,17 @@ class Twig_Extension_Profiler extends Twig_Extension
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getNodeVisitors()
     {
-        return array(new Twig_Profiler_NodeVisitor_Profiler(get_class($this)));
+        return array(new Twig_Profiler_NodeVisitor_Profiler($this->getName()));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'profiler';

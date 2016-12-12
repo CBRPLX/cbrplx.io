@@ -18,19 +18,19 @@ class Twig_Tests_Node_ModuleTest extends Twig_Test_NodeTestCase
         $blocks = new Twig_Node();
         $macros = new Twig_Node();
         $traits = new Twig_Node();
-        $source = new Twig_Source('{{ foo }}', 'foo.twig');
-        $node = new Twig_Node_Module($body, $parent, $blocks, $macros, $traits, new Twig_Node(array()), $source);
+        $filename = 'foo.twig';
+        $node = new Twig_Node_Module($body, $parent, $blocks, $macros, $traits, new Twig_Node(array()), $filename);
 
         $this->assertEquals($body, $node->getNode('body'));
         $this->assertEquals($blocks, $node->getNode('blocks'));
         $this->assertEquals($macros, $node->getNode('macros'));
         $this->assertEquals($parent, $node->getNode('parent'));
-        $this->assertEquals($source->getName(), $node->getTemplateName());
+        $this->assertEquals($filename, $node->getAttribute('filename'));
     }
 
     public function getTests()
     {
-        $twig = new Twig_Environment($this->getMockBuilder('Twig_LoaderInterface')->getMock());
+        $twig = new Twig_Environment($this->getMock('Twig_LoaderInterface'));
 
         $tests = array();
 
@@ -39,14 +39,14 @@ class Twig_Tests_Node_ModuleTest extends Twig_Test_NodeTestCase
         $blocks = new Twig_Node();
         $macros = new Twig_Node();
         $traits = new Twig_Node();
-        $source = new Twig_Source('{{ foo }}', 'foo.twig');
+        $filename = 'foo.twig';
 
-        $node = new Twig_Node_Module($body, $extends, $blocks, $macros, $traits, new Twig_Node(array()), $source);
+        $node = new Twig_Node_Module($body, $extends, $blocks, $macros, $traits, new Twig_Node(array()), $filename);
         $tests[] = array($node, <<<EOF
 <?php
 
 /* foo.twig */
-class __TwigTemplate_%x extends Twig_Template
+class __TwigTemplate_e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 extends Twig_Template
 {
     public function __construct(Twig_Environment \$env)
     {
@@ -73,34 +73,21 @@ class __TwigTemplate_%x extends Twig_Template
     {
         return array (  19 => 1,);
     }
-
-    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
-    public function getSource()
-    {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
-
-        return \$this->getSourceContext()->getCode();
-    }
-
-    public function getSourceContext()
-    {
-        return new Twig_Source("", "foo.twig", "");
-    }
 }
 EOF
-        , $twig, true);
+        , $twig);
 
         $import = new Twig_Node_Import(new Twig_Node_Expression_Constant('foo.twig', 1), new Twig_Node_Expression_AssignName('macro', 1), 2);
 
         $body = new Twig_Node(array($import));
         $extends = new Twig_Node_Expression_Constant('layout.twig', 1);
 
-        $node = new Twig_Node_Module($body, $extends, $blocks, $macros, $traits, new Twig_Node(array()), $source);
+        $node = new Twig_Node_Module($body, $extends, $blocks, $macros, $traits, new Twig_Node(array()), $filename);
         $tests[] = array($node, <<<EOF
 <?php
 
 /* foo.twig */
-class __TwigTemplate_%x extends Twig_Template
+class __TwigTemplate_e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 extends Twig_Template
 {
     public function __construct(Twig_Environment \$env)
     {
@@ -139,24 +126,11 @@ class __TwigTemplate_%x extends Twig_Template
     {
         return array (  26 => 1,  24 => 2,  11 => 1,);
     }
-
-    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
-    public function getSource()
-    {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
-
-        return \$this->getSourceContext()->getCode();
-    }
-
-    public function getSourceContext()
-    {
-        return new Twig_Source("", "foo.twig", "");
-    }
 }
 EOF
-        , $twig, true);
+        , $twig);
 
-        $set = new Twig_Node_Set(false, new Twig_Node(array(new Twig_Node_Expression_AssignName('foo', 4))), new Twig_Node(array(new Twig_Node_Expression_Constant('foo', 4))), 4);
+        $set = new Twig_Node_Set(false, new Twig_Node(array(new Twig_Node_Expression_AssignName('foo', 4))), new Twig_Node(array(new Twig_Node_Expression_Constant("foo", 4))), 4);
         $body = new Twig_Node(array($set));
         $extends = new Twig_Node_Expression_Conditional(
                         new Twig_Node_Expression_Constant(true, 2),
@@ -165,13 +139,12 @@ EOF
                         2
                     );
 
-        $twig = new Twig_Environment($this->getMockBuilder('Twig_LoaderInterface')->getMock(), array('debug' => true));
-        $node = new Twig_Node_Module($body, $extends, $blocks, $macros, $traits, new Twig_Node(array()), $source);
+        $node = new Twig_Node_Module($body, $extends, $blocks, $macros, $traits, new Twig_Node(array()), $filename);
         $tests[] = array($node, <<<EOF
 <?php
 
 /* foo.twig */
-class __TwigTemplate_%x extends Twig_Template
+class __TwigTemplate_e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 extends Twig_Template
 {
     protected function doGetParent(array \$context)
     {
@@ -201,22 +174,9 @@ class __TwigTemplate_%x extends Twig_Template
     {
         return array (  17 => 2,  15 => 4,  9 => 2,);
     }
-
-    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
-    public function getSource()
-    {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
-
-        return \$this->getSourceContext()->getCode();
-    }
-
-    public function getSourceContext()
-    {
-        return new Twig_Source("{{ foo }}", "foo.twig", "");
-    }
 }
 EOF
-        , $twig, true);
+        , $twig);
 
         return $tests;
     }

@@ -11,9 +11,6 @@
 
 class Twig_Tests_Loader_ArrayTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * @group legacy
-     */
     public function testGetSource()
     {
         $loader = new Twig_Loader_Array(array('foo' => 'bar'));
@@ -22,7 +19,6 @@ class Twig_Tests_Loader_ArrayTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group legacy
      * @expectedException Twig_Error_Loader
      */
     public function testGetSourceWhenTemplateDoesNotExist()
@@ -30,16 +26,6 @@ class Twig_Tests_Loader_ArrayTest extends PHPUnit_Framework_TestCase
         $loader = new Twig_Loader_Array(array());
 
         $loader->getSource('foo');
-    }
-
-    /**
-     * @expectedException Twig_Error_Loader
-     */
-    public function testGetSourceContextWhenTemplateDoesNotExist()
-    {
-        $loader = new Twig_Loader_Array(array());
-
-        $loader->getSourceContext('foo');
     }
 
     public function testGetCacheKey()
@@ -64,7 +50,7 @@ class Twig_Tests_Loader_ArrayTest extends PHPUnit_Framework_TestCase
         $loader = new Twig_Loader_Array(array());
         $loader->setTemplate('foo', 'bar');
 
-        $this->assertEquals('bar', $loader->getSourceContext('foo')->getCode());
+        $this->assertEquals('bar', $loader->getSource('foo'));
     }
 
     public function testIsFresh()
@@ -89,7 +75,7 @@ class Twig_Tests_Loader_ArrayTest extends PHPUnit_Framework_TestCase
         $loader = new Twig_Loader_Array(array('foo' => 'bar'));
 
         $loader->getCacheKey($name);
-        $loader->getSourceContext($name);
+        $loader->getSource($name);
         $loader->isFresh($name, time());
         $loader->setTemplate($name, 'foobar');
     }

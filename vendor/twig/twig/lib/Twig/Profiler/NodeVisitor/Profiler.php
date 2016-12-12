@@ -12,7 +12,7 @@
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Twig_Profiler_NodeVisitor_Profiler extends Twig_BaseNodeVisitor
+class Twig_Profiler_NodeVisitor_Profiler implements Twig_NodeVisitorInterface
 {
     private $extensionName;
 
@@ -24,7 +24,7 @@ class Twig_Profiler_NodeVisitor_Profiler extends Twig_BaseNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doEnterNode(Twig_Node $node, Twig_Environment $env)
+    public function enterNode(Twig_NodeInterface $node, Twig_Environment $env)
     {
         return $node;
     }
@@ -32,11 +32,11 @@ class Twig_Profiler_NodeVisitor_Profiler extends Twig_BaseNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doLeaveNode(Twig_Node $node, Twig_Environment $env)
+    public function leaveNode(Twig_NodeInterface $node, Twig_Environment $env)
     {
         if ($node instanceof Twig_Node_Module) {
             $varName = $this->getVarName();
-            $node->setNode('display_start', new Twig_Node(array(new Twig_Profiler_Node_EnterProfile($this->extensionName, Twig_Profiler_Profile::TEMPLATE, $node->getTemplateName(), $varName), $node->getNode('display_start'))));
+            $node->setNode('display_start', new Twig_Node(array(new Twig_Profiler_Node_EnterProfile($this->extensionName, Twig_Profiler_Profile::TEMPLATE, $node->getAttribute('filename'), $varName), $node->getNode('display_start'))));
             $node->setNode('display_end', new Twig_Node(array(new Twig_Profiler_Node_LeaveProfile($varName), $node->getNode('display_end'))));
         } elseif ($node instanceof Twig_Node_Block) {
             $varName = $this->getVarName();
