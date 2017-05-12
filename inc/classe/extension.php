@@ -28,12 +28,13 @@ class extension{
     public static function incrementDownload($table, $version) {
         global $pdo;
 
-        $sql = 'UPDATE ? 
-                SET downloads = downloads + 1
+        $sql = 'UPDATE extension.' . $table . '
+                SET downloads = downloads + 1, lastDownload = ?
                 WHERE version = ?';
         $stmt = $pdo->prepare($sql);
+
         $stmt->execute(array(
-            $table,
+            time(),
             $version,
         ));
 

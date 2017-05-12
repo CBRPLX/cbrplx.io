@@ -196,9 +196,7 @@ class generalController {
         $increment = \classe\extension::incrementDownload($nomExtension, $version);
 
         if ($increment) {
-            header('Location:/dist/extensions/' . $nomExtension . '-' . $version);
-        } else {
-            header('Location:/404/');
+            header('Location:/dist/extensions/' . $nomExtension . '-' . $version . '.crx');
         }
     }
 }
