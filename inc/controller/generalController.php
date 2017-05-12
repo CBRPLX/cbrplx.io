@@ -181,18 +181,24 @@ class generalController {
                     'dev' => $dev
                 ));
 
-                // return $contenu;
-
             }
-        // }
 
         if($id_article != 9999999){
-            // return json_encode(array("contenu" => $contenu, "url"=>$article->getUrl()));
             return $contenu;
         }else{
             $controller = new \controller\generalController();
 
             return $controller->genererSquelette($contenu, true, "index");
+        }
+    }
+
+    public function genererExtension($nomExtension, $version) {
+        $increment = \classe\extension::incrementDownload($nomExtension, $version);
+
+        if ($increment) {
+            header('Location:/dist/extensions/' . $nomExtension . '-' . $version);
+        } else {
+            header('Location:/404/');
         }
     }
 }

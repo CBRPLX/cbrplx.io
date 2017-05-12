@@ -22,6 +22,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/403/', '403');
 
     $r->addRoute('GET', '/404/', '404');
+
+    $r->addRoute('GET', '/extension/{nomExtension:\w+}/{version:[0-9]+\.[0-9]+}', 'extension');
 });
 
 // On récupère la methode HTTP et l'url
@@ -123,6 +125,12 @@ switch ($routeInfo[0]) {
             case '404':
                 $pageController = new \controller\generalController();
 				echo $pageController->generer404();
+                break;
+
+            // Extension
+            case 'extension':
+                $pageController = new \controller\generalController();
+                echo $pageController->genererExtension($vars["nomExtension"], $vars["version"]);
                 break;
         }
 

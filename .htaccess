@@ -1,6 +1,12 @@
 Options +FollowSymlinks
 RewriteEngine on
 
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://cbrplx.io/$1 [QSA,L,R=301]
+
+RewriteCond %{HTTP_HOST} !^cbrplx\.io$       
+RewriteRule ^(.*)$       https://cbrplx.io/$1 [QSA,L,R=301]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule . index.php [L]
