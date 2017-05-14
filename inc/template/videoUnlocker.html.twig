@@ -1,19 +1,38 @@
 {% extends 'squeletteExtension.html.twig' %}
 
 {% block body %}
-<div class="extensionContainer proxima" style="background-image: url('/dist/images/{{extensionName}}/background.jpg')">
-	<img src="/dist/images/{{extensionName}}/icon160.png" />
-	<h1 class="proxima-bold uppercase">
-		{{extensionInfo.get('name')}}
-	</h1>
-	<h2 class="uppercase proxima">
-		{{extensionInfo.get('description')}}
-	</h2>
+	<div class="extensionContainer extension-{{extensionName}} proxima" style="background-image: url('/dist/images/{{extensionName}}/background.jpg')">
+		<img src="/dist/images/{{extensionName}}/icon160.png" />
+		<h1 class="proxima-bold uppercase">
+			{{extensionInfo.get('name')}}
+		</h1>
+		<h2 class="uppercase proxima">
+			{{extensionInfo.get('description')}}
+		</h2>
 
-	<div class="bloc-text h5-like pls prs proxima txtcenter">
-		<a class="not-a-like btn-style pas w100 inbl proxima-bold transition" href="#">
-			<i class="fa fa-chrome txtmiddle"></i><span class="txtmiddle pls">Télécharger l'extension</span>
-		</a>
+		<div class="h5-like proxima ptl mtm pbl">
+			<a class="not-a-like btn-style btn-white pas prm plm inbl proxima-bold transition jsInstallExtension" href="#">
+				<i class="fa fa-chrome txtmiddle"></i><span class="txtmiddle pls">Télécharger l'extension</span>
+			</a>
+		</div>
 	</div>
-</div>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript">
+		document.getElementsByClassName('jsInstallExtension')[0].addEventListener('click', function (e) {
+			e.preventDefault();
+
+			chrome.webstore.install(
+				'https://chrome.google.com/webstore/detail/{{extensionInfo.get('googleWebStoreId')}}',
+				function () {
+					console.log('success');
+					fileasynch(
+						'/inc/ajax/extension/incrementDownloadsExtension.php', 
+						'extensionName={{extensionName}}'
+					);
+				}
+			);
+		});
+	</script>
 {% endblock %}

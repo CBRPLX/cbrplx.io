@@ -60,6 +60,9 @@ ________________________________________________________________________________
 <meta name="twitter:creator" content="@CBRPLX">
 <meta name="twitter:image:src" content="/dist/images/{{extensionName}}/banner.jpg">
 
+<!-- Google Web Store -->
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/{{extensionInfo.get('googleWebStoreId')}}">
+
 {% block head %}
 {% endblock %}
 </head>
@@ -67,6 +70,16 @@ ________________________________________________________________________________
 <body id="body" class="bodyExtension">
 	{% block body %}
 	{% endblock %}
+
+	
+    <a id="creditsLink" class="proxima-bold transition" href="https://cbrplx.io">
+        <span>
+            <img src="https://cbrplx.io/dist/images/favicon-16x16.png" />
+        </span>
+        <span>
+            cbrplx.io
+        </span>
+    </a>
 
 	<!-- GOOGLE ANALYTICS -->
 	<script>
@@ -81,6 +94,9 @@ ________________________________________________________________________________
 	}
 	</script>
 
-	<script type="text/javascript" src="/dist/js/main.min.js?v={{TIME}}"></script>
+	<script type="text/javascript" src="/src/js/ajax.js"></script>
+
+	{% block javascript %}
+	{% endblock %}
 </body>
 </html>

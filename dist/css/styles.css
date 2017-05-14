@@ -5400,6 +5400,14 @@ img {
   color: #ffffff;
   background-color: #3B96AC;
 }
+.btn-style.btn-white {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.btn-style.btn-white:hover {
+  background-color: #ffffff;
+  color: #17d89d;
+}
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .bloc-tablette {
@@ -6802,10 +6810,12 @@ textarea#tags, textarea#description {
   font-size: 2.5em;
   text-align: center;
   color: #ffffff;
+  background-color: #1b1b1b;
 }
 .bodyExtension .extensionContainer {
   width: 100%;
   height: 100%;
+  min-height: 100%;
   padding: 10% 5% 0 5%;
 }
 .bodyExtension .extensionContainer > img {
@@ -6822,4 +6832,29 @@ textarea#tags, textarea#description {
   max-width: 600px;
   margin: auto;
   font-size: 1em;
+}
+.bodyExtension .extensionContainer.extension-videoUnlocker *::-moz-selection {
+  background: rgba(23, 216, 157, 0.6);
+}
+.bodyExtension .extensionContainer.extension-videoUnlocker *::selection {
+  background: rgba(23, 216, 157, 0.6);
+}
+.bodyExtension .extensionContainer.extension-videoUnlocker *::-moz-selection {
+  background: rgba(23, 216, 157, 0.6);
+}
+.bodyExtension #creditsLink {
+  text-decoration: none;
+  color: #fff;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 6px 12px;
+  font-size: 16px;
+}
+.bodyExtension #creditsLink > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+.bodyExtension #creditsLink span {
+  padding-left: 6px;
 }

@@ -35,7 +35,7 @@ class extensionController {
         }
 
         $extensionInfo = new \classe\extension();
-        $extensionInfo->getInfoLastestVersion($nomExtension);
+        $extensionInfo->getInfoLatestVersion($nomExtension);
 
         $imageInfos = getimagesize('https://cbrplx.io/dist/images/' . $nomExtension . '/banner.jpg');
         $htmlImageInfos = array(

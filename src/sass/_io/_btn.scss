@@ -35,4 +35,14 @@
 		color: $white;
 		background-color: $bleu-link-border;
 	}
+
+	&.btn-white {
+		border-color: $white;
+		color: $white;
+
+		&:hover {
+			background-color: $white;
+			color: $vertAlt;
+		}
+	}
 }

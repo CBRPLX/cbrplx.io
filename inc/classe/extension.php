@@ -30,7 +30,7 @@ class extension{
     public function load($idExtention){
     }
 
-    public function getInfoLastestVersion($nomExtension) {
+    public function getInfoLatestVersion($nomExtension) {
         global $pdo;
 
         $sql = 'SELECT e.*
@@ -51,17 +51,41 @@ class extension{
         }
     }
 
-    public static function incrementDownload($table, $version) {
+    public static function getInfoLatestVersionJSON($nomExtension) {
         global $pdo;
+
+        $sql = 'SELECT e.*
+                FROM extension.' . $nomExtension . ' e
+                WHERE 1
+                ORDER BY e.version DESC
+                LIMIT 0, 1;';
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0){
+            $res = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+            return json_encode($res);
+        } else {
+            return json_encode(array());
+        }
+    }
+
+    public static function incrementDownloadLatestVersion($table) {
+        global $pdo;
+
+        $extension = new \classe\extension();
+        $extension->getInfoLatestVersion($table);
 
         $sql = 'UPDATE extension.' . $table . '
                 SET downloads = downloads + 1, dateLastDownload = ?
-                WHERE version = ?';
+                WHERE id_extension = ?;';
         $stmt = $pdo->prepare($sql);
 
         $stmt->execute(array(
             time(),
-            $version,
+            $extension->get('id_extension'),
         ));
 
         return ($stmt->rowCount() > 0);
