@@ -191,12 +191,4 @@ class generalController {
             return $controller->genererSquelette($contenu, true, "index");
         }
     }
-
-    public function genererExtension($nomExtension, $version) {
-        $increment = \classe\extension::incrementDownload($nomExtension, $version);
-
-        if ($increment) {
-            header('Location:/dist/extensions/' . $nomExtension . '-' . $version . '.crx');
-        }
-    }
 }

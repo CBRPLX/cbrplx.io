@@ -23,6 +23,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 
     $r->addRoute('GET', '/404/', '404');
 
+    $r->addRoute('GET', '/extension/{nomExtension:\w+}', 'extensionDownloadPage');
+
     $r->addRoute('GET', '/extension/{nomExtension:\w+}/{version:[0-9]+\.[0-9]+}', 'extension');
 });
 
@@ -127,9 +129,15 @@ switch ($routeInfo[0]) {
 				echo $pageController->generer404();
                 break;
 
+            // Extension download page
+            case 'extensionDownloadPage':
+                $pageController = new \controller\extensionController();
+                echo $pageController->genererExtensionDownloadPage($vars["nomExtension"]);
+                break;
+
             // Extension
             case 'extension':
-                $pageController = new \controller\generalController();
+                $pageController = new \controller\extensionController();
                 echo $pageController->genererExtension($vars["nomExtension"], $vars["version"]);
                 break;
         }
