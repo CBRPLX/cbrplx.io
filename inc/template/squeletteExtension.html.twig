@@ -27,43 +27,47 @@ ________________________________________________________________________________
 <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+<link type="image/png" href="/dist/images/{{extensionName}}/icon16.png" rel="icon" sizes="16x16" /> 
+<link type="image/png" href="/dist/images/{{extensionName}}/icon48.png" rel="icon" sizes="48x48" /> 
+<title>{{extensionInfo.get('name')}} - {{extensionInfo.get('description')}} - cbrplx.io</title>
+<meta name="description" content="{{extensionInfo.get('description')}}">
+
+<!--- Viewport tweaks -->
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<!-- Facebook -->
+<meta property="og:title" content="{{extensionInfo.get('name')}} - {{extensionInfo.get('description')}} - cbrplx.io">
+<meta property="og:type" content="website">
+<meta property="og:description" content="{{extensionInfo.get('description')}}">
+<meta property="og:image" content="/dist/images/{{extensionName}}/banner.jpg">
+<meta property="og:image:type" content="{{htmlImageInfos.mime}}">
+<meta property="og:image:width" content="{{htmlImageInfos.width}}">
+<meta property="og:image:height" content="{{htmlImageInfos.height}}">
+<meta property="og:url" content="https://cbrplx.io/extension/{{extensionName}}">
+<meta property="og:site_name" content="cbrplx.io">
+<meta property="fb:admins" content="1614882856">
+
+<!-- Google+ -->
+<meta itemprop="name" content="{{extensionInfo.get('name')}} - {{extensionInfo.get('description')}} - cbrplx.io">
+<meta itemprop="description" content="{{extensionInfo.get('description')}}">
+<meta itemprop="image" content="/dist/images/{{extensionName}}/banner.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@CBRPLX">
+<meta name="twitter:title" content="{{extensionInfo.get('name')}} - {{extensionInfo.get('description')}} - cbrplx.io">
+<meta name="twitter:description" content="{{extensionInfo.get('description')}}">
+<meta name="twitter:creator" content="@CBRPLX">
+<meta name="twitter:image:src" content="/dist/images/{{extensionName}}/banner.jpg">
+
 {% block head %}
-	<link type="image/png" href="/dist/images/{{extensionName}}/icon16.png" rel="icon" sizes="16x16" /> 
-	<link type="image/png" href="/dist/images/{{extensionName}}/icon48.png" rel="icon" sizes="48x48" /> 
-	<title>{{extensionInfo.get('name')}} - {{extensionInfo.get('description')}} - cbrplx.io</title>
-	<meta name="description" content="{{extensionInfo.get('description')}}">
-
-	<!--- Viewport tweaks -->
-	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-
-	<!-- Facebook -->
-	<meta property="og:title" content="{{extensionInfo.get('name')}} - {{extensionInfo.get('description')}} - cbrplx.io">
-	<meta property="og:type" content="website">
-	<meta property="og:description" content="{{extensionInfo.get('description')}}">
-	<meta property="og:image" content="/dist/images/{{$nomExtension}}/banner.jpg">
-    <meta property="og:image:type" content="{{htmlImageInfosTag.mime}}">
-    <meta property="og:image:width" content="{{htmlImageInfosTag.width}}">
-    <meta property="og:image:height" content="{{htmlImageInfosTag.height}}">
-	<meta property="og:url" content="https://cbrplx.io/extension/{{extensionName}}">
-	<meta property="og:site_name" content="cbrplx.io">
-	<meta property="fb:admins" content="1614882856">
-
-	<!-- Google+ -->
-	<meta itemprop="name" content="{{extensionInfo.get('name')}} - {{extensionInfo.get('description')}} - cbrplx.io">
-	<meta itemprop="description" content="{{extensionInfo.get('description')}}">
-	<meta itemprop="image" content="/dist/images/{{$nomExtension}}/banner.jpg">
-
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@CBRPLX">
-	<meta name="twitter:title" content="{{extensionInfo.get('name')}} - {{extensionInfo.get('description')}} - cbrplx.io">
-	<meta name="twitter:description" content="{{extensionInfo.get('description')}}">
-	<meta name="twitter:creator" content="@CBRPLX">
-	<meta name="twitter:image:src" content="/dist/images/{{$nomExtension}}/banner.jpg">
 {% endblock %}
 </head>
 
-<body id="body">
+<body id="body" class="bodyExtension">
+	{% block body %}
+	{% endblock %}
+
 	<!-- GOOGLE ANALYTICS -->
 	<script>
 	if(window.location.host == "cbrplx.io" || window.location.host == "www.cbrplx.io"){

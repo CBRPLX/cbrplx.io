@@ -48,10 +48,6 @@ class extension{
             foreach ($res as $k => $v) {
                 $this->set($k, $v);
             }
-
-            return $obj;
-        } else {
-            return false;
         }
     }
 

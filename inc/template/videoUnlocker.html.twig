@@ -1,1 +1,19 @@
 {% extends 'squeletteExtension.html.twig' %}
+
+{% block body %}
+<div class="extensionContainer proxima" style="background-image: url('/dist/images/{{extensionName}}/background.jpg')">
+	<img src="/dist/images/{{extensionName}}/icon160.png" />
+	<h1 class="proxima-bold uppercase">
+		{{extensionInfo.get('name')}}
+	</h1>
+	<h2 class="uppercase proxima">
+		{{extensionInfo.get('description')}}
+	</h2>
+
+	<div class="bloc-text h5-like pls prs proxima txtcenter">
+		<a class="not-a-like btn-style pas w100 inbl proxima-bold transition" href="#">
+			<i class="fa fa-chrome txtmiddle"></i><span class="txtmiddle pls">Télécharger l'extension</span>
+		</a>
+	</div>
+</div>
+{% endblock %}
