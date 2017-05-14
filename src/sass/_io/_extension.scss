@@ -1,0 +1,30 @@
+.bodyExtension {
+	font-size: 2.5em;
+    text-align: center;
+    color: #ffffff;
+
+    .extensionContainer {
+    	width: 100%;
+    	height: 100%;
+    	padding: 10% 5% 0 5%;
+
+    	& > img {
+    		width: 100%; 
+    		max-width: 80px;
+    	}
+
+    	h1, h2 {
+    		letter-spacing: 4px;
+    	}
+
+    	h1 {
+    		font-size: 1.5em;
+    	}
+
+    	h2 {
+    		max-width: 600px;
+    		margin: auto;
+    		font-size: 1em;
+    	}
+    }
+}

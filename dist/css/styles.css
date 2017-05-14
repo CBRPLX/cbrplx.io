@@ -6797,3 +6797,29 @@ textarea#tags, textarea#description {
   min-height: 100px;
   height: 100px;
 }
+
+.bodyExtension {
+  font-size: 2.5em;
+  text-align: center;
+  color: #ffffff;
+}
+.bodyExtension .extensionContainer {
+  width: 100%;
+  height: 100%;
+  padding: 10% 5% 0 5%;
+}
+.bodyExtension .extensionContainer > img {
+  width: 100%;
+  max-width: 80px;
+}
+.bodyExtension .extensionContainer h1, .bodyExtension .extensionContainer h2 {
+  letter-spacing: 4px;
+}
+.bodyExtension .extensionContainer h1 {
+  font-size: 1.5em;
+}
+.bodyExtension .extensionContainer h2 {
+  max-width: 600px;
+  margin: auto;
+  font-size: 1em;
+}
