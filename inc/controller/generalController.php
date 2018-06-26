@@ -7,7 +7,7 @@ class generalController {
 		
     }
 
-    public function genererSquelette($contenu, $meta = false, $article = null){
+    public function genererSquelette($contenu, $meta = false, $article = null, $displayHeader = true){
     	global $twig;
     	global $dev;
 
@@ -67,7 +67,8 @@ class generalController {
                 "IMAGE" => $image,
                 "URL" => $url,
                 "DESCRIPTION" => $description,
-                "TAGS" => $tags
+                "TAGS" => $tags,
+                'displayHeader' => $displayHeader,
             ));
         }else{
            $template = $twig->loadTemplate('squelette.html.twig');
@@ -75,7 +76,8 @@ class generalController {
             return $template->render(array(
                 "CONTENU" => $contenu,
                 "DEV" => $dev,
-                "TIME" => time()
+                "TIME" => time(),
+                'displayHeader' => $displayHeader,
             ));
         }
     }

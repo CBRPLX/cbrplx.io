@@ -23,22 +23,22 @@ class userController {
 
         $user_id = $user->get('id_user');
         if(!empty($user_id)){
+            // Si on est sur la page de l'utilisateur 1
+            if ($user_id == 1) {
+                $displayHeader = false;
+            }
+
             $contenu = $template->render(array(
                 'user' => $user,
                 'articles' => $articles,
                 'socials' => $socials,
-                // 'contribs' => $contribs,
-                // 'tri_technos' => $tri_technos,
-                // 'root' => $root,
-                // 'before' => $before,
-                // 'after' => $after,
                 'refresh' => $refresh,
                 'dev' => $dev
             ));
 
             $controller = new \controller\generalController();
 
-            return $controller->genererSquelette($contenu, true, "index");
+            return $controller->genererSquelette($contenu, true, "index", false);
         }else{
             header('Location:/404/');
         }

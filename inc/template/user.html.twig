@@ -1,25 +1,7 @@
 <div class="bloc-container proxima-bold">
-	<div class="bloc-baniere user row row-mobile" style="background-image:url('/{{user.get('img_blur')}}');">
-		<div class="txtcenter txtmiddle col col-mobile">
-			<div>
-				<div class="bloc-rond inbl cadre-blanc">
-					<img src="/{{user.get('img')}}" class="bloc-rond" />
-				</div>
-				<h1 class="h2-like proxima-bold">{{user.get('prenom')}} {{user.get('nom')}}</h1>
-				{% if socials|length > 0 %}
-					<div>
-						{% for social in socials %}
-							<span class="mrs mls">
-								<a href="{{social.link}}" target="_blank" title="{{social.nom_social}}">
-									<i class="fa {{social.icone_social}} fa-lg"></i>
-								</a>
-							</span>
-						{% endfor %}
-					</div>
-				{% endif %}
-			</div>
-		</div>
-	</div>
+
+	{% include 'headerUser.html.twig' %} 
+
 	<div id="user-profile">
 		<h3 class="bloc-titre txtcenter pas man proxima-bold h1-like">
 			Articles
@@ -66,6 +48,11 @@
 			    var demi_ecran = y/2;
 			    quatre.style.minHeight = demi_ecran+"px";
 			</script>
+		{% endif %}
+
+		{# Si on est sur la page de l'utilisateur 1 #}
+		{% if user.get('id_user') == 1 %}
+			{% include 'experiencesAndFormations.html.twig' %}
 		{% endif %}
 	</div>
 </div>

@@ -9,7 +9,7 @@ if($_SERVER["SERVER_NAME"] == "cbrplx.io" || $_SERVER["SERVER_NAME"] == "www.cbr
 	$dev = false;
 }
 
-if($dev){
+if($dev or true){
 	ini_set('display_error', '1');
 	error_reporting(-1);
 }
@@ -22,6 +22,18 @@ require_once "inc/php/pdo.php";
 
 $loader = new \Twig_Loader_Filesystem('inc/template', 'Template');
 $twig = new \Twig_Environment($loader, array('debug' => true));
+
+// On charger l'utilisateur 1
+$userHeader = new \classe\user();
+$userHeader->load(1);
+
+// On charge les réseaux sociaux de l'utilisateur 1
+$socialHeader = new \classe\social();
+$socialsHeader = $socialHeader->loadFromUser($userHeader->get('id_user'));
+
+// On ajoute l'utilisateur Header et les sociaux Header à Twig
+$twig->addGlobal('userHeader', $userHeader);
+$twig->addGlobal('socialsHeader', $socialsHeader);
 
 if (isset($_GET['PHPSESSID'])){
 	$requesturi = preg_replace('/?PHPSESSID=[^&]+/',"",$_SERVER['REQUEST_URI']);

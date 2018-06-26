@@ -37,9 +37,9 @@ if(("standalone" in window.navigator) && window.navigator.standalone){
     }, false);
 }
 
-document.getElementById("icone-fleche-bas").addEventListener("click", function(){
-  smoothScroll('bloc-contenu');
-});
+// document.getElementById("icone-fleche-bas").addEventListener("click", function(){
+//   smoothScroll('bloc-contenu');
+// });
 
 document.getElementById('close-search-overlay').addEventListener("click", function(){
     document.getElementById("search-overlay").style.display = "none";

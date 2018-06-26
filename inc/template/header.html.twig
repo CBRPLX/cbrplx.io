@@ -1,31 +1,11 @@
-<div class="bloc-header">
-	<div class="bloc-header-contenu">
-		<div class="row">
-			<div class="col w50 txtmiddle txtright prl">
-				<a href="/">
-					<span class="bloc-rond photo-profil inbl">
-					</span>
-				</a>
-			</div>
-			<div class="col w50 txtmiddle h4-like txtleft">
-				Hi, je suis <a href="https://cbrplx.io/"><h1 class="man inline proxima-bold h4-like">@cbrplx</h1></a>, aka <h1 class="man inline thin proxima h4-like">Robin Pierrot</h1>.<br/>
-				<div class="inline-tablette inline-mobile">
-					J'ai 21 ans et je suis <h1 class="man inline thin proxima h4-like">chef de projet</h1>. Je travaille
-				</div>
-				<div class="inline-tablette inline-mobile">actuellement pour une <h1 class="man inline thin proxima h4-like">startup Parisienne</h1> :
-					<a href="http://neo-nomade.com/" target="_blank"><h1 class="man inline proxima-bold h4-like">Neo-nomade</h1></a>.
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col txtcenter pas bloc-mobile">
-				<a href="/about/" class="btn-header pas h4-like transition proxima-bold">
-					<span class="txtmiddle">En savoir +</span> {# <i class="fa fa-rocket pls txtmiddle"></i> #}
-				</a>
-			</div>
-		</div>
-		<div class="row txtcenter">
-			<span class="icone-fleche-bas" id="icone-fleche-bas"></span>
-		</div>
-	</div>
-</div>
+{% if displayHeader %}
+    <div class="bloc-container proxima-bold">
+        {% include 'headerUser.html.twig'
+            with {
+                'user': userHeader,
+                'socials': socialsHeader,
+                'linkToProfile': true,
+            } 
+        %}
+    </div>
+{% endif %} 
