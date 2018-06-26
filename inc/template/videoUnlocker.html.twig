@@ -11,7 +11,7 @@
 		</h2>
 
 		<div class="h5-like proxima ptl mtm pbl">
-			<a class="not-a-like btn-style btn-white pas prm plm inbl proxima-bold transition jsInstallExtension" href="#">
+			<a class="not-a-like btn-style btn-white pas prm plm inbl proxima-bold transition jsInstallExtension" target="_blank" href="{{extensionInfo.get('googleWebStoreLink')}}">
 				<i class="fa fa-chrome txtmiddle"></i><span class="txtmiddle pls">Télécharger l'extension</span>
 			</a>
 		</div>
@@ -22,17 +22,12 @@
 	<script type="text/javascript">
 		document.getElementsByClassName('jsInstallExtension')[0].addEventListener('click', function (e) {
 			e.preventDefault();
-
-			chrome.webstore.install(
-				'https://chrome.google.com/webstore/detail/{{extensionInfo.get('googleWebStoreId')}}',
-				function () {
-					console.log('success');
-					fileasynch(
-						'/inc/ajax/extension/incrementDownloadsExtension.php', 
-						'extensionName={{extensionName}}'
-					);
-				}
+			fileasynch(
+				'/inc/ajax/extension/incrementDownloadsExtension.php', 
+				'extensionName={{extensionName}}'
 			);
+
+			window.location.href = "{{extensionInfo.get('googleWebStoreLink')}}"; 
 		});
 	</script>
 {% endblock %}
