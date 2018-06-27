@@ -950,6 +950,7 @@ function chargerArticleIndex(){
             testGoBack();
             shareEvent();
             switchDate();
+            twttr.widgets.load();
         }
     }
 }

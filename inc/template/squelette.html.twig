@@ -166,9 +166,11 @@ ________________________________________________________________________________
 	{% endif %}
 
 	{% if DEV %}
-	<script type="text/javascript" src="/dist/js/main.js?v={{TIME}}"></script>
+		<script type="text/javascript" src="/dist/js/main.js?v={{TIME}}"></script>
 	{% else %}
-	<script type="text/javascript" src="/dist/js/main.min.js?v={{TIME}}"></script>
+		<script type="text/javascript" src="/dist/js/main.min.js?v={{TIME}}"></script>
 	{% endif %}
+
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
