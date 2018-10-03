@@ -51,7 +51,11 @@
 
         & > * {
             display: table-cell;
-            vertical-align: middle;
+			vertical-align: middle;
+			
+			& img {
+				max-width: 16px;
+			}
         }
         
         span {

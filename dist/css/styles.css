@@ -6680,7 +6680,7 @@ input, select, textarea {
 select,
 select[size="0"],
 select[size="1"] {
-  background-image: url('../images/icone-2x/arrow-down-gris.png?1538559675');
+  background-image: url('../images/icone-2x/arrow-down-gris.png?1538560542');
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: 15px 15px;
@@ -6767,6 +6767,9 @@ textarea#tags, textarea#description {
 .bodyExtension #creditsLink > * {
   display: table-cell;
   vertical-align: middle;
+}
+.bodyExtension #creditsLink > * img {
+  max-width: 16px;
 }
 .bodyExtension #creditsLink span {
   padding-left: 6px;
