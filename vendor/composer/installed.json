@@ -1,23 +1,26 @@
 [
     {
         "name": "nikic/fast-route",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
+        "version": "v1.3.0",
+        "version_normalized": "1.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/nikic/FastRoute.git",
-            "reference": "8ea928195fa9b907f0d6e48312d323c1a13cc2af"
+            "reference": "181d480e08d9476e61381e04a71b34dc0432e812"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/nikic/FastRoute/zipball/8ea928195fa9b907f0d6e48312d323c1a13cc2af",
-            "reference": "8ea928195fa9b907f0d6e48312d323c1a13cc2af",
+            "url": "https://api.github.com/repos/nikic/FastRoute/zipball/181d480e08d9476e61381e04a71b34dc0432e812",
+            "reference": "181d480e08d9476e61381e04a71b34dc0432e812",
             "shasum": ""
         },
         "require": {
             "php": ">=5.4.0"
         },
-        "time": "2016-06-12 19:08:51",
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.35|~5.7"
+        },
+        "time": "2018-02-13T20:26:39+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -62,7 +65,7 @@
         "require": {
             "php": ">=5.2.7"
         },
-        "time": "2015-04-19 08:30:27",
+        "time": "2015-04-19T08:30:27+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

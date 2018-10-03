@@ -19,7 +19,6 @@ var gulp = require('gulp'),
 // Styles
 gulp.task('styles', function() {
   return gulp.src('src/sass/*.scss')
-    .pipe(plumber())
     .pipe(compass({
           config_file: './config.rb',
           css  : 'dist/css',
