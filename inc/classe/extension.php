@@ -36,7 +36,7 @@ class extension{
         $sql = 'SELECT e.*
                 FROM extension.' . $nomExtension . ' e
                 WHERE 1
-                ORDER BY e.version DESC
+                ORDER BY e.date_creation DESC
                 LIMIT 0, 1;';
         $stmt = $pdo->prepare($sql);
 
@@ -57,7 +57,7 @@ class extension{
         $sql = 'SELECT e.*
                 FROM extension.' . $nomExtension . ' e
                 WHERE 1
-                ORDER BY e.version DESC
+                ORDER BY e.date_creation DESC
                 LIMIT 0, 1;';
         $stmt = $pdo->prepare($sql);
 
