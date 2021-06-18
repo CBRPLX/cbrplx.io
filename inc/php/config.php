@@ -20,8 +20,8 @@ if(isset($_GET["refresh"])) $refresh = true;
 require_once "vendor/autoload.php";
 require_once "inc/php/pdo.php";
 
-$loader = new \Twig_Loader_Filesystem('inc/template', 'Template');
-$twig = new \Twig_Environment($loader, array('debug' => true));
+$loader = new \Twig\Loader\FilesystemLoader('inc/template');
+$twig = new \Twig\Environment($loader, array('debug' => true));
 
 // On charger l'utilisateur 1
 $userHeader = new \classe\user();
